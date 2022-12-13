@@ -22,7 +22,12 @@
                         </div>
                         <div class="mb-3">
                             <label class="form-label">District</label>
-                            <input type="text" class="form-control" name="district">
+                            <select class="form-select" name="district">
+                                <option selected>Select District</option>
+                                @foreach ($districts as $district)
+                                    <option value="{{$district->district_name}}">{{$district->district_name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Address</label>
