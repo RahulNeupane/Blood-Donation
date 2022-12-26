@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/register', [HomeController::class,'register'])->name('register');
+Route::get('/login', [HomeController::class,'login'])->name('login');
