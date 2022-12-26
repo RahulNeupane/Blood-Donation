@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -20,13 +21,13 @@ Route::get('/', function () {
     return view('welcome');
 })->middleware('auth');
 
-// Route::get('/register', [HomeController::class,'register'])->name('register');
-// Route::post('/registerUser', [UserController::class,'registerUser'])->name('registerUser');
-// Route::get('/login', [HomeController::class,'login'])->name('login');
-// Route::post('/loginUser', [UserController::class,'loginUser'])->name('loginUser');
-
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::get('register', [CustomAuthController::class, 'register'])->name('register');
 Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
 Route::post('custom-register', [CustomAuthController::class, 'customRegister'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+
+Route::get('forgot-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password',[ForgotPasswordController::class,'submitForgetPasswordForm'])->name('forget.password.post');
+Route::get('reset-password/{token}', [ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');

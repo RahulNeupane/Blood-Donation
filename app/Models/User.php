@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
-use App\Http\Middleware\Authenticate;
-use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticable;
+use Illuminate\Auth\Events\Registered;
 
-class User extends Model
+class User extends Authenticable implements MustVerifyEmail
 {
     use HasFactory;
     protected $fillable = ['name', 'email', 'password', 'district', 'address','phone','age','group','gender','image'];

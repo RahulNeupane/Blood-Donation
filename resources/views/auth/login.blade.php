@@ -33,7 +33,15 @@
                                         <span class="text-danger">{{ $errors->first('password') }}</span>
                                     @endif
                                 </div>
-
+                            </div>
+                            <div class="form-group row mb-3">
+                                <div class="col-md-6 offset-md-4">
+                                    <div class="checkbox">
+                                        <label>
+                                            <a href="{{ route('forget.password.get') }}">Reset Password</a>
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-3">
                                 <button class="btn btn-primary">Login</button>
@@ -49,21 +57,3 @@
     </div>
 @endsection
 
-
-@section('script')
-    <script>
-        const togglePassword = document.querySelector("#togglePassword");
-        const password = document.querySelector("#password");
-
-        togglePassword.addEventListener("click", function() {
-
-            // toggle the type attribute
-            const type = password.getAttribute("type") === "password" ? "text" : "password";
-            password.setAttribute("type", type);
-
-            // toggle the eye icon
-            this.classList.toggle('bx-show');
-            this.classList.toggle('bx-hide');
-        });
-    </script>
-@endsection

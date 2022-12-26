@@ -12,10 +12,26 @@
 <body>
     @yield('content')
 
-    @yield('script')
+    
     {{-- box icons  --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/dist/boxicons.js"
     integrity="sha512-kWH92pHUC/rcjpSMu19lT+H6TlZwZCAftg9AuSw+AVYSdEKSlXXB8o6g12mg5f+Pj5xO40A7ju2ot/VdodCthw=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+
+        togglePassword.addEventListener("click", function() {
+
+            // toggle the type attribute
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+
+            // toggle the eye icon
+            this.classList.toggle('bx-show');
+            this.classList.toggle('bx-hide');
+        });
+    </script>
 </body>
 </html>
