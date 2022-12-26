@@ -8,6 +8,8 @@
     @vite(['resources/js/app.js'])
 </head>
 <body>
-    <button class='btn btn-success'>Done</button>
+    @auth
+    <a href="{{route('signout')}}" class="btn btn-danger">Logout</a>
+    @endauth
 </body>
 </html>

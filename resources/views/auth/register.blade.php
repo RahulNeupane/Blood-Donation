@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row col-lg-8 col-md-8 col-sm-10 mx-auto">
-            <form action="{{ route('registerUser') }}" enctype="multipart/form-data" method="POST">
+            <form action="{{route('register.custom')}}" enctype="multipart/form-data" method="POST">
                 @csrf
                 <div class="card">
                     <div class="card-header text-center">
