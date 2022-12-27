@@ -30,8 +30,7 @@ class CustomAuthController extends Controller
         }
     }
     public function register(){
-        $bg = Blood_Group::all();
-        return view('auth.register',compact('bg'));
+        return view('auth.register');
     }
 
     public function customRegister(Request $request){
