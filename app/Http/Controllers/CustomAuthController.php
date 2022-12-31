@@ -24,7 +24,7 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)){
-            return redirect('/');
+            return redirect('/index');
         }else{
             return redirect()->back()->with('fail', 'email or password invalid !');  
         }
