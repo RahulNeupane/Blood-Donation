@@ -19,23 +19,10 @@
     left: 15%;
     top: 180px;
 }
-
-.wave {
+.wave{
     position: absolute;
-    height: 300px;
-    width: 100%;
-    left: 0px;
-    top: 437px;
+    bottom: 0;
 }
-
-.wave>img {
-    position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;
-}
-
 span {
     color: #CF3D3C;
 }
