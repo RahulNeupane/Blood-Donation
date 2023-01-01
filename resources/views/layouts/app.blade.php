@@ -17,11 +17,9 @@
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <div class="container-fluid px-0">
                     <a class="navbar-brand" href="">
-<<<<<<< HEAD
-                        <img width="80" src="{{ url(asset('images/blooddonation.jpg')) }}" alt="LOGO" />
-=======
+                        
                         <img width="80" src="{{ url(asset('images/logo.png')) }}" alt="LOGO" />
->>>>>>> cc64e07436d6fb8657af94f15e707bb86728314f
+
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                         aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -39,11 +37,9 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                       <li><a class="dropdown-item" href="#">Team</a></li>
-<<<<<<< HEAD
+
                                       <li><a class="dropdown-item" href="route{{('events')}}">Events</a></li>
-=======
-                                      <li><a class="dropdown-item" href="#">Events</a></li>
->>>>>>> cc64e07436d6fb8657af94f15e707bb86728314f
+
                                       <li><a class="dropdown-item" href="#">Blog</a></li>
                                     </ul>
                                   </div>

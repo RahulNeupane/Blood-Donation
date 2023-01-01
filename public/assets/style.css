@@ -39,3 +39,53 @@
 span {
     color: #CF3D3C;
 }
+
+.image-container {
+    display: inline-flex;
+    width: 100%;
+    padding: 5px;
+    justify-content: center;
+}
+
+.img-responsive {
+    padding: 10px;
+    height: 246px;
+    width: 390px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: opacity 0.4s ease-in-out;
+    cursor: pointer;
+}
+
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-family:sans-serif;
+    text-align: center;
+}
+
+.img:hover .overlay {
+    opacity: 0.8;
+}
+
+.btn {
+    width: 150px;
+}
+
+
+
+
+
+
+
