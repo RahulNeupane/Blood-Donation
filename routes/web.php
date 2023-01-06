@@ -20,13 +20,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/index',[IndexsController::class,'index'])->name('index')->middleware(['auth']);
-
+Route::get('/', [IndexController::class, 'index'])->name('home');
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::get('register', [CustomAuthController::class, 'register'])->name('register');
-Route::post('custom-login', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-Route::post('custom-register', [CustomAuthController::class, 'customRegister'])->name('register.custom');
+Route::post('welcome', [CustomAuthController::class, 'customLogin'])->name('login.custom');
+Route::post('register-user', [CustomAuthController::class, 'customRegister'])->name('register.custom');
 Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
 
 
@@ -35,7 +34,9 @@ Route::post('forget-password',[ForgotPasswordController::class,'submitForgetPass
 Route::get('reset-password/{token}', [ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-Route:: get('events', [EventsController::class, 'index'])->name('events');
-
-Route::get('/', [IndexController::class, 'indexed'])->name('indexed');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
+    Route::get('/change-password', [IndexController::class, 'changepass'])->name('changepass');
+    Route::post('/changepass', [CustomAuthController::class, 'changepass'])->name('change-pass');
+});
 

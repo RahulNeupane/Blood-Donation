@@ -24,7 +24,7 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)){
-            return redirect('/index');
+            return view('dashboard');
         }else{
             return redirect()->back()->with('fail', 'email or password invalid !');  
         }
@@ -73,5 +73,22 @@ class CustomAuthController extends Controller
         Auth::logout();
 
         return Redirect('login');
+    }
+
+    public function changepass(Request $request){
+        $request->validate([
+            'current_password'=> 'required|string',
+            'password'=> 'required|string|min:6|max:12|confirmed'
+        ]);
+        $curPassStatus = Hash::check($request->current_password, auth()->user()->password);
+        if($curPassStatus){
+            User::findOrFail(Auth::user()->id)->update([
+                'password' => Hash::make($request->password),
+            ]);
+
+            return redirect()->back()->with('success', 'Password updated succesfully');
+        }else{
+            return redirect()->back()->with('fail', 'Current Password not matched');
+        }
     }
 }

@@ -1,72 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LifeLine</title>
-    <link rel="stylesheet" href="{{asset('assets/style.css')}}">
-    {{-- box icons  --}}
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @vite(['resources/js/app.js'])
-</head>
-<body>
-    {{-- navbar starts  --}}
-    <header class="header_section  bg-body py-0">
-        <div class="container px-0">
-            <nav class="navbar navbar-expand-lg custom_nav-container">
-                <div class="container-fluid px-0">
-                    <a class="navbar-brand" href="">
-<<<<<<< HEAD
-                        <img width="80" src="{{ url(asset('images/blooddonation.jpg')) }}" alt="LOGO" />
-=======
-                        <img width="80" src="{{ url(asset('images/logo.png')) }}" alt="LOGO" />
->>>>>>> cc64e07436d6fb8657af94f15e707bb86728314f
-                    </a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Why us?</a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown">
-                                    <button class="nav-link dropdown-toggle" style="background:transparent;border:none;" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                      Pages
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#">Team</a></li>
-<<<<<<< HEAD
-                                      <li><a class="dropdown-item" href="route{{('events')}}">Events</a></li>
-=======
-                                      <li><a class="dropdown-item" href="#">Events</a></li>
->>>>>>> cc64e07436d6fb8657af94f15e707bb86728314f
-                                      <li><a class="dropdown-item" href="#">Blog</a></li>
-                                    </ul>
-                                  </div>
-                            </li>
-                            
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Gallery</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('login')}}">Login</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </header>
-    {{-- navbar ends  --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="{{ asset('sidebar/dropify/css/dropify.min.css') }}">
 
-    @yield('content')
-    
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="{{ asset('sidebar/modules/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('sidebar/modules/fontawesome/css/all.min.css') }}">
+
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="{{ asset('sidebar/modules/jqvmap/dist/jqvmap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('sidebar/modules/summernote/summernote-bs4.css') }}">
+    <link rel="stylesheet" href="{{ asset('sidebar/modules/owlcarousel2/dist/assets/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('sidebar/modules/owlcarousel2/dist/assets/owl.theme.default.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('sidebar/plugins/dropify/css/dropify.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="{{ asset('sidebar/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('sidebar/css/components.css') }}">
+    <!-- Start GA -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-94034622-3');
+    </script>
+    {{-- sidebar end --}}
+</head>
+
+<body>
+    <div id="app">
+        @guest
+            {{-- @yield('content') --}}
+        @else
+            <div class="main-wrapper main-wrapper-1">
+                <div class="navbar-bg"></div>
+
+                <!-- sidebar section start  -->
+                @include('layouts.sidebar');
+                <!-- sidebar section ends  -->
+
+
+
+                <!-- Main Content -->
+                <div class="main-content">
+                    @yield('content')
+                </div>
+
+                {{-- footer starts here  --}}
+                <footer class="main-footer">
+                    <div class="footer-left">
+                        Copyright &copy; 2023 <div class="bullet"></div> Design By <a
+                            href="https://github.com/rahulneupane">Fancy Freelancers</a>
+                    </div>
+                    <div class="footer-right"></div>
+                </footer>
+            </div>
+        @endguest
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('sidebar/dropify/js/dropify.min.js') }}"></script>
+
+    {{-- sidebar --}}
+    <!-- General JS Scripts -->
+    <script src="{{ asset('sidebar/modules/jquery.min.js') }}"></script>
+    <script src="{{ asset('sidebar/modules/popper.js') }}"></script>
+    <script src="{{ asset('sidebar/modules/tooltip.js') }}"></script>
+    <script src="{{ asset('sidebar/modules/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('sidebar/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
+    <script src="{{ asset('sidebar/modules/moment.min.js') }}"></script>
+    <script src="{{ asset('sidebar/js/stisla.js') }}"></script>
+
+    <!-- JS Libraies -->
+    <script src="{{ asset('sidebar/modules/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('sidebar/modules/chart.min.js') }}"></script>
+    <script src="{{ asset('sidebar/modules/owlcarousel2/dist/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('sidebar/modules/summernote/summernote-bs4.js') }}"></script>
+    <script src="{{ asset('sidebar/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
+    <script src="{{ asset('sidebar/plugins/dropify/js/dropify.min.js') }}"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+
+    <!-- Page Specific JS File -->
+    <script src="{{ asset('sidebar/js/page/index.js') }}"></script>
+
+    <!-- Template JS File -->
+    <script src="{{ asset('sidebar/js/scripts.js') }}"></script>
+    <script src="{{ asset('sidebar/js/custom.js') }}"></script>
+
+    @yield('scripts')
 </body>
+
 </html>

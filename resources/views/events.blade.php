@@ -15,7 +15,7 @@
             </div>
         </div>
 </div>
-<a href="{{route('events')}}" class="btn btn-danger mx-auto">View more</a>
+<a href="" class="btn btn-danger mx-auto">View more</a>
 
 @endsection  
 </body>
