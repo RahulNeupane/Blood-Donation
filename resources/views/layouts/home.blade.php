@@ -16,7 +16,7 @@
         <div class="container px-0">
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <div class="container-fluid px-0">
-                    <a class="navbar-brand" href="">
+                    <a class="navbar-brand" href="{{route('home')}}">
                         <img width="80" src="{{ url(asset('images/logo.png')) }}" alt="LOGO" />
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -35,7 +35,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                       <li><a class="dropdown-item" href="#">Team</a></li>
-                                      <li><a class="dropdown-item" href="#">Events</a></li>
+                                      <li><a class="dropdown-item" href="{{route('events')}}">Events</a></li>
                                       <li><a class="dropdown-item" href="#">Blog</a></li>
                                     </ul>
                                   </div>
