@@ -55,7 +55,7 @@
                                         </a>
                                       
                                         <ul class="dropdown-menu">
-                                          <li><a class="dropdown-item" href="{{route('profile')}}">Profile</a></li>
+                                          <li><a class="dropdown-item" href="{{route('viewProfile')}}">Profile</a></li>
                                           <li><a class="dropdown-item" href="#">Another action</a></li>
                                           <li><a class="dropdown-item" href="{{route('signout')}}">Logout</a></li>
                                         </ul>

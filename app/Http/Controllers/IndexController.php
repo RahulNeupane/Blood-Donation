@@ -20,8 +20,7 @@ class IndexController extends Controller
         return view('changepass');
     }
     
-    public function profile(){
-        $user = User::findOrFail(auth()->user()->id);
-        return view('profile',compact('user'));
+    public function viewProfile(){
+        return view('view_profile',);
     }
 }
