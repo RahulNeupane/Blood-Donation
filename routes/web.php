@@ -2,11 +2,7 @@
 
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ForgotPasswordController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\EventsController;
-use App\Http\Controllers\Admin\IndexsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,9 +31,11 @@ Route::post('forget-password',[ForgotPasswordController::class,'submitForgetPass
 Route::get('reset-password/{token}', [ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
 Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth','isAdmin'])->group(function () {
     Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
     Route::get('/change-password', [IndexController::class, 'changepass'])->name('changepass');
     Route::post('/changepass', [CustomAuthController::class, 'changepass'])->name('change-pass');
 });
+
+Route::get('/profile', [IndexController::class, 'profile'])->name('profile');
 

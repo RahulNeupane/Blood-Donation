@@ -48,7 +48,21 @@
                                 <a class="nav-link" href="#">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="{{route('login')}}">Login</a>
+                                @auth
+                                    <div class="dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <span><img src="{{url('/images/'.auth()->user()->image)}}" alt="user" width="20" style="border-radius: 50%" class="me-2"></span>{{auth()->user()->name}}
+                                        </a>
+                                      
+                                        <ul class="dropdown-menu">
+                                          <li><a class="dropdown-item" href="{{route('profile')}}">Profile</a></li>
+                                          <li><a class="dropdown-item" href="#">Another action</a></li>
+                                          <li><a class="dropdown-item" href="{{route('signout')}}">Logout</a></li>
+                                        </ul>
+                                      </div>
+                                @else
+                                    <a class="nav-link" href="{{route('login')}}">Login</a>
+                                @endauth
                             </li>
                         </ul>
                     </div>

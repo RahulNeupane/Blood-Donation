@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('group');
             $table->string('gender');
             $table->string('image');
+            //0 = user , 1 = admin
+            $table->tinyInteger('role')->default(0);
             $table->timestamps();
         });
     }

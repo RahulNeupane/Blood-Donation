@@ -13,7 +13,11 @@ use Illuminate\Support\Facades\Session;
 class CustomAuthController extends Controller
 {
     public function index(){
-        return view('auth.login');
+        if(!auth()->user()?true:false){
+            return view('auth.login');
+        }else{
+            return back();
+        }
     }
      
     public function customLogin(Request $request){
@@ -24,13 +28,21 @@ class CustomAuthController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)){
-            return view('dashboard');
+            if(auth()->user()->role == 1){
+                return view('dashboard');
+            }else{
+                return view('index');
+            }
         }else{
             return redirect()->back()->with('fail', 'email or password invalid !');  
         }
     }
     public function register(){
-        return view('auth.register');
+        if(!auth()->user()?true:false){
+            return view('auth.register');
+        }else{
+            return back();
+        }
     }
 
     public function customRegister(Request $request){
@@ -71,8 +83,7 @@ class CustomAuthController extends Controller
     public function signOut(){
         Session::flush();
         Auth::logout();
-
-        return Redirect('login');
+        return redirect()->route('home');
     }
 
     public function changepass(Request $request){
