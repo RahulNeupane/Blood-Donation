@@ -37,5 +37,5 @@ Route::middleware(['auth','isAdmin'])->group(function () {
     Route::post('/changepass', [CustomAuthController::class, 'changepass'])->name('change-pass');
 });
 
-Route::get('/profile', [IndexController::class, 'profile'])->name('profile');
+Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile');
 
