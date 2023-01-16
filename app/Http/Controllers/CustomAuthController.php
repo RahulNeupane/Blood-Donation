@@ -85,7 +85,9 @@ class CustomAuthController extends Controller
         Auth::logout();
         return redirect()->route('home');
     }
-
+    public function showchangepass(){
+        return view('auth.changepass');
+    }
     public function changepass(Request $request){
         $request->validate([
             'current_password'=> 'required|string',

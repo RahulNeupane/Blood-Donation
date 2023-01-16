@@ -21,6 +21,9 @@
                             <div class="mb-3">
                                 <a href="{{route('editProfile')}}" class="text-primary">Edit Profile</a>
                             </div>
+                            <div class="mb-3">
+                                <a href="{{route('showchangepassword')}}" class="text-primary">Change Password</a>
+                            </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">

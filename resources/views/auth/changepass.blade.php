@@ -1,7 +1,6 @@
-@extends('layouts.home')
+@extends('layouts.app')
 @section('content')
-<hr>
-    <div class="container mt-5">
+    <div class="container">
         <div class="row">
             <div class="col-10 col-lg-8 col-md-8 m-auto">
                 <div class="card p-3">
@@ -28,7 +27,7 @@
                             </ul>
                         @endif
                     </div>
-                    <form action="{{ route('updatePassword') }}" method="POST">
+                    <form action="{{ route('change-pass') }}" method="POST">
                         @csrf
                         <div class="card-body">
                             <div class="mb-3">

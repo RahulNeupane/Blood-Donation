@@ -17,7 +17,7 @@
                             @csrf
                             <div class="form-group mb-3">
                                 <label>Email:</label>
-                                <input type="text" name="email" class="form-control">
+                                <input type="text" name="email" class="form-control" value="{{ old('email') }}">
                                 @if ($errors->has('email'))
                                     <span class="text-danger">{{ $errors->first('email') }}</span>
                                 @endif

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,9 +18,6 @@ class IndexController extends Controller
     }
     public function dashboard(){
         return view('dashboard');
-    }
-    public function changepass(){
-        return view('changepass');
     }
     
     public function viewProfile(){
@@ -74,4 +72,25 @@ class IndexController extends Controller
 
         return redirect()->route('viewProfile');
     }
+
+    public function showchangepassword(){
+        return view('changepass');
+    }
+    public function updatePassword(Request $request){
+        $request->validate([
+            'current_password'=> 'required|string',
+            'password'=> 'required|string|min:6|max:12|confirmed'
+        ]);
+        $curPassStatus = Hash::check($request->current_password, auth()->user()->password);
+        if($curPassStatus){
+            User::findOrFail(Auth::user()->id)->update([
+                'password' => Hash::make($request->password),
+            ]);
+
+            return redirect()->back()->with('success', 'Password updated succesfully');
+        }else{
+            return redirect()->back()->with('fail', 'Current Password not matched');
+        }
+    }
+    
 }
