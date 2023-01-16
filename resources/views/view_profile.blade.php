@@ -19,7 +19,7 @@
                                 <p>{{auth()->user()->address}}, {{auth()->user()->district}}</p>
                             </div>
                             <div class="mb-3">
-                                <a href="#" class="text-primary">Edit Profile</a>
+                                <a href="{{route('editProfile')}}" class="text-primary">Edit Profile</a>
                             </div>
                         </div>
                         <div class="col">
@@ -40,12 +40,9 @@
                                 <p>{{auth()->user()->group}}</p>
                             </div>
                         </div>
-                       
-                       
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+    </div>  
 @endsection

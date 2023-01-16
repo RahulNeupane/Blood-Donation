@@ -38,4 +38,6 @@ Route::middleware(['auth','isAdmin'])->group(function () {
 });
 
 Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile');
+Route::get('/profile/edit', [IndexController::class, 'editProfile'])->name('editProfile');
+Route::post('/profile/update', [IndexController::class, 'updateProfile'])->name('updateProfile');
 
