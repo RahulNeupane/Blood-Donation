@@ -33,11 +33,13 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 Route::middleware(['auth','isAdmin'])->group(function () {
     Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
-    Route::get('/change-password', [IndexController::class, 'changepass'])->name('changepass');
+    Route::get('/change-password', [CustomAuthController::class, 'showchangepass'])->name('changepass');
     Route::post('/changepass', [CustomAuthController::class, 'changepass'])->name('change-pass');
 });
 
 Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile');
 Route::get('/profile/edit', [IndexController::class, 'editProfile'])->name('editProfile');
 Route::post('/profile/update', [IndexController::class, 'updateProfile'])->name('updateProfile');
+Route::get('/profile/changepassword', [IndexController::class, 'showchangepassword'])->name('showchangepassword');
+Route::post('/profile/updatepassword', [IndexController::class, 'updatePassword'])->name('updatePassword');
 
