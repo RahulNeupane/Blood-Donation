@@ -18,7 +18,7 @@
     <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
             <div class="sidebar-brand mb-5">
-                <a href=""><img src="{{ url('/images/logo.png') }}" alt="LOGO"
+                <a href="{{route('dashboard')}}"><img src="{{ url('/images/logo.png') }}" alt="LOGO"
                         width="120"></a>
             </div>
             <div class="sidebar-brand sidebar-brand-sm mb-5">
@@ -34,6 +34,10 @@
                 <li class="">
                     <a href="{{route('changepass')}}" class="nav-link"><i
                             class="fas fa-fire"></i><span>Change Password</span></a>
+                </li>
+                <li class="">
+                    <a href="{{route('allUsers')}}" class="nav-link"><i
+                            class="fas fa-fire"></i><span>All Users</span></a>
                 </li>
                 <li class="">
                     <a href="{{route('home')}}" class="nav-link"><i
