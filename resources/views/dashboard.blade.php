@@ -67,7 +67,6 @@
                                             <th>Phone</th>
                                             <th>Messages</th>
                                         </thead>
-                                        </tbody>
                                     </table>
                                 </div>
                             </div>
