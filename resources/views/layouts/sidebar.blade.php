@@ -18,7 +18,7 @@
     <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
             <div class="sidebar-brand mb-5">
-                <a href=""><img src="{{ url('/images/logo.png') }}" alt="LOGO"
+                <a href="{{route('dashboard')}}"><img src="{{ url('/images/logo.png') }}" alt="LOGO"
                         width="120"></a>
             </div>
             <div class="sidebar-brand sidebar-brand-sm mb-5">
@@ -30,6 +30,9 @@
                 <li class="{{request()->routeIs('dashboard') ? 'active' : ''}}">
                     <a href="{{route('dashboard')}}" class="nav-link"><i
                             class="fas fa-fire"></i><span>Dashboard</span></a>
+                </li>
+                <li class="{{ request()->routeIs('allUsers') ? 'active' : '' }}">
+                    <a href="{{route('allUsers')}}" class="nav-link"><i class="fas fa-user"></i><span>All Users</span></a>
                 </li>
                 <li class="{{request()->routeIs('changepass') ? 'active' : ''}}">
                     <a href="{{route('changepass')}}" class="nav-link"><i

@@ -90,4 +90,12 @@ class IndexController extends Controller
         }
     }
     
+    public function allUsers(){
+        $users = User::where('role', '=', 0)->get();
+        return view('all_users',compact('users'));
+    }
+    public function viewmore(Request $request,$id){
+        $user = User::findOrFail($id);
+        return view('view_more',compact('user'));
+    }
 }
