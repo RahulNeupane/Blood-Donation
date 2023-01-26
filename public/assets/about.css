@@ -19,7 +19,7 @@
     margin: 6px 0px 0px 130px;
 }
 .rectangle_card{
-    position: fixed;
+    position: absolute;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-gap: 15px;
@@ -32,8 +32,8 @@
 .left{
     width:300px;
     position:absolute;
-    top: 600px;
-    margin-left: 40px;
+    top: 1200px;
+    margin-left: 70px;
     
 }
 .rectangle_card{

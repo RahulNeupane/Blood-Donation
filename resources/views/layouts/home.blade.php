@@ -31,7 +31,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="{{route('whyus')}}">Why us?</a>
+                                <a class="nav-link" href="#whyus">Why us?</a>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown">

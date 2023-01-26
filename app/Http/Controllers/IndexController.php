@@ -13,9 +13,7 @@ class IndexController extends Controller
     public function index(){
         return view('index');
     }
-    public function whyus(){
-        return view('whyus');
-    }
+  
     public function events(){
         return view('events');
     }

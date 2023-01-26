@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/events', [IndexController::class, 'events'])->name('events');
-Route::get('/whyus', [IndexController::class, 'whyus'])->name('whyus');
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::get('register', [CustomAuthController::class, 'register'])->name('register');
