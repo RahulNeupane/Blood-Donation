@@ -35,16 +35,13 @@
                     <a href="{{route('allUsers')}}" class="nav-link"><i class="fas fa-user"></i><span>All Users</span></a>
                 </li>
                 <li class="{{request()->routeIs('changepass') ? 'active' : ''}}">
-                    <a href="{{route('changepass')}}" class="nav-link"><i
-                            class="fas fa-fire"></i><span>Change Password</span></a>
+                    <a href="{{route('changepass')}}" class="nav-link"><i class="fas fa-key"></i><span>Change Password</span></a>
                 </li>
                 <li class="">
-                    <a href="{{route('home')}}" class="nav-link"><i
-                            class="fas fa-fire"></i><span>Goto Homepage</span></a>
+                    <a href="{{route('home')}}" class="nav-link"><i class="fas fa-home"></i><span>Goto Homepage</span></a>
                 </li>
                 <li class="dropdown {{request()->is('events/*') ||request()->is('events')  ? 'active' : ''}}">
-                    <a href="#" class="nav-link has-dropdown"><i
-                            class="fas fa-clipboard-list"></i><span>Events</span></a>
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-calendar"></i><span>Events</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{request()->routeIs('events.create') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{route('events.create')}}">Add Events</a></li>
