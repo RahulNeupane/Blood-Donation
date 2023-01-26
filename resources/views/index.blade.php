@@ -1,5 +1,7 @@
 @extends('layouts.home')
 @section('content')
+
+
     <div class="hero-section">
         <img src="{{url(asset('images/slider.jpg'))}}" class="d-block w-100 z-1"  style="height: 90vh">
         <div class="details">
@@ -9,5 +11,5 @@
         </div>
         <img src="{{url(asset('images/wave.svg'))}}" class="wave">    
     </div>
-      
+
 @endsection
