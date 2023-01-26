@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Events;
-use Illuminate\Console\Scheduling\Event;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller
@@ -66,10 +66,17 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,$id)
+    public function show($id)
     {
         $event = Events::findOrFail($id);
-        return view('events.view',compact('event'));
+        $now = date('Y-m-d H:i:s');
+        if($now <= $event->date){
+            $color = 'green';
+        }else{
+            $color = 'red';
+        }
+        
+        return view('events.view',compact('event','color'));
     }
 
     /**
@@ -80,7 +87,8 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        return view('events.edit');
+        $event = Events::findOrFail($id);
+        return view('events.edit',compact('event'));
     }
 
     /**
@@ -92,7 +100,35 @@ class EventsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $event = Events::findOrFail($id);
+        $request->validate([
+            'title' => 'required|string',
+            'body' => 'required|string',
+            'date' => 'required|date',
+        ]);
+        if($request->hasFile('image')){
+            $path = public_path('/images/events/' . $event->image);
+            if(file_exists($path)){
+                unlink($path);
+            }
+            $request->validate([
+                'image' => 'required|image|mimes:png,jpg,jpeg',
+            ]);
+            $file = $request->file('image');
+            $extension = $file->extension();
+            $image = date('YmdHis') . '.' . $extension;
+            $file->move(public_path('/images/events'), $image);
+            $event->image = $image;
+        }
+
+        $event->update([
+            'title' => $request->title,
+            'body' => $request->body,
+            'date' => $request->date,
+            'image' => $event->image,
+            'posted_by' => auth()->user()->name,
+        ]);
+        return redirect()->route('events.index');
     }
 
     /**
@@ -103,6 +139,12 @@ class EventsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Events::findOrFail($id);
+        $path = public_path('/images/events/' . $event->image);
+        if(file_exists($path)){
+            unlink($path);
+        }
+        $event->delete();
+        return back();
     }
 }

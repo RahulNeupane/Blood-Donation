@@ -13,8 +13,12 @@
                                 <div class="card-body d-flex flex-wrap">
                                     <img src="{{ url('/images/events/' . $event->image) }}" class="card-img" alt="event">
                                     <div class="card-footer">
-                                        <p class="card-text"><small>{{ $event->date }}</small></p>
-                                        <h5 class="card-title">{{ $event->title }}</h5>
+                                        <div class="mb-3">
+                                            <p class="card-text d-inline text-white p-1" style="background: {{$color}}">{{ $event->date }}</p>
+                                        </div>
+                                        <div class="mb-3">
+                                            <h5 class="card-title">{{ $event->title }}</h5>
+                                        </div>
                                         <p class="card-text">{{ $event->body }}</p>
                                     </div>
                                 </div>
