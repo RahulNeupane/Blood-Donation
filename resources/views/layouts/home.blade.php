@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LifeLine</title>
     <link rel="stylesheet" href="{{asset('assets/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/about.css') }}">
+     
     {{-- dropify css  --}}
     <link rel="stylesheet" href="{{asset('assets/plugins/dropify/css/dropify.min.css')}}">
     {{-- box icons  --}}
@@ -29,7 +31,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Why us?</a>
+                                <a class="nav-link" href="{{route('whyus')}}">Why us?</a>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown">
