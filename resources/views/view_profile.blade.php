@@ -27,19 +27,19 @@
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label>Gender: </label>
+                                <label><b>Gender:</b> </label>
                                 <p>{{auth()->user()->gender}}</p>
                             </div>
                             <div class="mb-3">
-                                <label>Age: </label>
+                                <label><b>Age:</b> </label>
                                 <p>{{auth()->user()->age}}</p>
                             </div>
                             <div class="mb-3">
-                                <label>Phone: </label>
+                                <label><b>Phone:</b> </label>
                                 <p>{{auth()->user()->phone}}</p>
                             </div>
                             <div class="mb-3">
-                                <label>Blood Group: </label>
+                                <label><b>Blood Group:</b> </label>
                                 <p>{{auth()->user()->group}}</p>
                             </div>
                         </div>
