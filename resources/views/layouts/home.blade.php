@@ -38,7 +38,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                       <li><a class="dropdown-item" href="#">Team</a></li>
-                                      <li><a class="dropdown-item" href="{{route('events')}}">Events</a></li>
+                                      <li><a class="dropdown-item" href="#">Events</a></li>
                                       <li><a class="dropdown-item" href="#">Blog</a></li>
                                     </ul>
                                   </div>

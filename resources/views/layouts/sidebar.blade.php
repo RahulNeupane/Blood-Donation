@@ -27,11 +27,11 @@
             </div>
             <ul class="sidebar-menu">
                 <li class="menu-header">Dashboard</li>
-                <li class="">
+                <li class="{{request()->routeIs('dashboard') ? 'active' : ''}}">
                     <a href="{{route('dashboard')}}" class="nav-link"><i
                             class="fas fa-fire"></i><span>Dashboard</span></a>
                 </li>
-                <li class="">
+                <li class="{{request()->routeIs('changepass') ? 'active' : ''}}">
                     <a href="{{route('changepass')}}" class="nav-link"><i
                             class="fas fa-fire"></i><span>Change Password</span></a>
                 </li>
@@ -39,16 +39,16 @@
                     <a href="{{route('home')}}" class="nav-link"><i
                             class="fas fa-fire"></i><span>Goto Homepage</span></a>
                 </li>
-                {{-- <li class="dropdown">
+                <li class="dropdown {{request()->is('events/*') ||request()->is('events')  ? 'active' : ''}}">
                     <a href="#" class="nav-link has-dropdown"><i
-                            class="fas fa-clipboard-list"></i><span>Categories</span></a>
+                            class="fas fa-clipboard-list"></i><span>Events</span></a>
                     <ul class="dropdown-menu">
-                        <li class=""><a class="nav-link"
-                                href="">Add Categories</a></li>
-                        <li class=""><a class="nav-link"
-                                href="">All Categories</a></li>
+                        <li class="{{request()->routeIs('events.create') ? 'active' : ''}}"><a class="nav-link"
+                                href="{{route('events.create')}}">Add Events</a></li>
+                        <li class="{{request()->routeIs('events.index') ? 'active' : ''}}"><a class="nav-link"
+                                href="{{route('events.index')}}">All Events</a></li>
                     </ul>
-                </li> --}}
+                </li>
                 <li class="menu-header">Log Out</li>
                 <li>
                     <a href="{{ route('signout') }}" class="nav-link">
