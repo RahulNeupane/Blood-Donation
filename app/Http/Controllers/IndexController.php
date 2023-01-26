@@ -16,9 +16,6 @@ class IndexController extends Controller
     public function whyus(){
         return view('whyus');
     }
-    public function events(){
-        return view('events');
-    }
     public function dashboard(){
         return view('dashboard');
     }
@@ -96,4 +93,12 @@ class IndexController extends Controller
         }
     }
     
+    public function allUsers(){
+        $users = User::where('role', '=', 0)->get();
+        return view('all_users',compact('users'));
+    }
+    public function viewmore(Request $request,$id){
+        $user = User::findOrFail($id);
+        return view('view_more',compact('user'));
+    }
 }
