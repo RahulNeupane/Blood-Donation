@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Events;
+use Illuminate\Console\Scheduling\Event;
 use Illuminate\Http\Request;
 
 class EventsController extends Controller
@@ -53,7 +54,7 @@ class EventsController extends Controller
             'body' => $request->body,
             'image' => $image,
             'date' => $request->date,
-            'posted by'=> auth()->user()->name,
+            'posted_by'=> auth()->user()->name,
         ]);
 
         return redirect()->route('events.index');
@@ -65,9 +66,10 @@ class EventsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request,$id)
     {
-        //
+        $event = Events::findOrFail($id);
+        return view('events.view',compact('event'));
     }
 
     /**

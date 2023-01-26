@@ -28,7 +28,7 @@
                                             <td>{{$event->body}}</td>
                                             <td><img src="{{url('/images/events/'.$event->image)}}" alt="event" width="50" ></td>
                                             <td>{{$event->date}}</td>
-                                            <td><a href="{{route('viewmore',$event->id)}}"><button class="btn btn-success">view</button></a></td>
+                                            <td><a href="{{route('events.show',$event->id)}}"><button class="btn btn-success">view</button></a></td>
                                         </tr>
                                         @endforeach
                                     </tbody>
