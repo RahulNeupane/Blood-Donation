@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LifeLine</title>
     <link rel="stylesheet" href="{{asset('assets/style.css')}}">  
-    {{-- dropify css  --}}
-    <link rel="stylesheet" href="{{asset('assets/plugins/dropify/css/dropify.min.css')}}">
+    {{-- dropify css 
+    <link rel="stylesheet" href="{{asset('assets/plugins/dropify/css/dropify.min.css')}}"> --}}
     {{-- box icons  --}}
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @vite(['resources/js/app.js'])
@@ -78,7 +78,7 @@
     @yield('content')
     
     {{-- dropify js  --}}
-    <script src="{{asset('assets/plugins/dropify/js/dropify.min.js')}}"></script>
+    {{-- <script src="{{asset('assets/plugins/dropify/js/dropify.min.js')}}"></script> --}}
 
     @yield('scripts')
 </body>
