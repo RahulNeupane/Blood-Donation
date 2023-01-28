@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LifeLine</title>
     <link rel="stylesheet" href="{{asset('assets/style.css')}}">  
-    {{-- dropify css 
-    <link rel="stylesheet" href="{{asset('assets/plugins/dropify/css/dropify.min.css')}}"> --}}
     {{-- box icons  --}}
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @vite(['resources/js/app.js'])
 
+    
 </head>
 <body>
     {{-- navbar starts  --}}
@@ -29,7 +29,7 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item active">
-                                <a class="nav-link" href="#">Why us?</a>
+                                <a class="nav-link" href="#whyus">Why us?</a>
                             </li>
                             <li class="nav-item">
                                 <div class="dropdown">
@@ -76,9 +76,6 @@
     {{-- navbar ends  --}}
 
     @yield('content')
-    
-    {{-- dropify js  --}}
-    {{-- <script src="{{asset('assets/plugins/dropify/js/dropify.min.js')}}"></script> --}}
 
     @yield('scripts')
 </body>
