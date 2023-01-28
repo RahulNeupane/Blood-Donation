@@ -67,7 +67,10 @@
                                                     <td>{{$accepted_request->users[0]->name}}</td>
                                                     <td>{{$accepted_request->users[0]->phone}}</td>
                                                     <td>{{$accepted_request->users[0]->updated_at}}</td>
-                                                    <td><a href="{{route('viewmore',$accepted_request->userid)}}"><button class="btn btn-success">view</button></a></td>
+                                                    <td>
+                                                        <a href="{{route('viewmore',$accepted_request->userid)}}"><button class="btn btn-success">view</button></a>
+                                                        <a href="{{route('updateRewardPoints',$accepted_request->userid)}}"><button class="btn btn-primary">update reward point</button></a>
+                                                    </td>
                                                 </tr>
                                             @empty
                                                 <td colspan="5" class="text-center">no current requests</td>

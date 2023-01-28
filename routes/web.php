@@ -37,6 +37,7 @@ Route::middleware(['auth','isAdmin'])->group(function () {
     Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
     Route::get('/donate-request', [RequestController::class, 'donateRequests'])->name('donateRequests');
     Route::get('/donate-request-accept/{userid}', [RequestController::class, 'donateRequestAccept'])->name('donateRequestAccept');
+    Route::get('/update-reward-points/{userid}', [RequestController::class, 'updateRewardPoints'])->name('updateRewardPoints');
     Route::get('/users', [IndexController::class, 'allUsers'])->name('allUsers');
     Route::get('/users/viewmore/{id}', [IndexController::class, 'viewmore'])->name('viewmore');
     Route::get('/change-password', [CustomAuthController::class, 'showchangepass'])->name('changepass');

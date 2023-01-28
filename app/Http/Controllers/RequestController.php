@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Requests;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Exception;
 use Twilio\Rest\Client;
@@ -40,6 +41,14 @@ class RequestController extends Controller
             dd("Error: ". $e->getMessage());
         }
 
+        return back();
+    }
+
+    public function updateRewardPoints(Request $request,$id){
+        $user = User::findOrFail($id);
+        $user->update([
+            'RewardPoints'=>$user->RewardPoints+100,
+        ]);
         return back();
     }
 }
