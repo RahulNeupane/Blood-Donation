@@ -42,6 +42,11 @@ Route::middleware(['auth','isAdmin'])->group(function () {
     Route::resource('/gallery', GalleryController::class, ['names' => 'gallery']);
 });
 
+Route::middleware(['auth'])->group(function(){
+    Route::get('/donate',[IndexController::class,'donate'])->name('donate');
+    Route::post('/donate-request',[IndexController::class,'donateRequest'])->name('donateRequest');
+});
+
 Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile');
 Route::get('/profile/edit', [IndexController::class, 'editProfile'])->name('editProfile');
 Route::post('/profile/update', [IndexController::class, 'updateProfile'])->name('updateProfile');
