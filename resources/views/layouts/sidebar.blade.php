@@ -62,7 +62,7 @@
                     <a href="#" class="nav-link has-dropdown"><i class="fas fa-image"></i><span>Blood Request</span></a>
                     <ul class="dropdown-menu">
                         <li class=""><a class="nav-link"
-                                href="">Donate Request</a></li>
+                                href="{{route('donateRequest')}}">Donate Request</a></li>
                         <li class=""><a class="nav-link"
                                 href="#">Receive Request</a></li>
                     </ul>

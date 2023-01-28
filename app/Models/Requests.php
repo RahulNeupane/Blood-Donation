@@ -9,4 +9,7 @@ class Requests extends Model
 {
     use HasFactory;
     protected $fillable = ['userid', 'type', 'approve'];
+    public function users(){
+        return $this->hasMany(User::class,'id','userid');
+    }
 }
