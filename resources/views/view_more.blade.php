@@ -24,6 +24,9 @@
                                     <div class="mb-3">
                                         <p>{{$user->address}}, {{$user->district}}</p>
                                     </div>
+                                    <div class="mb-3">
+                                        <label><b>Reward Points: </b>{{$user->RewardPoints}}</label>
+                                    </div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-3">
