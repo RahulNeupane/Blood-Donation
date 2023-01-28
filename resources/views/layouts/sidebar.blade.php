@@ -49,6 +49,15 @@
                                 href="{{route('events.index')}}">All Events</a></li>
                     </ul>
                 </li>
+                <li class="dropdown {{request()->is('gallery/*') ||request()->is('gallery')  ? 'active' : ''}}">
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-image"></i><span>Gallery</span></a>
+                    <ul class="dropdown-menu">
+                        <li class="{{request()->routeIs('gallery.create') ? 'active' : ''}}"><a class="nav-link"
+                                href="{{route('gallery.create')}}">Add Images</a></li>
+                        <li class="{{request()->routeIs('gallery.index') ? 'active' : ''}}"><a class="nav-link"
+                                href="{{route('gallery.index')}}">All Images</a></li>
+                    </ul>
+                </li>
                 <li class="menu-header">Log Out</li>
                 <li>
                     <a href="{{ route('signout') }}" class="nav-link">

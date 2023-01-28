@@ -98,7 +98,7 @@
 <div class="card-container d-flex justify-content-center mt-3">
   <div class="row col-lg-10 col-md-12">
   <div class="col-lg-4 col-sm-6 mb-3 mb-sm-0">
-    <div class="card ml-3">
+    <div class="card  about_card ml-3">
       <div class="card-body">
         <h5 class="card-title text-center ">Give Donation</h5>
         <p class="card-text text-center pt-2">With supporting text below as a natural lead-in to additional content.</p>
@@ -107,7 +107,7 @@
     </div>
   </div>
   <div class="col-lg-4 col-sm-6">
-    <div class="card">
+    <div class="card about_card">
       <div class="card-body">
         <h5 class="card-title text-center">Become a volunteer</h5>
         <p class="card-text text-center pt-2">With supporting text below as a natural lead-in to additional content.</p>
@@ -116,7 +116,7 @@
     </div>
   </div>
   <div class="col-lg-4 col-sm-6">
-    <div class="card">
+    <div class="card about_card">
       <div class="card-body">
         <h5 class="card-title text-center">Give Scholarship</h5>
         <p class="card-text text-center pt-2">With supporting text below as a natural lead-in to additional content.</p>

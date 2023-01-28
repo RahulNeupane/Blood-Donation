@@ -8,30 +8,17 @@
                         <div class="col-12 col-md-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header text-center mb-3">
-                                    <h4>Add Event</h4>
+                                    <h4>Edit Image</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">
+                                    <form action="{{ route('gallery.update',$image->id) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
+                                        @method('PUT')
                                         <div class="mb-3">
-                                            <label>Title: </label>
-                                            <input type="text" class="form-control" name="title">
+                                            <label>Caption: </label>
+                                            <input type="text" class="form-control" name="caption" value="{{$image->caption}}">
                                         </div>
-                                        @error('title')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                        <div class="mb-3">
-                                            <label>Body: </label>
-                                            <textarea name="body" rows="10" class="form-control"></textarea>
-                                        </div>
-                                        @error('body')
-                                            <p class="text-danger">{{ $message }}</p>
-                                        @enderror
-                                        <div class="mb-3">
-                                            <label>Date: </label>
-                                            <input type="datetime-local" name="date" class="form-control">
-                                        </div>
-                                        @error('date')
+                                        @error('caption')
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                         <div class="mb-3">
@@ -42,7 +29,10 @@
                                             <p class="text-danger">{{ $message }}</p>
                                         @enderror
                                         <div class="mb-3">
-                                            <button class="btn btn-primary">Save</button>
+                                            <img src="{{ url('/images/gallery/' . $image->image) }}" alt="image" width="150"></td>
+                                        </div>
+                                        <div class="mb-3">
+                                            <button class="btn btn-primary">Update</button>
                                         </div>
                                     </form>
 
