@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Requests;
 use App\Models\User;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Crypt;
+
 use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
@@ -97,5 +100,28 @@ class IndexController extends Controller
     public function viewmore(Request $request,$id){
         $user = User::findOrFail($id);
         return view('view_more',compact('user'));
+    }
+
+    public function donate(){
+        return view('donate');
+    }
+    public function donateRequest(Request $request){
+        $diff =today()->diffInDays(auth()->user()->updated_at);
+        $left = 90 - $diff;
+
+        if($diff>90){
+
+            $request->validate([
+                'type' => 'integer',
+                'userid' => 'integer',
+            ]);
+            Requests::create([
+                'type' => $request->type,
+                'userid' => $request->userid,
+            ]);
+            return redirect()->route('home');
+        } else{
+            return back()->with('fail',"You can donate once in every 3 months ( $left days left) !");
+        }
     }
 }

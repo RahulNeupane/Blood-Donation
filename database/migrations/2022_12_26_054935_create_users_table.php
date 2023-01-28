@@ -24,9 +24,10 @@ return new class extends Migration
             $table->string('age');
             $table->string('group');
             $table->string('gender');
-            $table->string('image');
+            $table->integer('RewardPoints')->default(0);
             //0 = user , 1 = admin
-            $table->tinyInteger('role')->default(0);
+            $table->tinyInteger('role')->default(0)->comment('0=>user, 1=> admin');
+            $table->string('image');
             $table->timestamps();
         });
     }
