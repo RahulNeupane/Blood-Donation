@@ -7,6 +7,11 @@
             <div class="card">
                 <div class="card-header text-center">
                     <h3>Donate Request</h3>
+                    @if (session('fail'))
+                        <li class="alert alert-danger mb-2">
+                            {{ session('fail')}}
+                        </li>
+                        @endif
                 </div>
                 <div class="card-body">
                     <input type="text" value="1" name="type" hidden>
