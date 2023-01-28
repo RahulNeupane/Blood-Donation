@@ -5,15 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>LifeLine</title>
-    <link rel="stylesheet" href="{{asset('assets/style.css')}}">
-    <link rel="stylesheet" href="{{ asset('assets/about.css') }}">
-     
-    {{-- dropify css  --}}
-    <link rel="stylesheet" href="{{asset('assets/plugins/dropify/css/dropify.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/style.css')}}">  
     {{-- box icons  --}}
+
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     @vite(['resources/js/app.js'])
 
+    
 </head>
 <body>
     {{-- navbar starts  --}}
@@ -40,7 +38,7 @@
                                     </button>
                                     <ul class="dropdown-menu">
                                       <li><a class="dropdown-item" href="#">Team</a></li>
-                                      <li><a class="dropdown-item" href="{{route('events')}}">Events</a></li>
+                                      <li><a class="dropdown-item" href="#">Events</a></li>
                                       <li><a class="dropdown-item" href="#">Blog</a></li>
                                     </ul>
                                   </div>
@@ -78,9 +76,6 @@
     {{-- navbar ends  --}}
 
     @yield('content')
-    
-    {{-- dropify js  --}}
-    <script src="{{asset('assets/plugins/dropify/js/dropify.min.js')}}"></script>
 
     @yield('scripts')
 </body>

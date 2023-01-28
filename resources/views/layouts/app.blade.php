@@ -62,7 +62,6 @@
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('sidebar/dropify/js/dropify.min.js') }}"></script>
 
-    {{-- sidebar --}}
     <!-- General JS Scripts -->
     <script src="{{ asset('sidebar/modules/jquery.min.js') }}"></script>
     <script src="{{ asset('sidebar/modules/popper.js') }}"></script>

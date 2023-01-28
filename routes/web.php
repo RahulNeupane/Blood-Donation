@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CustomAuthController;
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\IndexController;
 use Illuminate\Support\Facades\Route;
@@ -17,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
-Route::get('/events', [IndexController::class, 'events'])->name('events');
 
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
 Route::get('register', [CustomAuthController::class, 'register'])->name('register');
@@ -33,8 +33,12 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 Route::middleware(['auth','isAdmin'])->group(function () {
     Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
+    Route::get('/users', [IndexController::class, 'allUsers'])->name('allUsers');
+    Route::get('/users/viewmore/{id}', [IndexController::class, 'viewmore'])->name('viewmore');
     Route::get('/change-password', [CustomAuthController::class, 'showchangepass'])->name('changepass');
     Route::post('/changepass', [CustomAuthController::class, 'changepass'])->name('change-pass');
+    Route::resource('/events', EventsController::class, ['names' => 'events']);
+    
 });
 
 Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile');
