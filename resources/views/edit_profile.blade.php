@@ -69,7 +69,7 @@
                                 <div class="mb-3">
                                     <label for="image" class="form-label ">Image</label>
                                     <input type="file" class="form-control dropify mb-2" name='image'>
-                                    <img src="{{url('/images/'.auth()->user()->image)}}" alt="user" width="120">
+                                    <img src="{{url('/images/user/'.auth()->user()->image)}}" alt="user" width="120">
                                     @error('image')
                                         <span class="text-danger">{{ $message }}</span>
                                     @enderror

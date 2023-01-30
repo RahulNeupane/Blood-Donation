@@ -7,7 +7,7 @@
                     <div class="card-body d-flex flex-wrap">
                         <div class="col">
                             <div class="img-card mb-3">
-                                <img src="{{url('/images/'.auth()->user()->image)}}" alt="user" width="100">
+                                <img src="{{url('/images/user/'.auth()->user()->image)}}" alt="user" width="100">
                             </div>
                             <div class="mb-3">
                                 <h3>{{auth()->user()->name}}</h3>

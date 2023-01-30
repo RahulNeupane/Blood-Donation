@@ -24,7 +24,7 @@
                                         <tr>
                                             <td>{{$loop->index+1}}</td>
                                             <td>{{$user->name}}</td>
-                                            <td><img src="{{url('/images/'.$user->image)}}" alt="user" width="50" ></td>
+                                            <td><img src="{{url('/images/user/'.$user->image)}}" alt="user" width="50" ></td>
                                             <td>{{$user->phone}}</td>
                                             <td><a href="{{route('viewmore',$user->id)}}"><button class="btn btn-success">view</button></a></td>
                                         </tr>

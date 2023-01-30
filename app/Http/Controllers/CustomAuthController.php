@@ -62,7 +62,7 @@ class CustomAuthController extends Controller
             $file = $request->file('image');
             $extension = $file->extension();
             $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images'), $image);
+            $file->move(public_path('/images/user'), $image);
         }
         User::create([
             'name'=> $request->name,

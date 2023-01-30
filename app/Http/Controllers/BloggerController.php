@@ -45,7 +45,7 @@ class BloggerController extends Controller
             $file = $request->file('image');
             $extension = $file->extension();
             $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images/gallery/'),$image);
+            $file->move(public_path('/images/blogs/'),$image);
        }
 
         Blogger::create([
@@ -54,7 +54,7 @@ class BloggerController extends Controller
             'image' => $image,
         ]);
 
-        return redirect()->route('gallery.index');
+        return redirect()->route('blogger.index');
     }
 
     /**
@@ -101,7 +101,7 @@ class BloggerController extends Controller
     {
         $image = Blogger::findOrFail($id);
 
-        $path = public_path('/images/gallery' . $image);
+        $path = public_path('/images/blogs' . $image);
         if(file_exists($path)){
             unlink($path);
         }
