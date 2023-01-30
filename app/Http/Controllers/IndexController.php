@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blogger;
 use App\Models\Requests;
 use App\Models\User;
 use Carbon\Carbon;
@@ -14,7 +15,8 @@ use Illuminate\Support\Facades\Hash;
 class IndexController extends Controller
 {
     public function index(){
-        return view('index');
+        $blogs = Blogger::all();
+        return view('index',compact('blogs'));
     }
     public function dashboard(){
         return view('dashboard');
