@@ -124,7 +124,7 @@ class GalleryController extends Controller
     {
         $image = Gallery::findOrFail($id);
 
-        $path = public_path('/images/gallery' . $image);
+        $path = public_path('/images/gallery/' . $image->image);
         if(file_exists($path)){
             unlink($path);
         }

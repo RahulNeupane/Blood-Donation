@@ -76,7 +76,8 @@ class BloggerController extends Controller
      */
     public function edit($id)
     {
-        //
+        $blog = Blogger::findOrFail($id);
+        return view('blogger.edit',compact('blog'));
     }
 
     /**
@@ -88,7 +89,31 @@ class BloggerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $blog = Blogger::findOrFail($id);
+        $request->validate([
+            'title'=>'required|string',
+            'description'=>'required|string',
+        ]);
+        if($request->hasFile('image')){
+            $path = public_path('/images/blogs/' . $blog->image);
+            if(file_exists($path)){
+                unlink($path);
+            }
+            $request->validate([
+                'image' => 'required|image|mimes:png,jpg,jpeg'
+            ]);
+            $file = $request->file('image');
+            $ext = $file->extension();
+            $img = date('YmdHis') . '.' . $ext;
+            $file->move(public_path('/images/blogs/'), $img);
+            $blog->image = $img;
+        }
+        $blog->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'image' => $blog->image,
+        ]);
+        return redirect()->route('blogger.index');
     }
 
     /**
@@ -99,13 +124,13 @@ class BloggerController extends Controller
      */
     public function destroy($id)
     {
-        $image = Blogger::findOrFail($id);
+        $blog = Blogger::findOrFail($id);
 
-        $path = public_path('/images/blogs' . $image);
+        $path = public_path('/images/blogs/' . $blog->image);
         if(file_exists($path)){
             unlink($path);
         }
-        $image->delete();
+        $blog->delete();
         return back();
     }
 }
