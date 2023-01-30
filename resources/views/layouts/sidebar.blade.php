@@ -58,6 +58,15 @@
                                 href="{{route('gallery.index')}}">All Images</a></li>
                     </ul>
                 </li>
+                <li class="dropdown {{request()->is('blogger/*') ||request()->is('blogger')  ? 'active' : ''}}">
+                    <a href="#" class="nav-link has-dropdown"><i class='bx bxl-blogger' ></i><span>Blogs</span></a>
+                    <ul class="dropdown-menu">
+                        <li class="{{request()->routeIs('blogger.create') ? 'active' : ''}}"><a class="nav-link"
+                                href="{{route('blogger.create')}}">Add Blogs</a></li>
+                        <li class="{{request()->routeIs('blogger.index') ? 'active' : ''}}"><a class="nav-link"
+                                href="{{route('blogger.index')}}">All Blogs</a></li>
+                    </ul>
+                </li>
                 <li class="menu-header">Log Out</li>
                 <li>
                     <a href="{{ route('signout') }}" class="nav-link">

@@ -25,6 +25,9 @@
     <!-- Template CSS -->
     <link rel="stylesheet" href="{{ asset('sidebar/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('sidebar/css/components.css') }}">
+
+       <!-- Boxicons CSS -->
+       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
