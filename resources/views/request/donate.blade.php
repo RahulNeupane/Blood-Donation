@@ -22,11 +22,13 @@
                                         <tbody>
                                             @forelse ($requests as $request)
                                                 <tr>
-                                                    <td>{{$loop->index+1}}</td>
-                                                    <td>{{$request->users[0]->name}}</td>
-                                                    <td>{{$request->users[0]->phone}}</td>
-                                                    <td><a href="{{route('donateRequestAccept',$request->userid)}}"><button class="btn btn-primary">Approve</button></a></td>
-                                                    <td><a href="{{route('viewmore',$request->userid)}}"><button class="btn btn-success">view</button></a></td>
+                                                    <td>{{ $loop->index + 1 }}</td>
+                                                    <td>{{ $request->users[0]->name }}</td>
+                                                    <td>{{ $request->users[0]->phone }}</td>
+                                                    <td><a href="{{ route('donateRequestAccept', $request->userid) }}"><button
+                                                                class="btn btn-primary">Approve</button></a></td>
+                                                    <td><a href="{{ route('viewmore', $request->userid) }}"><button
+                                                                class="btn btn-success">view</button></a></td>
                                                 </tr>
                                             @empty
                                                 <td colspan="5" class="text-center">no current requests</td>
@@ -51,6 +53,11 @@
                                 <div class="card-header text-center mb-3">
                                     <h4>Accepted Donate Request(s)</h4>
                                 </div>
+                                @if (session()->has('fail'))
+                                    <div class="alert alert-danger text-center">
+                                       <p class="text-white">{{ session('fail') }}</p>
+                                    </div>
+                                @endif
                                 <div class="card-body table-responsive">
                                     <table id="myTable" class="table table-striped">
                                         <thead>
@@ -63,13 +70,16 @@
                                         <tbody>
                                             @forelse ($accepted_requests as $accepted_request)
                                                 <tr>
-                                                    <td>{{$loop->index+1}}</td>
-                                                    <td>{{$accepted_request->users[0]->name}}</td>
-                                                    <td>{{$accepted_request->users[0]->phone}}</td>
-                                                    <td>{{$accepted_request->users[0]->updated_at}}</td>
+                                                    <td>{{ $loop->index + 1 }}</td>
+                                                    <td>{{ $accepted_request->users[0]->name }}</td>
+                                                    <td>{{ $accepted_request->users[0]->phone }}</td>
+                                                    <td>{{ $accepted_request->users[0]->updated_at }}</td>
                                                     <td>
-                                                        <a href="{{route('viewmore',$accepted_request->userid)}}"><button class="btn btn-success">view</button></a>
-                                                        <a href="{{route('updateRewardPoints',$accepted_request->userid)}}"><button class="btn btn-primary">update reward point</button></a>
+                                                        <a href="{{ route('viewmore', $accepted_request->userid) }}"><button
+                                                                class="btn btn-success">view</button></a>
+                                                        <a
+                                                            href="{{ route('updateRewardPoints', $accepted_request->userid) }}"><button
+                                                                class="btn btn-primary">update reward point</button></a>
                                                     </td>
                                                 </tr>
                                             @empty

@@ -25,11 +25,11 @@
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $image->title }}</td>
                                                     <td>{{ $image->description }}</td>
-                                                    <td><img src="{{ url('/images/gallery/' . $image->image) }}" alt="image"
+                                                    <td><img src="{{ url('/images/blogS/' . $image->image) }}" alt="image"
                                                             width="50"></td>
                                                     <td>
-                                                        <a href="{{ route('blogger.update', $image->id) }}"><button
-                                                                class="btn btn-primary">Update</button></a>
+                                                        <a href="{{ route('blogger.edit', $image->id) }}"><button
+                                                                class="btn btn-primary">edit</button></a>
                                                         <button type="button" class="btn btn-danger delete"
                                                             data-toggle="modal" data-target="#exampleModal"
                                                             id="{{ $image->id }}">
@@ -80,7 +80,7 @@
 
         $('.delete').on('click',function(){
             const id = this.id;
-            $('#deleteModal').attr('action','{{route("gallery.destroy","")}}'+'/'+id);
+            $('#deleteModal').attr('action','{{route("blogger.destroy","")}}'+'/'+id);
         });
     </script>
 @endsection

@@ -34,7 +34,10 @@ class RequestController extends Controller
                 'body' => $message]);
   
             $user->update([
-                'approve'=>1
+                'approve'=>1,
+            ]);
+            $user->users[0]->update([
+                'RewardPointsUpdated'=>0,
             ]);
   
         } catch (Exception $e) {
@@ -46,9 +49,16 @@ class RequestController extends Controller
 
     public function updateRewardPoints(Request $request,$id){
         $user = User::findOrFail($id);
-        $user->update([
-            'RewardPoints'=>$user->RewardPoints+100,
-        ]);
-        return back();
+        $updated = $user->RewardPointsUpdated;
+        if(!$updated){
+            $user->update([
+                'RewardPoints'=>$user->RewardPoints+100,
+                'RewardPointsUpdated'=>1,
+            ]);
+            return back();
+        }else{
+            return back()->with('fail', 'Points already updated !');
+        }
+       
     }
 }

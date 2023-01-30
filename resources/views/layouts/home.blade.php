@@ -66,7 +66,7 @@
                                     <div class="dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span><img src="{{ url('/images/' . auth()->user()->image) }}" alt="user"
+                                            <span><img src="{{ url('/images/user/' . auth()->user()->image) }}" alt="user"
                                                     width="20" style="border-radius: 50%"
                                                     class="me-2"></span>{{ auth()->user()->name }}
                                         </a>

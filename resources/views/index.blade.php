@@ -1,51 +1,48 @@
 @extends('layouts.home')
 @section('content')
-
-
-<div class="hero-section">
-  <img src="{{url(asset('images/slider.jpg'))}}" class="d-block w-100 z-1" style="height: 90vh">
-  <div class="details">
-    <h1>Blood is a life,<br>pass it on !</h1>
-    <p>Help us eliminate blood scarcity in Nepal</p>
-    <a href=""><span>Donate Now <i class='bx bxs-right-arrow'></i></span></a>
-  </div>
-  <img src="{{url(asset('images/wave.svg'))}}" class="wave">
-</div>
-
-
-
-
-<!-- Whyus Us Section -->
-<div class="container mx-auto mt-5 " id="whyus">
-  <div class="row">
-    <div class="col-lg-6 col-sm-12 col-md-6">
-      <div class="img-fluid">
-        <img src="{{url(asset('images/whyus.png'))}}" class="why_img" style="height: 50vh;width: 61vh;">
-      </div>
+    <div class="hero-section">
+        <img src="{{ url(asset('images/slider.jpg')) }}" class="d-block w-100 z-1" style="height: 90vh">
+        <div class="details">
+            <h1>Blood is a life,<br>pass it on !</h1>
+            <p>Help us eliminate blood scarcity in Nepal</p>
+            <a href=""><span>Donate Now <i class='bx bxs-right-arrow'></i></span></a>
+        </div>
+        <img src="{{ url(asset('images/wave.svg')) }}" class="wave">
     </div>
-    <div class="col-lg-6 col-sm-12 col-md-12 pt-10 mx-auto  ">
-      <div class="title pt-4">
-        <h1 class="d-flex mx-md-auto">Why LIFELINE ?</h1>
-        <div class="d-flex md-justify-content-center">
-          <div class="one"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid items-center" style="height: 3px;width: 13.5vh;"> </div>
-          <div class="two"> <img src="{{url(asset('images/rectangle.png'))}}" class="img-fluid" style="height: 21px;width: 21px;"> </div>
-          <div class="three"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid" style="height: 3px;width: 13.5vh;"> </div>
-        </div><br><br>
-      </div>
-      <p>Existing blood management system in Nepal is manual,cumbersome
-        and inefficient. Most blood banks record the information on blood
-        collection/supply manually in registers.
-        Maintaining blood inventory is tedious with laborious back-
-        office paperwork and managing information on availability and
-        shortage of blood is a tall task
-        A social initiative for a smart, transparent and holistic
-        blood management service from collection to supply.
-        When it comes to blood, right information at the right time can be the
-        answer to a life and death situation.</p>
-    </div>
-  </div>
-</div><br><br>
 
+    <!-- Whyus Us Section -->
+    <div class="container mx-auto mt-5 " id="whyus">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 col-md-6">
+                <div class="img-fluid">
+                    <img src="{{ url(asset('images/whyus.png')) }}" class="why_img" style="height: 50vh;width: 61vh;">
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-md-12 pt-10 mx-auto  ">
+                <div class="title pt-4">
+                    <h1 class="d-flex mx-md-auto">Why LIFELINE ?</h1>
+                    <div class="d-flex md-justify-content-center">
+                        <div class="one"> <img src="{{ url(asset('images/St_line.png')) }}"
+                                class="img-fluid items-center" style="height: 3px;width: 13.5vh;"> </div>
+                        <div class="two"> <img src="{{ url(asset('images/rectangle.png')) }}" class="img-fluid"
+                                style="height: 21px;width: 21px;"> </div>
+                        <div class="three"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid"
+                                style="height: 3px;width: 13.5vh;"> </div>
+                    </div><br><br>
+                </div>
+                <p>Existing blood management system in Nepal is manual,cumbersome
+                    and inefficient. Most blood banks record the information on blood
+                    collection/supply manually in registers.
+                    Maintaining blood inventory is tedious with laborious back-
+                    office paperwork and managing information on availability and
+                    shortage of blood is a tall task
+                    A social initiative for a smart, transparent and holistic
+                    blood management service from collection to supply.
+                    When it comes to blood, right information at the right time can be the
+                    answer to a life and death situation.</p>
+            </div>
+        </div>
+    </div><br><br>
 
 <!-- About Us Section -->
 <div class="container mx-auto mt-5 align-items-center" id="aboutus">
@@ -205,9 +202,6 @@
             </p>
           </div>
           <a href="#" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
-        </div>
-      </div>
-    </div>
     @endforeach
   </div>
 </div>

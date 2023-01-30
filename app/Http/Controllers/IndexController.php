@@ -52,13 +52,13 @@ class IndexController extends Controller
             $request->validate([
             'image' => 'required|image|mimes:png,jpeg,jpg',
             ]);
-            if(file_exists(public_path('/images/').auth()->user()->image)){
-                unlink(public_path('/images/') . auth()->user()->image);
+            if(file_exists(public_path('/images/user/').auth()->user()->image)){
+                unlink(public_path('/images/user/') . auth()->user()->image);
             }
             $file = $request->file('image');
             $extension = $file->extension();
             $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images'), $image);
+            $file->move(public_path('/images/user'), $image);
             $user->image = $image;
         }
         $user->update([
@@ -108,11 +108,13 @@ class IndexController extends Controller
         return view('donate');
     }
     public function donateRequest(Request $request){
-        $diff =today()->diffInDays(auth()->user()->updated_at);
+        $date = Requests::where('userid','=',auth()->user()->id)->orderBy('id','Desc')->first();
+       if($date){
+        $diff = today()->diffInDays($date->updated_at);
         $left = 90 - $diff;
+       }
 
-        if($diff>90){
-
+        if(!$date || $diff>90){
             $request->validate([
                 'type' => 'integer',
                 'userid' => 'integer',
@@ -125,5 +127,8 @@ class IndexController extends Controller
         } else{
             return back()->with('fail',"You can donate once in every 3 months ( $left days left) !");
         }
+            
+
+        
     }
 }
