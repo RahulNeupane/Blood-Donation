@@ -102,7 +102,7 @@
       <div class="card-body">
         <h5 class="card-title text-center ">Give Donation</h5>
         <p class="card-text text-center pt-2">With supporting text below as a natural lead-in to additional content.</p>
-        <div class="d-flex justify-content-center"><a href="#" class="btn text-black text-bold align-self-center ml-auto" style="background: #D9D9D9;border: 3px solid #CF3D3C;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-weight: 500;width:170px">Donate now</a></div>         
+        <div class="d-flex justify-content-center pt-6"><a href="#" class="btn text-black text-bold align-self-center " style="background: #D9D9D9;border: 3px solid #CF3D3C;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-weight: 500;width:170px">Donate now</a></div> <br>   
       </div>
     </div>
   </div>
@@ -111,7 +111,7 @@
       <div class="card-body">
         <h5 class="card-title text-center">Become a volunteer</h5>
         <p class="card-text text-center pt-2">With supporting text below as a natural lead-in to additional content.</p>
-        <div class="d-flex justify-content-center "><a href="#" class="btn text-black text-bold align-self-center ml-auto pt-2" style="background: #D9D9D9;border: 3px solid #CF3D3C;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-weight: 500;width:170px">Become now</a></div>         
+        <div class="d-flex justify-content-center "><a href="#" class="btn text-black text-bold align-self-center ml-auto pt-2" style="background: #D9D9D9;border: 3px solid #CF3D3C;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-weight: 500;width:170px">Become now</a></div> <br>        
       </div>
     </div>
   </div>
@@ -120,7 +120,7 @@
       <div class="card-body">
         <h5 class="card-title text-center">Give Scholarship</h5>
         <p class="card-text text-center pt-2">With supporting text below as a natural lead-in to additional content.</p>
-         <div class="d-flex justify-content-center"><a href="#" class="btn text-black text-bold align-self-center ml-auto" style="background: #D9D9D9;border: 3px solid #CF3D3C;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-weight: 500;width:170px">Give now</a></div>         
+         <div class="d-flex justify-content-center"><a href="#" class="btn text-black text-bold align-self-center ml-auto" style="background: #D9D9D9;border: 3px solid #CF3D3C;box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); font-weight: 500;width:170px">Give now</a></div>  <br>       
       </div>
     </div>
   </div>
@@ -128,5 +128,118 @@
 </div>
 </div>
 
+<!-- Our team -->
+<div class="team-area" id="team">
+  <div class="container">
+    <div class="row">
+    <div class="col-lg-12 align-content-center">
+      <div class="title text-center">
+        <h1>Our Team</h1>
+        <div class="d-flex justify-content-center  ">
+           <div class="one"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid " style="height: 3px;width: 13.5vh;"> </div>
+           <div class="two"> <img src="{{url(asset('images/rectangle.png'))}}" class="img-fluid" style="height: 21px;width: 21px;"> </div>
+           <div class="three"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid" style="height: 3px;width: 13.5vh;"> </div>
+        </div><br><br>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-team">
+          <div class="img-area">
+            <img src="{{url(asset('images/nabin.jpeg'))}}" class="img-responsive" alt="" height="435px">
+            <div class="social">
+              <ul class="list-inline">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="img-text">
+            <h4>Nabin Sapkota</h4>
+            <h5>Front-End Developer</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-team">
+          <div class="img-area">
+          <img src="{{url(asset('images/rahul.jpg'))}}" class="img-responsive" alt="" height="435px">
+            <div class="social">
+              <ul class="list-inline">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="img-text">
+            <h4>Rahul Neupane</h4>
+            <h5>Back-End Developer</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="single-team">
+          <div class="img-area">
+          <img src="{{url(asset('images/imgg.jpg'))}}" class="img-responsive" alt="" height="435px">
+            <div class="social">
+              <ul class="list-inline">
+                <li><a href="#"><i class="fas fa-user"></i></a></li>
+                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="img-text">
+            <h4>Anam Rajdhami</h4>
+            <h5>Back-End Developer</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="mt-5 container">
+            <div class="text-center">
+                <h1>Contact Us</h1>
+                <div class="d-flex justify-content-center  ">
+                <div class="one"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid " style="height: 3px;width: 13.5vh;"> </div>
+           <div class="two"> <img src="{{url(asset('images/rectangle.png'))}}" class="img-fluid" style="height: 21px;width: 21px;"> </div>
+           <div class="three"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid" style="height: 3px;width: 13.5vh;"> </div>
+        </div><br><br>
+            </div>
+            <div class=" d-flex align-items-center justify-content-center">
+                <div class="bg-white col-md-4">
+                    <div class="p-4 rounded shadow-md">
+                        <div>
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="mt-3">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="text" name="email" class="form-control" placeholder="Your Email" required>
+                        </div class="mt-3">
+                        <div class="mt-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <input type="text" name="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="mt-3 mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea name="message" cols="20" rows="6" class="form-control"
+                                placeholder="Message.."></textarea>
+                        </div>
+                        <button class="btn" style="background-color: #CF3D3C; color:#D9D9D9">
+                            Submit Form
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
 
 @endsection
