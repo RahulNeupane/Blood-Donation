@@ -8,8 +8,8 @@
     <title>LifeLine</title>
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     {{-- box icons  --}}
-
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     @vite(['resources/js/app.js'])

@@ -148,10 +148,10 @@
             <img src="{{url(asset('images/nabin.jpeg'))}}" class="img-responsive" alt="" height="435px">
             <div class="social">
               <ul class="list-inline">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class='bx bxl-facebook-circle'></i></a></li>
+                <li><a href="#"><i class='bx bxl-twitter' ></i></a></li>
+                <li><a href="#"><i class='bx bxl-instagram' ></i></a></li>
+                <li><a href="#"><i class='bx bxl-linkedin' ></i></a></li>
               </ul>
             </div>
           </div>
@@ -167,10 +167,10 @@
           <img src="{{url(asset('images/rahul.jpg'))}}" class="img-responsive" alt="" height="435px">
             <div class="social">
               <ul class="list-inline">
-                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class='bx bxl-facebook-circle'></i></a></li>
+                <li><a href="#"><i class='bx bxl-twitter' ></i></a></li>
+                <li><a href="#"><i class='bx bxl-instagram' ></i></a></li>
+                <li><a href="#"><i class='bx bxl-linkedin' ></i></a></li>
               </ul>
             </div>
           </div>
@@ -186,10 +186,10 @@
           <img src="{{url(asset('images/imgg.jpg'))}}" class="img-responsive" alt="" height="435px">
             <div class="social">
               <ul class="list-inline">
-                <li><a href="#"><i class="fas fa-user"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
-                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="#"><i class='bx bxl-facebook-circle'></i></a></li>
+                <li><a href="#"><i class='bx bxl-twitter' ></i></a></li>
+                <li><a href="#"><i class='bx bxl-instagram' ></i></a></li>
+                <li><a href="#"><i class='bx bxl-linkedin' ></i></a></li>
               </ul>
             </div>
           </div>
@@ -214,7 +214,7 @@
         </div><br><br>
             </div>
             <div class=" d-flex align-items-center justify-content-center">
-                <div class="bg-white col-md-4">
+                <div class="bg-white col-md-6">
                     <div class="p-4 rounded shadow-md">
                         <div>
                             <label for="name" class="form-label">Your Name</label>
