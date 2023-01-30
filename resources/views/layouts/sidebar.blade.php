@@ -58,10 +58,10 @@
                                 href="{{route('gallery.index')}}">All Images</a></li>
                     </ul>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-image"></i><span>Blood Request</span></a>
+                <li class="dropdown {{request()->is('donate-request') ? 'active' : ''}}">
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-tint"></i><span>Blood Request</span></a>
                     <ul class="dropdown-menu">
-                        <li class=""><a class="nav-link"
+                        <li class="{{request()->is('donate-request') ? 'active' : ''}}"><a class="nav-link"
                                 href="{{route('donateRequest')}}">Donate Request</a></li>
                         <li class=""><a class="nav-link"
                                 href="#">Receive Request</a></li>

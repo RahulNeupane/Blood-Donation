@@ -58,7 +58,7 @@
                         </select>
                         @error('group')
                             <p class="text-danger">{{ $message }}</p>
-                        @enderror
+                         @enderror
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Gender</label>
