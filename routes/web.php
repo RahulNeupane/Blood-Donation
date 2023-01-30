@@ -6,6 +6,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\BloggerController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +36,9 @@ Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPass
 
 Route::middleware(['auth','isAdmin'])->group(function () {
     Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
+    Route::get('/donate-request', [RequestController::class, 'donateRequests'])->name('donateRequests');
+    Route::get('/donate-request-accept/{userid}', [RequestController::class, 'donateRequestAccept'])->name('donateRequestAccept');
+    Route::get('/update-reward-points/{userid}', [RequestController::class, 'updateRewardPoints'])->name('updateRewardPoints');
     Route::get('/users', [IndexController::class, 'allUsers'])->name('allUsers');
     Route::get('/users/viewmore/{id}', [IndexController::class, 'viewmore'])->name('viewmore');
     Route::get('/change-password', [CustomAuthController::class, 'showchangepass'])->name('changepass');
@@ -42,6 +46,11 @@ Route::middleware(['auth','isAdmin'])->group(function () {
     Route::resource('/events', EventsController::class, ['names' => 'events']);
     Route::resource('/gallery', GalleryController::class, ['names' => 'gallery']);
     Route::resource('/blogger', BloggerController::class, ['names' => 'blogger']);
+});
+
+Route::middleware(['auth'])->group(function(){
+    Route::get('/donate',[IndexController::class,'donate'])->name('donate');
+    Route::post('/donate-request',[IndexController::class,'donateRequest'])->name('donateRequest');
 });
 
 Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile');

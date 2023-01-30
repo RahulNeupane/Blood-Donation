@@ -42,6 +42,9 @@
                                 <label><b>Blood Group:</b> </label>
                                 <p>{{auth()->user()->group}}</p>
                             </div>
+                            <div class="mb-3">
+                                <label><b>Reward Points: </b>{{auth()->user()->RewardPoints}}</label>
+                            </div>
                         </div>
                     </div>
                 </div>
