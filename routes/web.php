@@ -22,19 +22,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
 
-Route::get('login', [CustomAuthController::class, 'index'])->name('login');
-Route::get('register', [CustomAuthController::class, 'register'])->name('register');
-Route::post('welcome', [CustomAuthController::class, 'customLogin'])->name('login.custom');
-Route::post('register-user', [CustomAuthController::class, 'customRegister'])->name('register.custom');
-Route::get('signout', [CustomAuthController::class, 'signOut'])->name('signout');
+Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
+Route::post('/login-submit', [CustomAuthController::class, 'login_submit'])->name('login_submit');
 
+Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 
-Route::get('forgot-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
-Route::post('forget-password',[ForgotPasswordController::class,'submitForgetPasswordForm'])->name('forget.password.post');
-Route::get('reset-password/{token}', [ForgotPasswordController::class,'showResetPasswordForm'])->name('reset.password.get');
-Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
+Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration');
+Route::post('/registration_submit', [CustomAuthController::class, 'registration_submit'])->name('registration_submit');
 
-Route::middleware(['auth','isAdmin'])->group(function () {
+Route::get('/registration/verify/{token}/{email}', [CustomAuthController::class, 'registration_verify']);
+
+Route::get('/forget-password', [CustomAuthController::class, 'forget_password'])->name('forget_password');
+Route::post('/forget_password_submit', [CustomAuthController::class, 'forget_password_submit'])->name('forget_password_submit');
+
+Route::get('/reset-password/{token}/{email}', [CustomAuthController::class, 'reset_password'])->name('reset_password');
+Route::post('/reset_password_submit', [CustomAuthController::class, 'reset_password_submit'])->name('reset_password_submit');
+
+Route::middleware(['admin'])->group(function () {
     Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
     Route::get('/donate-request', [RequestController::class, 'donateRequests'])->name('donateRequests');
     Route::get('/donate-request-accept/{userid}', [RequestController::class, 'donateRequestAccept'])->name('donateRequestAccept');
@@ -53,9 +57,9 @@ Route::middleware(['auth'])->group(function(){
     Route::post('/donate-request',[IndexController::class,'donateRequest'])->name('donateRequest');
 });
 
-Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile');
-Route::get('/profile/edit', [IndexController::class, 'editProfile'])->name('editProfile');
-Route::post('/profile/update', [IndexController::class, 'updateProfile'])->name('updateProfile');
-Route::get('/profile/changepassword', [IndexController::class, 'showchangepassword'])->name('showchangepassword');
-Route::post('/profile/updatepassword', [IndexController::class, 'updatePassword'])->name('updatePassword');
+Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile')->middleware('auth');
+Route::get('/profile/edit', [IndexController::class, 'editProfile'])->name('editProfile')->middleware('auth');
+Route::post('/profile/update', [IndexController::class, 'updateProfile'])->name('updateProfile')->middleware('auth');
+Route::get('/profile/changepassword', [IndexController::class, 'showchangepassword'])->name('showchangepassword')->middleware('auth');
+Route::post('/profile/updatepassword', [IndexController::class, 'updatePassword'])->name('updatePassword')->middleware('auth');
 

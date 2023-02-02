@@ -175,7 +175,7 @@
 
 
 <!-- Blog Section -->
-<div class="container mt-5">
+{{-- <div class="container mt-5">
   <div class="text-center">
     <h1>Recent Blogs</h1>
     <div class="d-flex justify-content-center  ">
@@ -204,7 +204,7 @@
     </div>
     @endforeach
   </div>
-</div>
+</div> --}}
 <!-- contact section  -->
 <div class="mt-5 container">
   <div class="text-center">
