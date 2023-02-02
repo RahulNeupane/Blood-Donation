@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Blogger;
 use App\Models\Requests;
 use App\Models\User;
 use Carbon\Carbon;
@@ -15,8 +14,7 @@ use Illuminate\Support\Facades\Hash;
 class IndexController extends Controller
 {
     public function index(){
-        $blogs = Blogger::all();
-        return view('index',compact('blogs'));
+        return view('index');
     }
     public function dashboard(){
         return view('dashboard');
@@ -81,7 +79,7 @@ class IndexController extends Controller
     public function updatePassword(Request $request){
         $request->validate([
             'current_password'=> 'required|string',
-            'password'=> 'required|string|min:6|max:12|confirmed'
+            'password'=> 'required|string|min:4|max:12|confirmed'
         ]);
         $curPassStatus = Hash::check($request->current_password, auth()->user()->password);
         if($curPassStatus){

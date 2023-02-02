@@ -9,15 +9,20 @@
                     </div>
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4 class="m-auto">Login</h4>
+                            <h4 class="m-auto">Forgot Password</h4>
                         </div>
                         @if (Session::has('fail'))
                             <div class="alert alert-danger text-center" role="alert">
                                 {{ Session::get('fail') }}
                             </div>
                         @endif
+                        @if (Session::has('success'))
+                            <div class="alert alert-success text-center" role="alert">
+                                {{ Session::get('success') }}
+                            </div>
+                        @endif
                         <div class="card-body">
-                            <form method="POST" action="{{ route('login_submit') }}">
+                            <form method="POST" action="{{ route('forget_password_submit') }}">
                                 @csrf
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
@@ -31,31 +36,15 @@
                                         </span>
                                     @enderror
                                 </div>
-
                                 <div class="mb-3">
-                                    <label class="form-label">Password</label>
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        autocomplete="current-password">
-
-                                    @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                                <div class="mb-3">
-                                    <a href="{{ route('forget_password') }}">Forget Password ?</a>
+                                    <a href="{{ route('login') }}">Back to login</a>
                                 </div>
                                 <div class="form-group d-grid">
                                     <button type="submit" class="btn btn-primary">
-                                        Login
+                                        Send Password Reset Link
                                     </button>
                                 </div>
                             </form>
-                        </div>
-                        <div class="card-footer text-center">
-                            <p>Don't have an Account ? <a href="{{ route('registration') }}">Register</a></p>
                         </div>
                     </div>
                 </div>
