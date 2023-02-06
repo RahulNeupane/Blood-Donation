@@ -67,14 +67,14 @@
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">
                                             <span><img src="{{ url('/images/user/' . auth()->user()->image) }}" alt="user"
-                                                    width="20" style="border-radius: 50%"
+                                                    width="20" style="border-radius: 50%; object-fit:cover;"
                                                     class="me-2"></span>{{ auth()->user()->name }}
                                         </a>
 
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="{{ route('viewProfile') }}">Profile</a></li>
                                             <li><a class="dropdown-item" href="#">Another action</a></li>
-                                            <li><a class="dropdown-item" href="{{ route('signout') }}">Logout</a></li>
+                                            <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
                                         </ul>
                                     </div>
                                 @else

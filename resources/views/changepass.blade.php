@@ -21,7 +21,7 @@
                         @endif
 
                         @if ($errors->any())
-                            <ul class="alert alert-danger">
+                            <ul class="alert alert-danger" role="alert">
                                 @foreach ($errors->all() as $error)
                                     <li class="text-white">{{ $error }}</li>
                                 @endforeach

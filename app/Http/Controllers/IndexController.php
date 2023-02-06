@@ -83,7 +83,7 @@ class IndexController extends Controller
     public function updatePassword(Request $request){
         $request->validate([
             'current_password'=> 'required|string',
-            'password'=> 'required|string|min:6|max:12|confirmed'
+            'password'=> 'required|string|min:4|max:12|confirmed'
         ]);
         $curPassStatus = Hash::check($request->current_password, auth()->user()->password);
         if($curPassStatus){

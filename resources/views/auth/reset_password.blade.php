@@ -9,34 +9,17 @@
                     </div>
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4 class="m-auto">Login</h4>
+                            <h4 class="m-auto">Reset Password</h4>
                         </div>
-                        @if (Session::has('fail'))
-                            <div class="alert alert-danger text-center" role="alert">
-                                {{ Session::get('fail') }}
-                            </div>
-                        @endif
                         <div class="card-body">
-                            <form method="POST" action="{{ route('login_submit') }}">
+                            <form action="{{ route('reset_password_submit') }}" method="post">
                                 @csrf
-                                <div class="mb-3">
-                                    <label class="form-label">Email</label>
-                                    <input id="email" type="email"
-                                        class="form-control @error('email') is-invalid @enderror" name="email"
-                                        value="{{ old('email') }}" autocomplete="email" autofocus>
-
-                                    @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-
+                                <input type="hidden" name="token" value="{{ $token }}">
+                                <input type="hidden" name="email" value="{{ $email }}">
                                 <div class="mb-3">
                                     <label class="form-label">Password</label>
-                                    <input id="password" type="password"
-                                        class="form-control @error('password') is-invalid @enderror" name="password"
-                                        autocomplete="current-password">
+                                    <input type="password"
+                                        class="form-control @error('password') is-invalid @enderror" name="password" autofocus>
 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -45,17 +28,22 @@
                                     @enderror
                                 </div>
                                 <div class="mb-3">
-                                    <a href="{{ route('forget_password') }}">Forget Password ?</a>
+                                    <label class="form-label">Retype Password</label>
+                                    <input type="password"
+                                        class="form-control @error('retype_password') is-invalid @enderror" name="retype_password" autofocus>
+
+                                    @error('retype_password')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
                                 </div>
                                 <div class="form-group d-grid">
                                     <button type="submit" class="btn btn-primary">
-                                        Login
+                                        Update Password
                                     </button>
                                 </div>
                             </form>
-                        </div>
-                        <div class="card-footer text-center">
-                            <p>Don't have an Account ? <a href="{{ route('registration') }}">Register</a></p>
                         </div>
                     </div>
                 </div>

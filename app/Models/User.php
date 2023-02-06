@@ -11,6 +11,6 @@ use Illuminate\Auth\Events\Registered;
 class User extends Authenticable implements MustVerifyEmail
 {
     use HasFactory;
-    protected $fillable = ['name', 'email', 'password', 'district', 'address','phone','age','group','gender','image','RewardPoints','RewardPointsUpdated'];
+    protected $fillable = ['name', 'email', 'password', 'district', 'address','phone','age','group','gender','image','role'];
 
 }
