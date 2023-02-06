@@ -95,6 +95,100 @@
   </div>
 </div>
 </div>
+<!-- About Us Section -->
+
+<!-- Gallery -->
+<div class="mt-5 container" id="gallery">
+ <div class="row">
+ <div class="text-center">
+    <h1>Gallery</h1>
+    <div class="d-flex justify-content-center  ">
+      <div class="one"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid " style="height: 3px;width: 13.5vh;"> </div>
+      <div class="two"> <img src="{{url(asset('images/rectangle.png'))}}" class="img-fluid" style="height: 21px;width: 21px;"> </div>
+      <div class="three"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid" style="height: 3px;width: 13.5vh;"> </div>
+    </div><br><br>
+  </div>
+           <?php
+           $limit = 6;
+           $counter = 0;
+           ?>
+  @forelse ($images as $image)
+    @if ($counter < $limit)
+     <?php
+      switch ($counter) {
+        case 0:
+          $class = "col-lg-4 col-md-12 mb-4 mb-lg-0";
+          break;
+        case 1:
+            $class = "col-lg-4 col-md-12 mb-4 mb-lg-0";
+            break;  
+        case 2:
+          $class = "col-lg-4 mb-4 mb-lg-0";
+          break;
+        case 3:
+          $class = "col-lg-4 mb-4 mb-lg-0";
+          break;
+        case 4:
+            $class = "col-lg-4 mb-4 mb-lg-0";
+            break;
+        case 5:
+            $class = "col-lg-4 mb-4 mb-lg-0";
+            break;    
+        default:
+          $class = "";
+      }
+    ?>
+
+    <div class="{{ $class }}">
+      <img
+        src="{{ url('/images/gallery/' . $image->image) }}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Blood Donation"
+      />
+    </div>
+    <?php $counter++; ?>
+  @else
+    @break
+  @endif
+@endforeach
+
+</div>
+</div>
+<!-- Gallery -->
+
+
+<!-- Blog Section -->
+<div class="container mt-5" id="blogger">
+  <div class="text-center">
+    <h1>Recent Blogs</h1>
+    <div class="d-flex justify-content-center  ">
+      <div class="one"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid " style="height: 3px;width: 13.5vh;"> </div>
+      <div class="two"> <img src="{{url(asset('images/rectangle.png'))}}" class="img-fluid" style="height: 21px;width: 21px;"> </div>
+      <div class="three"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid" style="height: 3px;width: 13.5vh;"> </div>
+    </div><br><br>
+  </div>
+  <div class="row">
+    @foreach($blogs as $blog)
+    <div class="col-lg-4 col-md-6 col-sm-12">
+      <div class="card blogg mb-5 shadow-sm">
+        <img src="{{ url('/images/blogs/' . $blog->image) }}" class="img-responsive" alt="" height="435px">
+        <div class="card-body">
+          <div class="card-title">
+            <h2>{{$blog->title}}</h2>
+          </div>
+          <div class="card-text">
+            <p>
+              {{$blog->description}}
+            </p>
+          </div>
+          <a href="#" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+        </div>
+      </div>
+    </div>
+    @endforeach
+  </div>
+</div>
+<!-- Blog Section -->
 
 <!-- Our team -->
 <div class="team-area" id="team">
@@ -172,39 +266,10 @@
     </div>
   </div>
 </div>
+<!-- Our team -->
 
 
-<!-- Blog Section -->
-<div class="container mt-5">
-  <div class="text-center">
-    <h1>Recent Blogs</h1>
-    <div class="d-flex justify-content-center  ">
-      <div class="one"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid " style="height: 3px;width: 13.5vh;"> </div>
-      <div class="two"> <img src="{{url(asset('images/rectangle.png'))}}" class="img-fluid" style="height: 21px;width: 21px;"> </div>
-      <div class="three"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid" style="height: 3px;width: 13.5vh;"> </div>
-    </div><br><br>
-  </div>
-  <div class="row">
-    @foreach($blogs as $blog)
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div class="card blogg mb-5 shadow-sm">
-        <img src="{{ url('/images/gallery/' . $blog->image) }}" class="img-responsive" alt="" height="435px">
-        <div class="card-body">
-          <div class="card-title">
-            <h2>{{$blog->title}}</h2>
-          </div>
-          <div class="card-text">
-            <p>
-              {{$blog->description}}
-            </p>
-          </div>
-          <a href="#" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
-        </div>
-      </div>
-    </div>
-    @endforeach
-  </div>
-</div>
+
 <!-- contact section  -->
 <div class="mt-5 container">
   <div class="text-center">
@@ -241,4 +306,7 @@
     </div>
   </div>
 </div>
+<!-- contact section  -->
+
+
 @endsection
