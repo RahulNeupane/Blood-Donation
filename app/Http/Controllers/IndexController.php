@@ -17,7 +17,7 @@ class IndexController extends Controller
 {
     public function index(){
         $blogs = Blogger::all();
-        $images = Gallery::all();
+        $images = Gallery::orderBy('id','Desc')->limit(6)->get();
         return view('index',compact('blogs','images'));
     }
     public function dashboard(){

@@ -24,7 +24,7 @@
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $image->caption }}</td>
                                                     <td><img src="{{ url('/images/gallery/' . $image->image) }}" alt="image"
-                                                            width="50"></td>
+                                                            width="50" height="50"></td>
                                                     <td>
                                                         <a href="{{ route('gallery.edit', $image->id) }}"><button
                                                                 class="btn btn-primary">Edit</button></a>
