@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blogger;
+use App\Models\Gallery;
 use App\Models\Requests;
 use App\Models\User;
 use Carbon\Carbon;
@@ -16,7 +17,8 @@ class IndexController extends Controller
 {
     public function index(){
         $blogs = Blogger::all();
-        return view('index',compact('blogs'));
+        $images = Gallery::orderBy('id','Desc')->limit(6)->get();
+        return view('index',compact('blogs','images'));
     }
     public function dashboard(){
         return view('dashboard');

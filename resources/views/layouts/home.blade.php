@@ -50,13 +50,13 @@
                                     <ul class="dropdown-menu">
                                       <li><a class="dropdown-item" href="#team">Team</a></li>
                                       <li><a class="dropdown-item" href="#">Events</a></li>
-                                      <li><a class="dropdown-item" href="#">Blog</a></li>
+                                      <li><a class="dropdown-item" href="#blogger">Blog</a></li>
                                     </ul>
                                 </div>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Gallery</a>
+                                <a class="nav-link" href="#gallery">Gallery</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="#">Contact</a>
