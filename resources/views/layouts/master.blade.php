@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,34 +8,58 @@
     <title>LifeLine</title>
     @vite(['resources/js/app.js'])
     {{-- css  --}}
-    <link rel="stylesheet" href="{{asset('assets/style.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+    {{-- izitoast --}}
+    <link rel="stylesheet" href="{{ asset('assets/iziToast.min.css') }}">
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
+
+
     @yield('content')
 
-    
+
     {{-- box icons  --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/boxicons/2.1.4/dist/boxicons.js"
-    integrity="sha512-kWH92pHUC/rcjpSMu19lT+H6TlZwZCAftg9AuSw+AVYSdEKSlXXB8o6g12mg5f+Pj5xO40A7ju2ot/VdodCthw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-kWH92pHUC/rcjpSMu19lT+H6TlZwZCAftg9AuSw+AVYSdEKSlXXB8o6g12mg5f+Pj5xO40A7ju2ot/VdodCthw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    {{-- izi toast  --}}
+    <script src="{{ asset('assets/iziToast.min.js') }}"></script>
 
-    <script>
-        const togglePassword = document.querySelector("#togglePassword");
-        const password = document.querySelector("#password");
 
-        togglePassword.addEventListener("click", function() {
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <script>
+                iziToast.error({
+                    title: '',
+                    position: 'topRight',
+                    message: '{{ $error }}',
+                });
+            </script>
+        @endforeach
+    @endif
 
-            // toggle the type attribute
-            const type = password.getAttribute("type") === "password" ? "text" : "password";
-            password.setAttribute("type", type);
-
-            // toggle the eye icon
-            this.classList.toggle('bx-show');
-            this.classList.toggle('bx-hide');
-        });
-    </script>
+    @if (session()->get('error'))
+        <script>
+            iziToast.error({
+                title: '',
+                position: 'topRight',
+                message: "{{ session()->get('error') }}",
+            });
+        </script>
+    @endif
+    @if (session()->get('success'))
+        <script>
+            iziToast.success({
+                title: '',
+                position: 'topRight',
+                message: "{{ session()->get('success') }}",
+            });
+        </script>
+    @endif
 
 </body>
+
 </html>
