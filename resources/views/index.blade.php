@@ -109,16 +109,16 @@
       </div><br><br>
     </div>
     <div class="row">
-    @foreach($images as $image)
-    <div class="col-lg-4 col-md-6 col-sm-12">
-      <div class="card  mb-5 shadow-sm image-fluid">
-        <img src="{{ url('/images/gallery/' . $image->image) }}" class="img-responsive" alt="" height="350px">
+      @foreach($images as $image)
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card  mb-5 shadow-sm image-fluid">
+          <img src="{{ url('/images/gallery/' . $image->image) }}" class="img-responsive" alt="" height="350px">
+        </div>
       </div>
+      @endforeach
     </div>
-    @endforeach
-  </div>
 
-</div>
+  </div>
 </div>
 <!-- Gallery -->
 
@@ -246,9 +246,9 @@
       <div class="three"> <img src="{{url(asset('images/St_line.png'))}}" class="img-fluid" style="height: 3px;width: 13.5vh;"> </div>
     </div><br><br>
   </div>
-  <div class=" d-flex align-items-center justify-content-center">
-    <div class="bg-white col-md-6">
-      <div class="p-4 rounded shadow-md">
+  <div class=" d-flex align-items-center justify-content-center ">
+    <div class=" col-md-6 border-1">
+      <div class="p-4 card-body rounded shadow-md bg-white" style=" border: 2px solid black;">
         <div>
           <label for="name" class="form-label">Your Name</label>
           <input type="text" name="name" class="form-control" placeholder="Your Name" required>
@@ -275,35 +275,37 @@
 <!-- contact section  -->
 
 <!-- Footer -->
-<div class="mt-5 pt-5 pb-5 footer" style="background-color: #CF3D3C;">
+<div class="mt-5 pt-5 pb-5 footer bg-white shadow-sm border-1-top">
   <div class="container">
     <div class="row">
       <div class="col-lg-5 col-xs-12 about-company">
-        <h2 class="text-white">Heading</h2>
-        <p class="pr-5 text-white-50">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac ante mollis quam tristique convallis </p>
-        <p><a href="#"><i class='bx bxl-facebook-circle'></i></a><a href="#"><i class='bx bxl-linkedin'></i></a></p>
+        <a class="mb-2" href="{{ route('home') }}">
+          <img width="80" src="{{ url(asset('images/logo.png')) }}" alt="LOGO" />
+        </a>
+        <p class="pr-5 text-black-50 mt-4">Blood is precious, give it freely. Your donation can be the difference between life and death. </p>
+        <p class="h-5"><a href="#"><i class='bx bxl-facebook-circle'></i></a><a href="#"><i class='bx bxl-twitter'></i></a><a href="#"><i class='bx bxl-linkedin'></i></a><a href="#"><i class='bx bxl-instagram'></i></a></p>
       </div>
       <div class="col-lg-3 col-xs-12 links">
         <h4 class="mt-lg-0 mt-sm-3">Links</h4>
         <ul class="m-0 p-0">
-          <li>- <a href="#">Lorem ipsum</a></li>
-          <li>- <a href="#">Nam mauris velit</a></li>
-          <li>- <a href="#">Etiam vitae mauris</a></li>
-          <li>- <a href="#">Fusce scelerisque</a></li>
-          <li>- <a href="#">Sed faucibus</a></li>
-          <li>- <a href="#">Mauris efficitur nulla</a></li>
+          <li class="list-group-item">-<a class="" href="{{ route('donate') }}">Donate</a></li>
+          <li class="list-group-item">- <a class="" href="#whyus">Why us?</a></li>
+          <li class="list-group-item">- <a class="" href="#team">Team</a></li>
+          <li class="list-group-item">- <a class="" href="#">Events</a></li>
+          <li class="list-group-item">- <a class="" href="#blogger">Blog</a></li>
+          <li class="list-group-item">- <a class="text-underline-hover" href="#gallery">Gallery</a></li>
         </ul>
       </div>
       <div class="col-lg-4 col-xs-12 location">
         <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-        <p>22, Lorem ipsum dolor, consectetur adipiscing</p>
-        <p class="mb-0"><i class="fa fa-phone mr-3"></i>(541) 754-3010</p>
-        <p><i class="fa fa-envelope-o mr-3"></i>info@hsdf.com</p>
+        <p>KamalPokhari, Kathmandu Nepal</p>
+        <p class="mb-0"><i class='bx bx-phone-call mr-5'></i> 44600</p>
+        <p><i class='bx bx-envelope mr-3'></i> lifeline@gmail.com</p>
       </div>
     </div>
     <div class="row mt-5">
       <div class="col copyright">
-        <p class=""><small class="text-white-50">© 2019. All Rights Reserved.</small></p>
+        <p class=""><small class="text-black-50">© 2023. All Rights Reserved.Fancy Freelancers</small></p>
       </div>
     </div>
   </div>
