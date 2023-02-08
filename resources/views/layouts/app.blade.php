@@ -26,8 +26,8 @@
     <link rel="stylesheet" href="{{ asset('sidebar/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('sidebar/css/components.css') }}">
 
-       <!-- Boxicons CSS -->
-       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Boxicons CSS -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -89,8 +89,44 @@
     <!-- Template JS File -->
     <script src="{{ asset('sidebar/js/scripts.js') }}"></script>
     <script src="{{ asset('sidebar/js/custom.js') }}"></script>
+    {{-- izitoast --}}
+    <link rel="stylesheet" href="{{ asset('assets/iziToast.min.css') }}">
 
     @yield('scripts')
+
+    {{-- izi toast  --}}
+    <script src="{{ asset('assets/iziToast.min.js') }}"></script>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <script>
+                iziToast.error({
+                    title: '',
+                    position: 'topRight',
+                    message: '{{ $error }}',
+                });
+            </script>
+        @endforeach
+    @endif
+
+    @if (session()->get('error'))
+        <script>
+            iziToast.error({
+                title: '',
+                position: 'topRight',
+                message: "{{ session()->get('error') }}",
+            });
+        </script>
+    @endif
+    @if (session()->get('success'))
+        <script>
+            iziToast.success({
+                title: '',
+                position: 'topRight',
+                message: "{{ session()->get('success') }}",
+            });
+        </script>
+    @endif
+
 </body>
 
 </html>

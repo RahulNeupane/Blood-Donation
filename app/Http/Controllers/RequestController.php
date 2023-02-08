@@ -15,6 +15,11 @@ class RequestController extends Controller
         $accepted_requests = Requests::where('type', '=', 1)->where('approve','=',1)->get();
         return view('request.donate',compact('requests','accepted_requests'));
     }
+    public function receiveRequests(){
+        $requests = Requests::where('type', '=', 2)->where('approve','=',0)->get();
+        $accepted_requests = Requests::where('type', '=', 2)->where('approve','=',1)->get();
+        return view('request.receive',compact('requests','accepted_requests'));
+    }
     public function donateRequestAccept(Request $request, $id){
         $user = Requests::where('userid', '=', $id)->first();
 
@@ -47,7 +52,7 @@ class RequestController extends Controller
         return back();
     }
 
-    public function updateRewardPoints(Request $request,$id){
+    public function updateRewardPoints($id){
         $user = User::findOrFail($id);
         $updated = $user->RewardPointsUpdated;
         if(!$updated){
@@ -55,10 +60,9 @@ class RequestController extends Controller
                 'RewardPoints'=>$user->RewardPoints+100,
                 'RewardPointsUpdated'=>1,
             ]);
-            return back();
+            return back()->with('success', 'Reward Points updated !');
         }else{
-            return back()->with('fail', 'Points already updated !');
-        }
-       
+            return back()->with('error', 'Points already updated !');
+        } 
     }
 }

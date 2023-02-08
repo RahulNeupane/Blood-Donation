@@ -7,8 +7,11 @@
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
                             <div class="card">
-                                <div class="card-header text-center mb-3">
-                                    <h4>Add Blogs</h4>
+                                <div class="card-header text-center mb-3 justify-content-between">
+                                    <h4>Create Blog</h4>
+                                    <div>
+                                        <a href="{{ route('blogger.index') }}" class="btn btn-primary"> View Blogs</a>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <form action="{{ route('blogger.store') }}" method="POST" enctype="multipart/form-data">

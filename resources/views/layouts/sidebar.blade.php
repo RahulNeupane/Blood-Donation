@@ -43,41 +43,26 @@
                     <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-home"></i><span>Goto
                             Homepage</span></a>
                 </li>
-                <li class="dropdown {{ request()->is('events/*') || request()->is('events') ? 'active' : '' }}">
-                    <a href="#" class="nav-link has-dropdown"><i
-                            class="fas fa-calendar"></i><span>Events</span></a>
+                <li class="dropdown {{ Request::is('events') ? 'active' : '' }} || {{ Request::is('events/*') ? 'active' : '' }} || {{ Request::is('gallery')? 'active':'' }} || {{ Request::is('gallery/*') ? 'active' : '' }} || {{ Request::is('blogger')? 'active': '' }} || {{ Request::is('blogger/*') ? 'active' : '' }}">
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-home"></i><span>Homepage
+                            Items</span></a>
                     <ul class="dropdown-menu">
-                        <li class="{{ request()->routeIs('events.create') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('events.create') }}">Add Events</a></li>
-                        <li class="{{ request()->routeIs('events.index') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('events.index') }}">All Events</a></li>
+                        <li class="{{ Request::is('events') ? 'active' : '' }} || {{ Request::is('events/*') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('events.index') }}"><i class='bx bx-calendar-event'></i>Events</a></li>
+                        <li class="{{ Request::is('gallery') ? 'active' : '' }} || {{ Request::is('gallery/*') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('gallery.index') }}"><i class="fas fa-image"></i>Gallery</a></li>
+                        <li class="{{ Request::is('blogger') ? 'active' : '' }} || {{ Request::is('blogger/*') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('blogger.index') }}"><i class="fab fa-blogger-b"></i>Blogs</a></li>
                     </ul>
                 </li>
-                <li class="dropdown {{ request()->is('gallery/*') || request()->is('gallery') ? 'active' : '' }}">
-                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-image"></i><span>Gallery</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="{{ request()->routeIs('gallery.create') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('gallery.create') }}">Add Images</a></li>
-                        <li class="{{ request()->routeIs('gallery.index') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('gallery.index') }}">All Images</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown {{ request()->is('blogger/*') || request()->is('blogger') ? 'active' : '' }}">
-                    <a href="#" class="nav-link has-dropdown"><i class='bx bxl-blogger'></i><span>Blogs</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="{{ request()->routeIs('blogger.create') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('blogger.create') }}">Add Blogs</a></li>
-                        <li class="{{ request()->routeIs('blogger.index') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('blogger.index') }}">All Blogs</a></li>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-image"></i><span>Blood
+
+                <li class="dropdown {{ Request::is('donate-request') ? 'active' : '' }} || {{ Request::is('receive-request') ? 'active' : '' }}">
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-tint"></i><span>Blood
                             Request</span></a>
                     <ul class="dropdown-menu">
-                        <li class=""><a class="nav-link" href="{{ route('donateRequest') }}">Donate Request</a>
+                        <li class="{{ Request::is('donate-request') ? 'active' : '' }}"><a class="nav-link" href="{{ route('donateRequest') }}"><i class='bx bx-donate-blood' ></i>Donate Request</a>
                         </li>
-                        <li class=""><a class="nav-link" href="#">Receive Request</a></li>
+                        <li class="{{ Request::is('receive-request') ? 'active' : '' }}"><a class="nav-link" href="{{ route('receiveRequests') }}"><i class='bx bxs-donate-blood' ></i>Receive Request</a></li>
                     </ul>
                 </li>
                 <li class="menu-header">Log Out</li>

@@ -7,8 +7,11 @@
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
                             <div class="card p-5">
-                                <div class="card-header text-center mb-3">
+                                <div class="card-header text-center mb-3 justify-content-between">
                                     <h4>Event Detail</h4>
+                                    <div>
+                                        <a href="{{ route('events.index') }}" class="btn btn-primary">View Events</a>
+                                    </div>
                                 </div>
                                 <div class="card-body d-flex flex-wrap">
                                     <img src="{{ url('/images/events/' . $event->image) }}" class="card-img" alt="event">
