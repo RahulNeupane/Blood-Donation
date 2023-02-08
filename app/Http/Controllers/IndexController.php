@@ -98,7 +98,7 @@ class IndexController extends Controller
     }
     
     public function allUsers(){
-        $users = User::where('role', '=', 0)->get();
+        $users = User::where('role', '=', 2)->get();
         return view('all_users',compact('users'));
     }
     public function viewmore(Request $request,$id){

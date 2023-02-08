@@ -7,8 +7,11 @@
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
                             <div class="card">
-                                <div class="card-header text-center mb-3">
-                                    <h4>Add Images</h4>
+                                <div class="card-header text-center mb-3 justify-content-between">
+                                    <h4>Add Image</h4>
+                                    <div>
+                                        <a href="{{ route('gallery.index') }}" class="btn btn-primary">View Gallery</a>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <form action="{{ route('gallery.store') }}" method="POST" enctype="multipart/form-data">

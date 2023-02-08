@@ -41,6 +41,7 @@ Route::post('/reset_password_submit', [CustomAuthController::class, 'reset_passw
 Route::middleware(['admin'])->group(function () {
     Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
     Route::get('/donate-request', [RequestController::class, 'donateRequests'])->name('donateRequests');
+    Route::get('/receive-request', [RequestController::class, 'receiveRequests'])->name('receiveRequests');
     Route::get('/donate-request-accept/{userid}', [RequestController::class, 'donateRequestAccept'])->name('donateRequestAccept');
     Route::get('/update-reward-points/{userid}', [RequestController::class, 'updateRewardPoints'])->name('updateRewardPoints');
     Route::get('/users', [IndexController::class, 'allUsers'])->name('allUsers');

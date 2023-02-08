@@ -7,8 +7,11 @@
                     <div class="row">
                         <div class="col-12 col-md-12 col-lg-12">
                             <div class="card">
-                                <div class="card-header text-center mb-3">
-                                    <h4>Add Event</h4>
+                                <div class="card-header text-center mb-3 justify-content-between">
+                                    <h4>Create Event</h4>
+                                    <div>
+                                        <a href="{{ route('events.index') }}" class="btn btn-primary">View Events</a>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <form action="{{ route('events.store') }}" method="POST" enctype="multipart/form-data">

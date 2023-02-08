@@ -106,7 +106,7 @@ class CustomAuthController extends Controller
 
         Mail::to($request->email)->send(new Websitemail($subject,$message));
 
-        echo 'confirm your email to contine';
+        return redirect()->route('login')->with('success', 'A verification link is sent to your email !');
 
     }
 
@@ -122,7 +122,7 @@ class CustomAuthController extends Controller
         $user->token = '';
         $user->update();
 
-        echo 'Registration is successful';
+        return redirect()->route('login')->with('success', 'Email Verified ! You can login now');
     }
 
     public function forget_password()
