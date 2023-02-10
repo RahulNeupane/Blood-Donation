@@ -19,7 +19,7 @@
                         <div class="author"><span>By:</span> Admin</div>
                         <div class="date"><span>On:</span> {{ $blog->created_at->format('F d,y') }}</div>
                         <div class="category"><span>Category:</span> <a
-                                href="">{{ $blog->rBlogCategory->category_name }}</a></div>
+                                href="{{ route('category',$blog->blog_category_id) }}">{{ $blog->rBlogCategory->category_name }}</a></div>
                     </div>
                     <div class="text mt-3">
                         <p>
@@ -191,7 +191,7 @@
                             <h2>Categories</h2>
                             <ul>
                                 @foreach ($categories as $item)
-                                    <li><a href="">{{ $item->category_name }}</a></li>
+                                    <li><a href="{{ route('category',$item->id) }}">{{ $item->category_name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>

@@ -23,6 +23,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/blogs', [IndexController::class, 'blogs'])->name('blogs');
 Route::get('/blog/{id}', [IndexController::class, 'blog_detail'])->name('blog_detail');
+Route::get('/category/{id}', [IndexController::class, 'category'])->name('category');
 
 Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/login-submit', [CustomAuthController::class, 'login_submit'])->name('login_submit');

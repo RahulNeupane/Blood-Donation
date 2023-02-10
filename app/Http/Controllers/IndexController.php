@@ -32,6 +32,11 @@ class IndexController extends Controller
         $blog = Blog::where('id',$id)->first();
         return view('blog_detail',compact('blog','categories','blogs'));
     }
+    public function category($id){
+        $category = BlogCategory::where('id',$id)->first();
+        $blogs = Blog::where('blog_category_id',$id)->paginate(6);
+        return view('category',compact('category','blogs'));
+    }
     public function dashboard(){
         return view('dashboard');
     }
