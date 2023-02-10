@@ -34,10 +34,6 @@
                                             <input type="text" class="form-control" name="title">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Slug: </label>
-                                            <input type="text" class="form-control" name="slug">
-                                        </div>
-                                        <div class="mb-3">
                                             <label>Short Description: </label>
                                             <input type="text" class="form-control" name="short_description">
                                         </div>

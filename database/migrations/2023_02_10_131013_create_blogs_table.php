@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->integer('blog_category_id');
             $table->text('title');
-            $table->text('slug');
             $table->text('short_description');
             $table->text('description');
             $table->text('photo');

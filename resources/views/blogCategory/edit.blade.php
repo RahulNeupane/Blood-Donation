@@ -22,10 +22,6 @@
                                             <input type="text" class="form-control" name="category_name" value={{ $item->category_name }}>
                                         </div>
                                         <div class="mb-3">
-                                            <label>Category Slug: </label>
-                                            <input type="text" class="form-control" name="category_slug" value={{ $item->category_slug}}>
-                                        </div>
-                                        <div class="mb-3">
                                             <button class="btn btn-primary">Update</button>
                                         </div>
                                     </form>

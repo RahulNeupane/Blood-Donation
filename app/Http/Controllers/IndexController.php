@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\BlogCategory;
 use App\Models\Blogger;
 use App\Models\Gallery;
 use App\Models\Requests;
@@ -24,6 +25,12 @@ class IndexController extends Controller
     public function blogs(){
         $blogs = Blog::orderBy('id','desc')->paginate(3);
         return view('blogs',compact('blogs'));
+    }
+    public function blog_detail($id){
+        $blogs = Blog::orderBy('id','desc')->limit(5)->get();
+        $categories = BlogCategory::limit(10)->get();
+        $blog = Blog::where('id',$id)->first();
+        return view('blog_detail',compact('blog','categories','blogs'));
     }
     public function dashboard(){
         return view('dashboard');

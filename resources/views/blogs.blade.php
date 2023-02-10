@@ -30,7 +30,7 @@
 
                                     </p>
                                 </div>
-                                <a href="#" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+                                <a href="{{ route('blog_detail',$blog->id) }}" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
                             </div>
                         </div>
                     </div>

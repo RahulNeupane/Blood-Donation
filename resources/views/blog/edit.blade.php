@@ -42,11 +42,6 @@
                                                 value="{{ $item->title }}">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Slug: </label>
-                                            <input type="text" class="form-control" name="slug"
-                                                value="{{ $item->slug }}">
-                                        </div>
-                                        <div class="mb-3">
                                             <label>Short Description: </label>
                                             <input type="text" class="form-control" name="short_description"
                                                 value="{{ $item->short_description }}">
