@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Blogger;
 use App\Models\Gallery;
 use App\Models\Requests;
@@ -16,9 +17,13 @@ use Illuminate\Support\Facades\Hash;
 class IndexController extends Controller
 {
     public function index(){
-        $blogs = Blogger::all();
+        $blogs = Blog::orderBy('id','Desc')->limit(3)->get();
         $images = Gallery::orderBy('id','Desc')->limit(6)->get();
         return view('index',compact('blogs','images'));
+    }
+    public function blogs(){
+        $blogs = Blog::orderBy('id','desc')->paginate(3);
+        return view('blogs',compact('blogs'));
     }
     public function dashboard(){
         return view('dashboard');

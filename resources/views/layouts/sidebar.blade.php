@@ -51,8 +51,6 @@
                                 href="{{ route('events.index') }}"><i class='bx bx-calendar-event'></i>Events</a></li>
                         <li class="{{ Request::is('gallery') ? 'active' : '' }} || {{ Request::is('gallery/*') ? 'active' : '' }}"><a class="nav-link"
                                 href="{{ route('gallery.index') }}"><i class="fas fa-image"></i>Gallery</a></li>
-                        <li class="{{ Request::is('blogger') ? 'active' : '' }} || {{ Request::is('blogger/*') ? 'active' : '' }}"><a class="nav-link"
-                                href="{{ route('blogger.index') }}"><i class="fab fa-blogger-b"></i>Blogs</a></li>
                     </ul>
                 </li>
 
