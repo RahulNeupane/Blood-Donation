@@ -50,7 +50,7 @@
                                     <ul class="dropdown-menu">
                                       <li><a class="dropdown-item" href="#team">Team</a></li>
                                       <li><a class="dropdown-item" href="#">Events</a></li>
-                                      <li><a class="dropdown-item" href="#blogger">Blog</a></li>
+                                      <li><a class="dropdown-item" href="{{ route('blogs') }}">Blog</a></li>
                                     </ul>
                                 </div>
                             </li>

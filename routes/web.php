@@ -5,7 +5,6 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\GalleryController;
-use App\Http\Controllers\BloggerController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RequestController;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/blogs', [IndexController::class, 'blogs'])->name('blogs');
 
 Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/login-submit', [CustomAuthController::class, 'login_submit'])->name('login_submit');
@@ -51,7 +51,6 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/changepass', [CustomAuthController::class, 'changepass'])->name('change-pass');
     Route::resource('/events', EventsController::class, ['names' => 'events']);
     Route::resource('/gallery', GalleryController::class, ['names' => 'gallery']);
-    Route::resource('/blogger', BloggerController::class, ['names' => 'blogger']);
     Route::resource('/blog-categories', BlogCategoryController::class, ['names' => 'blogCategory']);
     Route::resource('/blog', BlogController::class, ['names' => 'blog']);
 
