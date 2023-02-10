@@ -22,7 +22,7 @@ class IndexController extends Controller
         return view('index',compact('blogs','images'));
     }
     public function blogs(){
-        $blogs = Blog::all();
+        $blogs = Blog::orderBy('id','desc')->paginate(3);
         return view('blogs',compact('blogs'));
     }
     public function dashboard(){

@@ -54,7 +54,7 @@
                                         <div class="mb-3">
                                             <label>Description: </label>
                                             <input type="text" class="form-control" name="description"
-                                                value="{{ $item->short_description }}">
+                                                value="{{ $item->description }}">
                                         </div>
                                         <div class="mb-3">
                                             <label>Show Comment: </label>
