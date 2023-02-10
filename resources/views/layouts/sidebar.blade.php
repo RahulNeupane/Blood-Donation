@@ -65,6 +65,13 @@
                         <li class="{{ Request::is('receive-request') ? 'active' : '' }}"><a class="nav-link" href="{{ route('receiveRequests') }}"><i class='bx bxs-donate-blood' ></i>Receive Request</a></li>
                     </ul>
                 </li>
+                <li class="dropdown {{ Request::is('blog-categories') ? 'active' : '' }} ">
+                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-tint"></i><span>Blog</span></a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ Request::is('blog-categories') ? 'active' : '' }}"><a class="nav-link" href="{{ route('blogCategory.index') }}"><i class='bx bx-donate-blood' ></i>Category</a>
+                        </li>
+                    </ul>
+                </li>
                 <li class="menu-header">Log Out</li>
                 <li>
                     <a href="{{ route('logout') }}" class="nav-link">
