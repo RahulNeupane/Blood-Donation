@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\EventsController;
-use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\BloggerController;
 use App\Http\Controllers\IndexController;
@@ -51,6 +51,8 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('/events', EventsController::class, ['names' => 'events']);
     Route::resource('/gallery', GalleryController::class, ['names' => 'gallery']);
     Route::resource('/blogger', BloggerController::class, ['names' => 'blogger']);
+    Route::resource('/blog-categories', BlogCategoryController::class, ['names' => 'blogCategory']);
+
 });
 
 Route::middleware(['auth'])->group(function(){
