@@ -75,12 +75,12 @@
     <script src="{{ asset('sidebar/js/stisla.js') }}"></script>
 
     <!-- JS Libraies -->
-    <script src="{{ asset('sidebar/modules/jquery.sparkline.min.js') }}"></script>
+    {{-- <script src="{{ asset('sidebar/modules/jquery.sparkline.min.js') }}"></script>
     <script src="{{ asset('sidebar/modules/chart.min.js') }}"></script>
     <script src="{{ asset('sidebar/modules/owlcarousel2/dist/owl.carousel.min.js') }}"></script>
     <script src="{{ asset('sidebar/modules/summernote/summernote-bs4.js') }}"></script>
     <script src="{{ asset('sidebar/modules/chocolat/dist/js/jquery.chocolat.min.js') }}"></script>
-    <script src="{{ asset('sidebar/plugins/dropify/js/dropify.min.js') }}"></script>
+    <script src="{{ asset('sidebar/plugins/dropify/js/dropify.min.js') }}"></script> --}}
     <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
 
     <!-- Page Specific JS File -->

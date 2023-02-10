@@ -66,9 +66,11 @@
                     </ul>
                 </li>
                 <li class="dropdown {{ Request::is('blog-categories') ? 'active' : '' }} ">
-                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-tint"></i><span>Blog</span></a>
+                    <a href="#" class="nav-link has-dropdown"><i class="fab fa-blogger-b"></i><span>Blog</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ Request::is('blog-categories') ? 'active' : '' }}"><a class="nav-link" href="{{ route('blogCategory.index') }}"><i class='bx bx-donate-blood' ></i>Category</a>
+                        </li>
+                        <li class="{{ Request::is('blog') ? 'active' : '' }}"><a class="nav-link" href="{{ route('blog.index') }}"><i class='bx bx-donate-blood' ></i>Blog</a>
                         </li>
                     </ul>
                 </li>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BlogCategoryController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\GalleryController;
@@ -52,6 +53,7 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('/gallery', GalleryController::class, ['names' => 'gallery']);
     Route::resource('/blogger', BloggerController::class, ['names' => 'blogger']);
     Route::resource('/blog-categories', BlogCategoryController::class, ['names' => 'blogCategory']);
+    Route::resource('/blog', BlogController::class, ['names' => 'blog']);
 
 });
 
