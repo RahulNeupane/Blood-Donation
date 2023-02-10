@@ -18,7 +18,6 @@
                                         <thead>
                                             <th>Sl No.</th>
                                             <th>Category Name</th>
-                                            <th>Category Slug</th>
                                             <th>Actions</th>
                                         </thead>
                                         <tbody>
@@ -26,7 +25,6 @@
                                                 <tr>
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $item->category_name }}</td>
-                                                    <td>{{ $item->category_slug }}</td>
                                                     <td>
                                                         <a href="{{ route('blogCategory.edit', $item->id) }}"><button
                                                                 class="btn btn-primary">edit</button></a>

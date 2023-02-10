@@ -21,10 +21,6 @@
                                             <input type="text" class="form-control" name="category_name">
                                         </div>
                                         <div class="mb-3">
-                                            <label>Category Slug: </label>
-                                            <input type="text" class="form-control" name="category_slug">
-                                        </div>
-                                        <div class="mb-3">
                                             <button class="btn btn-primary">Save</button>
                                         </div>
                                     </form>

@@ -175,7 +175,7 @@
                                     
                                 </p>
                             </div>
-                            <a href="#" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+                            <a href="{{ route('blog_detail',$blog->id) }}" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -310,45 +310,4 @@
     <!-- contact section  -->
     {{-- @endauth --}}
 
-    <!-- Footer -->
-    <div class="mt-5 pt-5 pb-5 footer bg-white shadow-sm border-1-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-xs-12 about-company">
-                    <a class="mb-2" href="{{ route('home') }}">
-                        <img width="80" src="{{ url(asset('images/logo.png')) }}" alt="LOGO" />
-                    </a>
-                    <p class="pr-5 text-black-50 mt-4">Blood is precious, give it freely. Your donation can be the
-                        difference between life and death. </p>
-                    <p class="h-5"><a href="#"><i class='bx bxl-facebook-circle'></i></a><a href="#"><i
-                                class='bx bxl-twitter'></i></a><a href="#"><i class='bx bxl-linkedin'></i></a><a
-                            href="#"><i class='bx bxl-instagram'></i></a></p>
-                </div>
-                <div class="col-lg-3 col-xs-12 links">
-                    <h4 class="mt-lg-0 mt-sm-3">Links</h4>
-                    <ul class="m-0 p-0">
-                        <li class="list-group-item">-<a class="" href="{{ route('donate') }}">Donate</a></li>
-                        <li class="list-group-item">- <a class="" href="#whyus">Why us?</a></li>
-                        <li class="list-group-item">- <a class="" href="#team">Team</a></li>
-                        <li class="list-group-item">- <a class="" href="#">Events</a></li>
-                        <li class="list-group-item">- <a class="" href="#blogger">Blog</a></li>
-                        <li class="list-group-item">- <a class="text-underline-hover" href="#gallery">Gallery</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-xs-12 location">
-                    <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-                    <p>KamalPokhari, Kathmandu Nepal</p>
-                    <p class="mb-0"><i class='bx bx-phone-call mr-5'></i> 44600</p>
-                    <p><i class='bx bx-envelope mr-3'></i> lifeline@gmail.com</p>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col copyright">
-                    <p class=""><small class="text-black-50">© 2023. All Rights Reserved.Fancy Freelancers</small>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer -->
 @endsection

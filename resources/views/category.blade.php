@@ -1,19 +1,15 @@
 @extends('layouts.home')
 @section('content')
     <hr>
-    <div class="page-content blog">
-        <div class="container mt-5">
-            <div class="text-center">
-                <h1>Our Blogs</h1>
-                <div class="d-flex justify-content-center  ">
-                    <div class="one"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid "
-                            style="height: 3px;width: 13.5vh;"> </div>
-                    <div class="two"> <img src="{{ url(asset('images/rectangle.png')) }}" class="img-fluid"
-                            style="height: 21px;width: 21px;"> </div>
-                    <div class="three"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid"
-                            style="height: 3px;width: 13.5vh;"> </div>
-                </div><br><br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center p-3">
+                Category: <h4 class="text-capitalize d-inline"> {{ $category->category_name }}</h4>
             </div>
+        </div>
+    </div>
+    <div class="page-content blog">
+        <div class="container">
             <div class="row">
                 @foreach ($blogs as $blog)
                     <div class="col-lg-4 col-md-6 col-sm-12">
@@ -30,12 +26,12 @@
 
                                     </p>
                                 </div>
-                                <a href="{{ route('blog_detail',$blog->id) }}" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+                                <a href="{{ route('blog_detail', $blog->id) }}"
+                                    class="btn btn-outline-primary rounded-0 float-end">Read More</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
             </div>
             <div class="row">
                 <div class="col-md-12">

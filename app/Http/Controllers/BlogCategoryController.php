@@ -41,12 +41,10 @@ class BlogCategoryController extends Controller
     {
         $request->validate([
             'category_name' => 'required',
-            'category_slug' => 'required|unique:blog_categories',
         ]);
 
         $obj = new BlogCategory();
         $obj->category_name = $request->category_name;
-        $obj->category_slug = $request->category_slug;
         $obj->save();
 
         return redirect()->route('blogCategory.index')->with("success","Category added succesfully");
@@ -86,12 +84,10 @@ class BlogCategoryController extends Controller
     {
         $request->validate([
             'category_name' => 'required',
-            'category_slug' => ['required','alpha_dash',Rule::unique('blog_categories')->ignore($id)],
         ]);
 
         $obj = BlogCategory::where('id',$id)->first();
         $obj->category_name = $request->category_name;
-        $obj->category_slug = $request->category_slug;
         $obj->update();
 
         return redirect()->route("blogCategory.index")->with("success","Category updated succesfully");
