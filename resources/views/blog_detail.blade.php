@@ -33,141 +33,147 @@
                             async="async"></script>
                         <div class="sharethis-inline-share-buttons"></div>
                     </div>
+                    @if ($blog->show_comment == 'Yes')
+                        <div class="comment">
 
-                    <div class="comment">
+                            <h2>6 Comments</h2>
 
-                        <h2>6 Comments</h2>
+                            <div class="comment-section">
 
-                        <div class="comment-section">
-
-                            <div class="comment-box d-flex justify-content-start">
-                                <div class="left">
-                                    <img src="images/t1.jpg" alt="">
-                                </div>
-                                <div class="right">
-                                    <div class="name">Patrick Smith</div>
-                                    <div class="date">September 25, 2022</div>
-                                    <div class="text">
-                                        Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                        platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur. Mei et
-                                        solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                        invenire.
+                                <div class="comment-box d-flex justify-content-start">
+                                    <div class="left">
+                                        <img src="images/t1.jpg" alt="">
                                     </div>
-                                    <div class="reply">
-                                        <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                    <div class="right">
+                                        <div class="name">Patrick Smith</div>
+                                        <div class="date">September 25, 2022</div>
+                                        <div class="text">
+                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
+                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
+                                            Mei et
+                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
+                                            invenire.
+                                        </div>
+                                        <div class="reply">
+                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="comment-box reply-box d-flex justify-content-start">
+                                    <div class="left">
+                                        <img src="images/t2.jpg" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div class="name">John Doe</div>
+                                        <div class="date">September 25, 2022</div>
+                                        <div class="text">
+                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
+                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
+                                            Mei et
+                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
+                                            invenire.
+                                        </div>
+                                        <div class="reply">
+                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="comment-box reply-box d-flex justify-content-start">
+                                    <div class="left">
+                                        <img src="images/t3.jpg" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div class="name">Brent Smith</div>
+                                        <div class="date">September 25, 2022</div>
+                                        <div class="text">
+                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
+                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
+                                            Mei et
+                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
+                                            invenire.
+                                        </div>
+                                        <div class="reply">
+                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="comment-section">
+                                <div class="comment-box d-flex justify-content-start">
+                                    <div class="left">
+                                        <img src="images/t2.jpg" alt="">
+                                    </div>
+                                    <div class="right">
+                                        <div class="name">John Doe</div>
+                                        <div class="date">September 25, 2022</div>
+                                        <div class="text">
+                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
+                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
+                                            Mei et
+                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
+                                            invenire.
+                                        </div>
+                                        <div class="reply">
+                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="comment-box reply-box d-flex justify-content-start">
-                                <div class="left">
-                                    <img src="images/t2.jpg" alt="">
-                                </div>
-                                <div class="right">
-                                    <div class="name">John Doe</div>
-                                    <div class="date">September 25, 2022</div>
-                                    <div class="text">
-                                        Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                        platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur. Mei et
-                                        solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                        invenire.
+                            <div class="comment-section">
+                                <div class="comment-box d-flex justify-content-start">
+                                    <div class="left">
+                                        <img src="images/t3.jpg" alt="">
                                     </div>
-                                    <div class="reply">
-                                        <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                    <div class="right">
+                                        <div class="name">John Doe</div>
+                                        <div class="date">September 25, 2022</div>
+                                        <div class="text">
+                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
+                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
+                                            Mei et
+                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
+                                            invenire.
+                                        </div>
+                                        <div class="reply">
+                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="comment-box reply-box d-flex justify-content-start">
-                                <div class="left">
-                                    <img src="images/t3.jpg" alt="">
-                                </div>
-                                <div class="right">
-                                    <div class="name">Brent Smith</div>
-                                    <div class="date">September 25, 2022</div>
-                                    <div class="text">
-                                        Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                        platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur. Mei et
-                                        solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                        invenire.
+
+                            <div class="mt_40"></div>
+
+                            <h2>Leave Your Comment</h2>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" placeholder="Name">
                                     </div>
-                                    <div class="reply">
-                                        <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" placeholder="Email Address">
                                     </div>
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+
 
                         </div>
-
-
-                        <div class="comment-section">
-                            <div class="comment-box d-flex justify-content-start">
-                                <div class="left">
-                                    <img src="images/t2.jpg" alt="">
-                                </div>
-                                <div class="right">
-                                    <div class="name">John Doe</div>
-                                    <div class="date">September 25, 2022</div>
-                                    <div class="text">
-                                        Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                        platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur. Mei et
-                                        solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                        invenire.
-                                    </div>
-                                    <div class="reply">
-                                        <a href=""><i class="fas fa-reply"></i> Reply</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="comment-section">
-                            <div class="comment-box d-flex justify-content-start">
-                                <div class="left">
-                                    <img src="images/t3.jpg" alt="">
-                                </div>
-                                <div class="right">
-                                    <div class="name">John Doe</div>
-                                    <div class="date">September 25, 2022</div>
-                                    <div class="text">
-                                        Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                        platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur. Mei et
-                                        solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                        invenire.
-                                    </div>
-                                    <div class="reply">
-                                        <a href=""><i class="fas fa-reply"></i> Reply</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="mt_40"></div>
-
-                        <h2>Leave Your Comment</h2>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" placeholder="Email Address">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </div>
-
-
-                    </div>
+                    @endif
 
                 </div>
                 <div class="col-md-4">
@@ -176,9 +182,9 @@
                             <h2>Latest Post</h2>
                             <ul>
                                 @foreach ($blogs as $item)
-                                <li><a href="{{ route('blog_detail',$item->id) }}">{{ $item->title }}</a></li>
+                                    <li><a href="{{ route('blog_detail', $item->id) }}">{{ $item->title }}</a></li>
                                 @endforeach
-                               
+
                             </ul>
                         </div>
                         <div class="widget">

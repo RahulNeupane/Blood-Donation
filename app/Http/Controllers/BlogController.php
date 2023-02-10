@@ -41,7 +41,6 @@ class BlogController extends Controller
     {
         $request->validate([
             'title' => 'required',
-            'slug' => 'required|unique:blogs',
             'short_description' => 'required',
             'description' => 'required',
             'photo' => 'required|image|mimes:png,jpg,jpeg'
@@ -57,7 +56,6 @@ class BlogController extends Controller
        $blog = new Blog();
        $blog->blog_category_id=$request->blog_category_id;
        $blog->title= $request->title;
-       $blog->slug = $request->slug;
        $blog->short_description= $request->short_description;
        $blog->description= $request->description;
        $blog->show_comment= $request->show_comment;
@@ -103,7 +101,6 @@ class BlogController extends Controller
         $blog=Blog::where('id',$id)->first();
         $request->validate([
             'title' => 'required',
-            'slug' => ['required','alpha_dash',Rule::unique('blogs')->ignore($id)],
             'short_description' => 'required',
             'description' => 'required',
         ]);
@@ -126,7 +123,6 @@ class BlogController extends Controller
 
        $blog->blog_category_id=$request->blog_category_id;
        $blog->title= $request->title;
-       $blog->slug = $request->slug;
        $blog->short_description= $request->short_description;
        $blog->description= $request->description;
        $blog->show_comment= $request->show_comment;
