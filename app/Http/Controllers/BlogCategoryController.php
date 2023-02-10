@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
@@ -105,7 +106,12 @@ class BlogCategoryController extends Controller
     public function destroy($id)
     {
         $obj = BlogCategory::where('id',$id)->first();
-        $obj->delete();
+        $count = Blog::where('blog_category_id',$id)->count();
+        if($count==0){
+            $obj->delete();
+        }else{
+            return redirect()->back()->with('error','You cannot delete this category as one or more blogs are related to this category');
+        }
         return redirect()->route('blogCategory.index')->with("success","Category deleted succesfully");
     }
 }
