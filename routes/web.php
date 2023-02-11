@@ -33,6 +33,8 @@ Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration');
 Route::post('/registration_submit', [CustomAuthController::class, 'registration_submit'])->name('registration_submit');
 
+Route::get('/requestSubmit', [RequestController::class, 'requestSubmit'])->name('requestSubmit');
+
 Route::get('/registration/verify/{token}/{email}', [CustomAuthController::class, 'registration_verify']);
 
 Route::get('/forget-password', [CustomAuthController::class, 'forget_password'])->name('forget_password');
