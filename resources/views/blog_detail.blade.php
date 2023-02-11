@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center p-3">
-                <h1 class="text-capitalize">{{ $blog->title }}</h1>
+                {{-- <h1 class="text-capitalize">{{ $blog->title }}</h1> --}}
             </div>
         </div>
     </div>
@@ -13,17 +13,17 @@
             <div class="row">
                 <div class="col-md-8">
                     <div class="photo">
-                        <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}">
+                        {{-- <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}"> --}}
                     </div>
                     <div class="sub d-flex justify-content-start flex-column">
                         <div class="author"><span>By:</span> Admin</div>
-                        <div class="date"><span>On:</span> {{ $blog->created_at->format('F d,y') }}</div>
+                        {{-- <div class="date"><span>On:</span> {{ $blog->created_at->format('F d,y') }}</div> --}}
                         <div class="category"><span>Category:</span> <a
-                                href="{{ route('category',$blog->blog_category_id) }}">{{ $blog->rBlogCategory->category_name }}</a></div>
+                                {{-- href="{{ route('category',$blog->blog_category_id) }}">{{ $blog->rBlogCategory->category_name }}</a></div> --}}
                     </div>
                     <div class="text mt-3">
                         <p>
-                            {!! nl2br($blog->description) !!}
+                            {{-- {!! nl2br($blog->description) !!} --}}
                         </p>
                     </div>
 
@@ -33,7 +33,7 @@
                             async="async"></script>
                         <div class="sharethis-inline-share-buttons"></div>
                     </div>
-                    @if ($blog->show_comment == 'Yes')
+                    {{-- @if ($blog->show_comment == 'Yes') --}}
                         <div class="comment">
 
                             <h2>6 Comments</h2>
@@ -74,9 +74,7 @@
                                             solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
                                             invenire.
                                         </div>
-                                        <div class="reply">
-                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
-                                        </div>
+                                       
                                     </div>
                                 </div>
 
@@ -94,15 +92,9 @@
                                             solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
                                             invenire.
                                         </div>
-                                        <div class="reply">
-                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
-                                        </div>
                                     </div>
                                 </div>
-
                             </div>
-
-
                             <div class="comment-section">
                                 <div class="comment-box d-flex justify-content-start">
                                     <div class="left">
@@ -173,7 +165,7 @@
 
 
                         </div>
-                    @endif
+                    {{-- @endif --}}
 
                 </div>
                 <div class="col-md-4">

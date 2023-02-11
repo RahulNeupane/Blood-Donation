@@ -10,7 +10,7 @@
                                 <div class="card-header text-center mb-3 justify-content-between">
                                     <h4>All Blogs</h4>
                                     <div>
-                                        <a href="{{ route('blog.create') }}" class="btn btn-primary"><i
+                                        <a href="{{ route("blog.create") }}" class="btn btn-primary"><i
                                                 class="fas fa-plus"></i> Add</a>
                                     </div>
                                 </div>
