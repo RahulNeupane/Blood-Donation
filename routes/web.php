@@ -26,6 +26,7 @@ Route::get('/blog-all', [IndexController::class, 'blogs'])->name('blogs');
 Route::get('/blog-detail/{id}', [IndexController::class, 'blog_detail'])->name('blog_detail');
 Route::get('/category/{id}', [IndexController::class, 'category'])->name('category');
 Route::post('/comment-submit', [CommentController::class, 'comment_submit'])->name('comment_submit');
+Route::post('/reply-submit', [CommentController::class, 'reply_submit'])->name('reply_submit');
 
 Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/login-submit', [CustomAuthController::class, 'login_submit'])->name('login_submit');

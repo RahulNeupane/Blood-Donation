@@ -101,9 +101,11 @@
                                     <div class="comment-box d-flex justify-content-start">
                                         <div class="left">
                                             @if ($item->photo)
-                                            <img src="{{ url(asset('images/user/'.$item->photo)) }}" alt="user" class="d-inline-block justify-center">
+                                                <img src="{{ url(asset('images/user/' . $item->photo)) }}" alt="user"
+                                                    class="d-inline-block justify-center">
                                             @else
-                                                <img src="{{ url(asset('images/user/default.png')) }}" alt="user" class="d-inline-block justify-center">
+                                                <img src="{{ url(asset('images/user/default.png')) }}" alt="user"
+                                                    class="d-inline-block justify-center">
                                             @endif
                                         </div>
                                         <div class="right">
@@ -113,12 +115,57 @@
                                                 {{ $item->person_comment }}
                                             </div>
                                             <div class="reply">
-                                                <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                                        class="fas fa-reply"></i> Reply</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Reply here</h1>
+                                                <button type="button" class="btn btn-close text-white"
+                                                    data-bs-dismiss="modal" aria-label="Close"><b>X</b></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="{{ route('reply_submit') }}" method="POST">
+                                                    @csrf
+                                                    <h2>Leave Your Reply</h2>
+                                                    <input type="hidden" name="blog_id" value="{{ $blog->id }}" >
+                                                    <input type="hidden" name="comment_id" value="{{ $item->id }}">
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Name" name="name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <div class="mb-3">
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="Email Address" name="email">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <textarea class="form-control" rows="3" placeholder="Comment" name="comment"></textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
+
+
+
 
 
 
