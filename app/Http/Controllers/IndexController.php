@@ -31,8 +31,9 @@ class IndexController extends Controller
         $blogs = Blog::orderBy('id','desc')->limit(5)->get();
         $categories = BlogCategory::limit(10)->get();
         $blog = Blog::where('id',$id)->first();
-        $comments = Comment::where('status',1)->get();
-        return view('blog_detail',compact('blog','categories','blogs','comments'));
+        $comments = Comment::with('rReply')->where('status',1)->get();
+        $count = Comment::where('status',1)->count();
+        return view('blog_detail',compact('blog','categories','blogs','comments','count'));
     }
     public function category($id){
         $category = BlogCategory::where('id',$id)->first();

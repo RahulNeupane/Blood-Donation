@@ -18,7 +18,7 @@
                                             <th>Comment</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Comment</th>
+                                            <th>Reply</th>
                                             <th>Actions</th>
                                         </thead>
                                         <tbody>
@@ -26,7 +26,9 @@
                                                 <tr>
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td><a href="{{ route('blog_detail',$item->rBlog->id) }}" target="_blank">{{ $item->rBlog->title }}</a></td>
-                                                    <td>{{ $item->rComment->person_comment }}</td>
+                                                    <td>{{ $item->rComment->person_name }}: {{ $item->rComment->person_comment }}
+                                                        <br>
+                                                        {{ $item->rComment->person_email }}</td>
                                                    <td>{{ $item->person_name }}</td>
                                                    <td>{{ $item->person_email }}</td>
                                                    <td>{{ $item->person_comment }}</td>
@@ -51,4 +53,11 @@
             </div>
         </div>
     </div>
+@endsection
+@section('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
 @endsection

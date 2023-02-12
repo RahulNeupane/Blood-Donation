@@ -36,66 +36,7 @@
                     </div>
                     @if ($blog->show_comment == 'Yes')
                         <div class="comment">
-
-                            <h2>6 Comments</h2>
-
-                            {{-- <div class="comment-section">
-
-                                <div class="comment-box d-flex justify-content-start">
-                                    <div class="left">
-                                        <img src="images/t1.jpg" alt="">
-                                    </div>
-                                    <div class="right">
-                                        <div class="name">Patrick Smith</div>
-                                        <div class="date">September 25, 2022</div>
-                                        <div class="text">
-                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
-                                            Mei et
-                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                            invenire.
-                                        </div>
-                                        <div class="reply">
-                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="comment-box reply-box d-flex justify-content-start">
-                                    <div class="left">
-                                        <img src="images/t2.jpg" alt="">
-                                    </div>
-                                    <div class="right">
-                                        <div class="name">John Doe</div>
-                                        <div class="date">September 25, 2022</div>
-                                        <div class="text">
-                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
-                                            Mei et
-                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                            invenire.
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <div class="comment-box reply-box d-flex justify-content-start">
-                                    <div class="left">
-                                        <img src="images/t3.jpg" alt="">
-                                    </div>
-                                    <div class="right">
-                                        <div class="name">Brent Smith</div>
-                                        <div class="date">September 25, 2022</div>
-                                        <div class="text">
-                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
-                                            Mei et
-                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                            invenire.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
+                            <h2>{{ $count }} Comments</h2>
                             @foreach ($comments as $item)
                                 <div class="comment-section">
                                     <div class="comment-box d-flex justify-content-start">
@@ -120,6 +61,28 @@
                                             </div>
                                         </div>
                                     </div>
+                                    @foreach ($item->rReply as $item2)
+                                        @if($item2->status ==1)
+                                        <div class="comment-box reply-box d-flex justify-content-start">
+                                            <div class="left">
+                                                @if ($item->photo)
+                                                <img src="{{ url(asset('images/user/' . $item->photo)) }}" alt="user"
+                                                    class="d-inline-block justify-center">
+                                            @else
+                                                <img src="{{ url(asset('images/user/default.png')) }}" alt="user"
+                                                    class="d-inline-block justify-center">
+                                            @endif
+                                            </div>
+                                            <div class="right">
+                                                <div class="name">{{ $item2->person_name }}</div>
+                                                <div class="date">{{ $item->created_at->format('F d,y') }}</div>
+                                                <div class="text">
+                                                    {!! nl2br($item2->person_comment) !!}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @endif
+                                    @endforeach
                                 </div>
 
                                 <!-- Modal -->
@@ -138,7 +101,7 @@
                                                     @csrf
                                                     <h2>Leave Your Reply</h2>
                                                     <input type="text" name="blog_id" value="{{ $blog->id }}">
-                                                    <input type="text" name="comment_id" value="{{ $item->person_name }}">
+                                                    <input type="text" name="comment_id" value="{{ $item->id }}">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="mb-3">
