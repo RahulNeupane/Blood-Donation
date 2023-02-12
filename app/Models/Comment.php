@@ -12,4 +12,7 @@ class Comment extends Model
     public function rBlog(){
         return $this->belongsTo(Blog::class,'blog_id');
     }
+    public function rReply(){
+        return $this->hasMany(Reply::class);
+    }
 }
