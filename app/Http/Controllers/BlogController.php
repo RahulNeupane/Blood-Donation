@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 
@@ -145,5 +146,32 @@ class BlogController extends Controller
         }
         $blog->delete();
         return redirect()->route('blog.index')->with("success","Category deleted succesfully");
+    }
+
+    public function pending_comments(){
+        $pending = Comment::where('status',0)->with('rBlog')->get();
+        return view('blog.pending_comment',compact('pending'));
+    }
+    public function approved_comments(){
+        $approved = Comment::where('status',1)->with('rBlog')->get();
+        return view('blog.approved_comment',compact('approved'));
+    }
+
+    public function approve_comment($id){
+        $cmt = Comment::where('id',$id)->first();
+        $cmt->status = 1;
+        $cmt->update();
+        return back()->with("success","Comment Approved succesfully");
+    }
+    public function recheck_comment($id){
+        $cmt = Comment::where('id',$id)->first();
+        $cmt->status = 0;
+        $cmt->update();
+        return back()->with("success","Comment Sent for Recheck succesfully");
+    }
+    public function delete_comment($id){
+        $cmt = Comment::where('id',$id)->first();
+        $cmt->delete();
+        return back()->with("success","Comment deleted succesfully");
     }
 }

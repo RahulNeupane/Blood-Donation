@@ -70,6 +70,12 @@
                         </li>
                         <li class="{{ Request::is('blog') ? 'active' : '' }}"><a class="nav-link" href="{{ route('blog.index') }}"><i class='bx bx-donate-blood' ></i>Blog</a>
                         </li>
+                        <br>
+                        <li class="{{ Request::is('blog') ? 'active' : '' }}"><a class="nav-link" href="{{ route('show_comments') }}"><i class='bx bx-donate-blood' ></i>Pending Comments</a>
+                        </li>
+                        <br>
+                        <li class="{{ Request::is('blog') ? 'active' : '' }}"><a class="nav-link" href="{{ route('approved_comments') }}"><i class='bx bx-donate-blood' ></i>Approved Comments</a>
+                        </li>
                     </ul>
                 </li>
                 <li class="menu-header">Log Out</li>

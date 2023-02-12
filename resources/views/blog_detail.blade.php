@@ -19,7 +19,8 @@
                         <div class="author"><span>By:</span> Admin</div>
                         <div class="date"><span>On:</span> {{ $blog->created_at->format('F d,y') }}</div>
                         <div class="category"><span>Category:</span> <a
-                                href="{{ route('category',$blog->blog_category_id) }}">{{ $blog->rBlogCategory->category_name }}</a></div>
+                                href="{{ route('category', $blog->blog_category_id) }}">{{ $blog->rBlogCategory->category_name }}</a>
+                        </div>
                     </div>
                     <div class="text mt-3">
                         <p>
@@ -74,7 +75,7 @@
                                             solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
                                             invenire.
                                         </div>
-                                       
+
                                     </div>
                                 </div>
 
@@ -141,29 +142,29 @@
 
 
                             <div class="mt_40"></div>
-
-                            <h2>Leave Your Comment</h2>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" placeholder="Name">
+                            <form action="{{ route('comment_submit') }}" method="POST">
+                                @csrf
+                                <h2>Leave Your Comment</h2>
+                                <input type="text" name="blog_id" value="{{ $blog->id }}" hidden>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Name" name="name">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" placeholder="Email Address" name="email"> 
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" placeholder="Email Address">
-                                    </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" rows="3" placeholder="Comment" name="comment"></textarea>
                                 </div>
-                            </div>
-                            <div class="mb-3">
-                                <textarea class="form-control" rows="3" placeholder="Comment"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-
-
+                                <div class="mb-3">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
                         </div>
                     @endif
 
@@ -183,7 +184,7 @@
                             <h2>Categories</h2>
                             <ul>
                                 @foreach ($categories as $item)
-                                    <li><a href="{{ route('category',$item->id) }}">{{ $item->category_name }}</a></li>
+                                    <li><a href="{{ route('category', $item->id) }}">{{ $item->category_name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>

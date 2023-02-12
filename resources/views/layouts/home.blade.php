@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
     {{-- box icons  --}}
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    {{-- izitoast --}}
+    <link rel="stylesheet" href="{{ asset('assets/iziToast.min.css') }}">
     @vite(['resources/js/app.js'])
 
 
@@ -48,9 +49,9 @@
                                         Pages
                                     </button>
                                     <ul class="dropdown-menu">
-                                      <li><a class="dropdown-item" href="#team">Team</a></li>
-                                      <li><a class="dropdown-item" href="#">Events</a></li>
-                                      <li><a class="dropdown-item" href="{{ route('blogs') }}">Blog</a></li>
+                                        <li><a class="dropdown-item" href="#team">Team</a></li>
+                                        <li><a class="dropdown-item" href="#">Events</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('blogs') }}">Blog</a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -66,8 +67,9 @@
                                     <div class="dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" role="button"
                                             data-bs-toggle="dropdown" aria-expanded="false">
-                                            <span><img src="{{ url('/images/user/' . auth()->user()->image) }}" alt="user"
-                                                    width="20" style="border-radius: 50%; object-fit:cover;"
+                                            <span><img src="{{ url('/images/user/' . auth()->user()->image) }}"
+                                                    alt="user" width="20"
+                                                    style="border-radius: 50%; object-fit:cover;"
                                                     class="me-2"></span>{{ auth()->user()->name }}
                                         </a>
 
@@ -90,7 +92,7 @@
     {{-- navbar ends  --}}
 
     @yield('content')
-    
+
     <!-- Footer -->
     <div class="mt-5 pt-5 pb-5 footer bg-white shadow-sm border-1-top">
         <div class="container">
@@ -113,7 +115,8 @@
                         <li class="list-group-item">- <a class="" href="#team">Team</a></li>
                         <li class="list-group-item">- <a class="" href="#">Events</a></li>
                         <li class="list-group-item">- <a class="" href="#blogger">Blog</a></li>
-                        <li class="list-group-item">- <a class="text-underline-hover" href="#gallery">Gallery</a></li>
+                        <li class="list-group-item">- <a class="text-underline-hover" href="#gallery">Gallery</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="col-lg-4 col-xs-12 location">
@@ -125,7 +128,8 @@
             </div>
             <div class="row mt-5">
                 <div class="col copyright">
-                    <p class=""><small class="text-black-50">© 2023. All Rights Reserved.Fancy Freelancers</small>
+                    <p class=""><small class="text-black-50">© 2023. All Rights Reserved.Fancy
+                            Freelancers</small>
                     </p>
                 </div>
             </div>
@@ -134,6 +138,38 @@
     <!-- Footer -->
 
     @yield('scripts')
+    {{-- izi toast  --}}
+    <script src="{{ asset('assets/iziToast.min.js') }}"></script>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <script>
+                iziToast.error({
+                    title: '',
+                    position: 'topRight',
+                    message: '{{ $error }}',
+                });
+            </script>
+        @endforeach
+    @endif
+
+    @if (session()->get('error'))
+        <script>
+            iziToast.error({
+                title: '',
+                position: 'topRight',
+                message: "{{ session()->get('error') }}",
+            });
+        </script>
+    @endif
+    @if (session()->get('success'))
+        <script>
+            iziToast.success({
+                title: '',
+                position: 'topRight',
+                message: "{{ session()->get('success') }}",
+            });
+        </script>
+    @endif
 </body>
 
 </html>
