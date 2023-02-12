@@ -66,15 +66,19 @@
                 <li class="dropdown {{ Request::is('blog-categories') ? 'active' : '' }} ">
                     <a href="#" class="nav-link has-dropdown"><i class="fab fa-blogger-b"></i><span>Blog</span></a>
                     <ul class="dropdown-menu">
-                        <li class="{{ Request::is('blog-categories') ? 'active' : '' }}"><a class="nav-link" href="{{ route('blogCategory.index') }}"><i class='bx bx-donate-blood' ></i>Category</a>
+                        <li class=""><a class="nav-link" href="{{ route('blogCategory.index') }}"><i class='bx bx-donate-blood' ></i>Category</a>
                         </li>
-                        <li class="{{ Request::is('blog') ? 'active' : '' }}"><a class="nav-link" href="{{ route('blog.index') }}"><i class='bx bx-donate-blood' ></i>Blog</a>
-                        </li>
-                        <br>
-                        <li class="{{ Request::is('blog') ? 'active' : '' }}"><a class="nav-link" href="{{ route('show_comments') }}"><i class='bx bx-donate-blood' ></i>Pending Comments</a>
+                        <li class=""><a class="nav-link" href="{{ route('blog.index') }}"><i class='bx bx-donate-blood' ></i>Blog</a>
                         </li>
                         <br>
-                        <li class="{{ Request::is('blog') ? 'active' : '' }}"><a class="nav-link" href="{{ route('approved_comments') }}"><i class='bx bx-donate-blood' ></i>Approved Comments</a>
+                        <li class=""><a class="nav-link" href="{{ route('show_comments') }}"><i class='bx bx-donate-blood' ></i>Pending Comments</a>
+                        </li>
+                        <br>
+                        <li class=""><a class="nav-link" href="{{ route('approved_comments') }}"><i class='bx bx-donate-blood' ></i>Approved Comments</a>
+                        </li>
+                        <li class=""><a class="nav-link" href="{{ route('show_reply') }}"><i class='bx bx-donate-blood' ></i>Pending Reply</a>
+                        </li>
+                        <li class=""><a class="nav-link" href="{{ route('approved_reply') }}"><i class='bx bx-donate-blood' ></i>Approved Reply</a>
                         </li>
                     </ul>
                 </li>

@@ -112,31 +112,33 @@
                                             <div class="name">{{ $item->person_name }}</div>
                                             <div class="date">{{ $item->created_at->format('F d,y') }}</div>
                                             <div class="text">
-                                                {{ $item->person_comment }}
+                                                {!! nl2br($item->person_comment) !!}
                                             </div>
                                             <div class="reply">
-                                                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
                                                         class="fas fa-reply"></i> Reply</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                                 <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                    data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                     aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h1 class="modal-title fs-5" id="exampleModalLabel">Reply here</h1>
-                                                <button type="button" class="btn btn-close text-white"
-                                                    data-bs-dismiss="modal" aria-label="Close"><b>X</b></button>
+                                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Reply Here</h1>
+                                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                                                    aria-label="Close"><b>X</b></button>
                                             </div>
                                             <div class="modal-body">
                                                 <form action="{{ route('reply_submit') }}" method="POST">
                                                     @csrf
                                                     <h2>Leave Your Reply</h2>
-                                                    <input type="hidden" name="blog_id" value="{{ $blog->id }}" >
-                                                    <input type="hidden" name="comment_id" value="{{ $item->id }}">
+                                                    <input type="text" name="blog_id" value="{{ $blog->id }}">
+                                                    <input type="text" name="comment_id" value="{{ $item->person_name }}">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="mb-3">
@@ -164,11 +166,6 @@
                                 </div>
                             @endforeach
 
-
-
-
-
-
                             <div class="mt_40"></div>
                             <form action="{{ route('comment_submit') }}" method="POST">
                                 @csrf
@@ -177,7 +174,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="Name" name="name">
+                                            <input type="text" class="form-control" placeholder="Name"
+                                                name="name">
                                         </div>
                                     </div>
                                     <div class="col-md-6">

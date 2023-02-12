@@ -67,6 +67,13 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/blog/comments/approved',[ BlogController::class,'approved_comments'])->name('approved_comments');
     Route::get('/blog/comment/recheck/{id}',[ BlogController::class,'recheck_comment'])->name('recheck_comment');
 
+    Route::get('/blog/reply/pending',[ BlogController::class,'pending_reply'])->name('show_reply');
+    Route::get('/blog/reply/approve/{id}',[ BlogController::class,'approve_reply'])->name('approve_reply');
+    Route::get('/blog/reply/delete/{id}',[ BlogController::class,'delete_reply'])->name('delete_reply');
+
+    Route::get('/blog/reply/approved',[ BlogController::class,'approved_reply'])->name('approved_reply');
+    Route::get('/blog/reply/recheck/{id}',[ BlogController::class,'recheck_reply'])->name('recheck_reply');
+
 });
 
 Route::middleware(['auth'])->group(function(){
