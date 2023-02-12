@@ -39,7 +39,7 @@
 
                             <h2>6 Comments</h2>
 
-                            <div class="comment-section">
+                            {{-- <div class="comment-section">
 
                                 <div class="comment-box d-flex justify-content-start">
                                     <div class="left">
@@ -95,50 +95,31 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="comment-section">
-                                <div class="comment-box d-flex justify-content-start">
-                                    <div class="left">
-                                        <img src="images/t2.jpg" alt="">
-                                    </div>
-                                    <div class="right">
-                                        <div class="name">John Doe</div>
-                                        <div class="date">September 25, 2022</div>
-                                        <div class="text">
-                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
-                                            Mei et
-                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                            invenire.
+                            </div> --}}
+                            @foreach ($comments as $item)
+                                <div class="comment-section">
+                                    <div class="comment-box d-flex justify-content-start">
+                                        <div class="left">
+                                            @if ($item->photo)
+                                            <img src="{{ url(asset('images/user/'.$item->photo)) }}" alt="user" class="d-inline-block justify-center">
+                                            @else
+                                                <img src="{{ url(asset('images/user/default.png')) }}" alt="user" class="d-inline-block justify-center">
+                                            @endif
                                         </div>
-                                        <div class="reply">
-                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                        <div class="right">
+                                            <div class="name">{{ $item->person_name }}</div>
+                                            <div class="date">{{ $item->created_at->format('F d,y') }}</div>
+                                            <div class="text">
+                                                {{ $item->person_comment }}
+                                            </div>
+                                            <div class="reply">
+                                                <a href=""><i class="fas fa-reply"></i> Reply</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endforeach
 
-                            <div class="comment-section">
-                                <div class="comment-box d-flex justify-content-start">
-                                    <div class="left">
-                                        <img src="images/t3.jpg" alt="">
-                                    </div>
-                                    <div class="right">
-                                        <div class="name">John Doe</div>
-                                        <div class="date">September 25, 2022</div>
-                                        <div class="text">
-                                            Qui ea oporteat democritum, ad sed minimum offendit expetendis. Idque volumus
-                                            platonem eos ut, in est verear delectus. Vel ut option adipisci consequuntur.
-                                            Mei et
-                                            solum malis detracto, has iuvaret invenire inciderint no. Id est dico nostrud
-                                            invenire.
-                                        </div>
-                                        <div class="reply">
-                                            <a href=""><i class="fas fa-reply"></i> Reply</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
 
                             <div class="mt_40"></div>
@@ -154,7 +135,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" placeholder="Email Address" name="email"> 
+                                            <input type="text" class="form-control" placeholder="Email Address"
+                                                name="email">
                                         </div>
                                     </div>
                                 </div>

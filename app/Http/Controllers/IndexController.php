@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Blogger;
+use App\Models\Comment;
 use App\Models\Gallery;
 use App\Models\Requests;
 use App\Models\User;
@@ -30,7 +31,8 @@ class IndexController extends Controller
         $blogs = Blog::orderBy('id','desc')->limit(5)->get();
         $categories = BlogCategory::limit(10)->get();
         $blog = Blog::where('id',$id)->first();
-        return view('blog_detail',compact('blog','categories','blogs'));
+        $comments = Comment::where('status',1)->get();
+        return view('blog_detail',compact('blog','categories','blogs','comments'));
     }
     public function category($id){
         $category = BlogCategory::where('id',$id)->first();
