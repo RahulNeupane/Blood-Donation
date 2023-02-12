@@ -153,6 +153,12 @@ class BlogController extends Controller
         return view('blog.pending_comment',compact('pending'));
     }
 
+    public function approve_comment($id){
+        $cmt = Comment::where('id',$id)->first();
+        $cmt->status = 1;
+        $cmt->update();
+        return back()->with("success","Comment Approved succesfully");
+    }
     public function delete_comment($id){
         $cmt = Comment::where('id',$id)->first();
         $cmt->delete();
