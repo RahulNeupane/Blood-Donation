@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\GalleryController;
@@ -24,6 +25,7 @@ Route::get('/', [IndexController::class, 'index'])->name('home');
 Route::get('/blog-all', [IndexController::class, 'blogs'])->name('blogs');
 Route::get('/blog-detail/{id}', [IndexController::class, 'blog_detail'])->name('blog_detail');
 Route::get('/category/{id}', [IndexController::class, 'category'])->name('category');
+Route::post('/comment-submit', [CommentController::class, 'comment_submit'])->name('comment_submit');
 
 Route::get('/login', [CustomAuthController::class, 'index'])->name('login');
 Route::post('/login-submit', [CustomAuthController::class, 'login_submit'])->name('login_submit');
