@@ -34,7 +34,7 @@
                                                         <button type="button" class="btn btn-danger delete"
                                                             data-toggle="modal" data-target="#exampleModal"
                                                             id="{{ $item->id }}">
-                                                            Delete
+                                                            <a href="{{ route('delete_comment',$item->id) }}" class="text-white">Delete</a>
                                                         </button>
                                                     </td>
                                                 </tr>
@@ -49,39 +49,4 @@
             </div>
         </div>
     </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <form id="deleteModal" method="POST">
-                @csrf
-                @method('DELETE')
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fs-5" id="exampleModalLabel">Confirm Delete</h5>
-                    </div>
-                    <div class="modal-body">
-                        <p>Are you sure you want to delete ?</p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-danger ">Delete</button>
-                    </div>
-                </div>
-            </form>
-
-        </div>
-    </div>
-@endsection
-
-@section('scripts')
-    <script>
-        $(document).ready(function() {
-            $('#myTable').DataTable();
-        });
-
-        $('.delete').on('click', function() {
-            const id = this.id;
-            $('#deleteModal').attr('action', '{{ route('delete_comment', '') }}' + '/' + id);
-        });
-    </script>
 @endsection

@@ -152,4 +152,10 @@ class BlogController extends Controller
         $pending = Comment::where('status',0)->with('rBlog')->get();
         return view('blog.pending_comment',compact('pending'));
     }
+
+    public function delete_comment($id){
+        $cmt = Comment::where('id',$id)->first();
+        $cmt->delete();
+        return back()->with("success","Comment deleted succesfully");
+    }
 }
