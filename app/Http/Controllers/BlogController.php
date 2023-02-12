@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Comment;
+use App\Models\Reply;
 use Illuminate\Http\Request;
 
 
@@ -173,5 +174,31 @@ class BlogController extends Controller
         $cmt = Comment::where('id',$id)->first();
         $cmt->delete();
         return back()->with("success","Comment deleted succesfully");
+    }
+    public function pending_reply(){
+        $pending = Reply::where('status',0)->with('rComment')->with('rBlog')->get();
+        return view('blog.pending_reply',compact('pending'));
+    }
+    public function approved_reply(){
+        $approved = Reply::where('status',1)->with('rComment')->with('rBlog')->get();
+        return view('blog.approved_reply',compact('approved'));
+    }
+
+    public function approve_reply($id){
+        $cmt = Reply::where('id',$id)->first();
+        $cmt->status = 1;
+        $cmt->update();
+        return back()->with("success","Reply Approved succesfully");
+    }
+    public function recheck_reply($id){
+        $cmt = Reply::where('id',$id)->first();
+        $cmt->status = 0;
+        $cmt->update();
+        return back()->with("success","Reply Sent for Recheck succesfully");
+    }
+    public function delete_reply($id){
+        $cmt = Reply::where('id',$id)->first();
+        $cmt->delete();
+        return back()->with("success","Reply deleted succesfully");
     }
 }
