@@ -21,8 +21,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
-Route::get('/blogs/show', [IndexController::class, 'blogs'])->name('blogs');
-Route::get('/blog/{id}', [IndexController::class, 'blog_detail'])->name('blog_detail');
+Route::get('/blog-all', [IndexController::class, 'blogs'])->name('blogs');
+Route::get('/blog-detail/{id}', [IndexController::class, 'blog_detail'])->name('blog_detail');
 Route::get('/category/{id}', [IndexController::class, 'category'])->name('category');
 
 Route::get('/login', [CustomAuthController::class, 'index'])->name('login');

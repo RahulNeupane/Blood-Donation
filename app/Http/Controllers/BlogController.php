@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+
 
 class BlogController extends Controller
 {
@@ -28,7 +28,7 @@ class BlogController extends Controller
     public function create()
     {
         $categories = BlogCategory::all();
-        return view('blogCategory.create',compact('categories'));
+        return view('blog.create',compact('categories'));
     }
 
     /**
