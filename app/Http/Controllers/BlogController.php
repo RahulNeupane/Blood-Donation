@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 
 
@@ -145,5 +146,10 @@ class BlogController extends Controller
         }
         $blog->delete();
         return redirect()->route('blog.index')->with("success","Category deleted succesfully");
+    }
+
+    public function pending_comments(){
+        $pending = Comment::where('status',0)->with('rBlog')->get();
+        return view('blog.pending_comment',compact('pending'));
     }
 }

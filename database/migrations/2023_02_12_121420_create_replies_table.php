@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('replies', function (Blueprint $table) {
             $table->id();
-            $table->integer('post_id');
+            $table->integer('blog_id');
             $table->integer('comment_id');
             $table->text('person_name');
             $table->text('person_email');

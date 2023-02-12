@@ -59,6 +59,9 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('/gallery', GalleryController::class, ['names' => 'gallery']);
     Route::resource('/blog-categories', BlogCategoryController::class, ['names' => 'blogCategory']);
     Route::resource('/blog', BlogController::class, ['names' => 'blog']);
+    Route::get('/blog/comments/pending',[ BlogController::class,'pending_comments'])->name('show_comments');
+    Route::get('/blog/comment/approve/{id}',[ BlogController::class,'approve_comment'])->name('approve_comment');
+    Route::get('/blog/comment/delete/{id}',[ BlogController::class,'delete_comment'])->name('delete_comment');
 
 });
 

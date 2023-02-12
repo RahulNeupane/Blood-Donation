@@ -145,7 +145,7 @@
                             <form action="{{ route('comment_submit') }}" method="POST">
                                 @csrf
                                 <h2>Leave Your Comment</h2>
-                                <input type="text" name="post_id" value="{{ $blog->id }}" hidden>
+                                <input type="text" name="blog_id" value="{{ $blog->id }}" hidden>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="mb-3">

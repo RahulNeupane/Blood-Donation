@@ -15,7 +15,7 @@ class CommentController extends Controller
         ]);
 
         $cmt = new Comment();
-        $cmt->post_id=$request->post_id;
+        $cmt->blog_id=$request->blog_id;
         $cmt->person_name=$request->name;
         $cmt->person_email=$request->email;
         $cmt->person_comment=$request->comment;
