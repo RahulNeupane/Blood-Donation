@@ -63,6 +63,9 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/blog/comment/approve/{id}',[ BlogController::class,'approve_comment'])->name('approve_comment');
     Route::get('/blog/comment/delete/{id}',[ BlogController::class,'delete_comment'])->name('delete_comment');
 
+    Route::get('/blog/comments/approved',[ BlogController::class,'approved_comments'])->name('approved_comments');
+    Route::get('/blog/comment/recheck/{id}',[ BlogController::class,'recheck_comment'])->name('recheck_comment');
+
 });
 
 Route::middleware(['auth'])->group(function(){

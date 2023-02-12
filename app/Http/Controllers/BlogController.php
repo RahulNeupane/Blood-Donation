@@ -152,12 +152,22 @@ class BlogController extends Controller
         $pending = Comment::where('status',0)->with('rBlog')->get();
         return view('blog.pending_comment',compact('pending'));
     }
+    public function approved_comments(){
+        $approved = Comment::where('status',1)->with('rBlog')->get();
+        return view('blog.approved_comment',compact('approved'));
+    }
 
     public function approve_comment($id){
         $cmt = Comment::where('id',$id)->first();
         $cmt->status = 1;
         $cmt->update();
         return back()->with("success","Comment Approved succesfully");
+    }
+    public function recheck_comment($id){
+        $cmt = Comment::where('id',$id)->first();
+        $cmt->status = 0;
+        $cmt->update();
+        return back()->with("success","Comment Sent for Recheck succesfully");
     }
     public function delete_comment($id){
         $cmt = Comment::where('id',$id)->first();
