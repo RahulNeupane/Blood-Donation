@@ -37,6 +37,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('donate') }}">Donate</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('receive') }}">Receive</a>
+                                </li>
                             @else
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#whyus">Why us?</a>

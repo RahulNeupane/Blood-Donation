@@ -38,8 +38,6 @@ Route::get('/logout', [CustomAuthController::class, 'logout'])->name('logout');
 Route::get('/registration', [CustomAuthController::class, 'registration'])->name('registration');
 Route::post('/registration_submit', [CustomAuthController::class, 'registration_submit'])->name('registration_submit');
 
-Route::get('/requestSubmit', [RequestController::class, 'requestSubmit'])->name('requestSubmit');
-
 Route::get('/registration/verify/{token}/{email}', [CustomAuthController::class, 'registration_verify']);
 
 Route::get('/forget-password', [CustomAuthController::class, 'forget_password'])->name('forget_password');
@@ -82,6 +80,8 @@ Route::middleware(['admin'])->group(function () {
 Route::middleware(['auth'])->group(function(){
     Route::get('/donate',[IndexController::class,'donate'])->name('donate');
     Route::post('/donate-request',[IndexController::class,'donateRequest'])->name('donateRequest');
+    Route::get('/receive',[IndexController::class,'receive'])->name('receive');
+    Route::post('/receive-request',[IndexController::class,'receiveRequest'])->name('receiveRequest');
 });
 
 Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile')->middleware('auth');
