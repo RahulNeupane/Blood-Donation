@@ -8,6 +8,7 @@ use App\Http\Controllers\EventsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RequestController;
+use App\Http\Controllers\RewardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +59,7 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/changepass', [CustomAuthController::class, 'changepass'])->name('change-pass');
     Route::resource('/events', EventsController::class, ['names' => 'events']);
     Route::resource('/gallery', GalleryController::class, ['names' => 'gallery']);
+    Route::resource('/reward', RewardController::class, ['names' => 'reward']);
     Route::resource('/blog-categories', BlogCategoryController::class, ['names' => 'blogCategory']);
     Route::resource('/blog', BlogController::class, ['names' => 'blog']);
     Route::get('/blog/comments/pending',[ BlogController::class,'pending_comments'])->name('show_comments');
