@@ -10,9 +10,6 @@ use Twilio\Rest\Client;
 
 class RequestController extends Controller
 {
-    public function requestSubmit(){
-        return view('request');
-    }
     public function donateRequests(){
         $requests = Requests::where('type', '=', 1)->where('approve','=',0)->get();
         $accepted_requests = Requests::where('type', '=', 1)->where('approve','=',1)->get();

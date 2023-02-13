@@ -155,4 +155,29 @@ class IndexController extends Controller
         $rewards = Reward::orderBy('id','desc')->paginate(3);
         return view('reward',compact('rewards'));
     }
+
+    public function receive(){
+        return view('receive');
+    }
+    public function receiveRequest(Request $request){
+        $date = Requests::where('userid','=',auth()->user()->id)->orderBy('id','Desc')->first();
+       if($date){
+        $diff = today()->diffInDays($date->updated_at);
+        $left = 90 - $diff;
+       }
+
+        if(!$date || $diff>90){
+            $request->validate([
+                'type' => 'integer',
+                'userid' => 'integer',
+            ]);
+            Requests::create([
+                'type' => $request->type,
+                'userid' => $request->userid,
+            ]);
+            return redirect()->route('home');
+        } else{
+            return back()->with('fail',"You can donate once in every 3 months ( $left days left) !");
+        }  
+    }
 }
