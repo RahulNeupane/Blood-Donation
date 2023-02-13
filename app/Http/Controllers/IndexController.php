@@ -8,6 +8,7 @@ use App\Models\Blogger;
 use App\Models\Comment;
 use App\Models\Gallery;
 use App\Models\Requests;
+use App\Models\Reward;
 use App\Models\User;
 use Carbon\Carbon;
 use DateTime;
@@ -148,9 +149,10 @@ class IndexController extends Controller
             return redirect()->route('home');
         } else{
             return back()->with('fail',"You can donate once in every 3 months ( $left days left) !");
-        }
-            
-
-        
+        }  
+    }
+    public function rewards_show(){
+        $rewards = Reward::orderBy('id','desc')->paginate(3);
+        return view('reward',compact('rewards'));
     }
 }
