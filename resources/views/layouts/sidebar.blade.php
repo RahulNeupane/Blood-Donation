@@ -82,6 +82,8 @@
                         </li>
                     </ul>
                 </li>
+                <li class="{{ Request::is('reward') ? 'active' : '' }} || {{ Request::is('reward/*') ? 'active' : '' }}"><a class="nav-link"
+                    href="{{ route('reward.index') }}"><i class="fas fa-image"></i>Reward</a></li>
                 <li class="menu-header">Log Out</li>
                 <li>
                     <a href="{{ route('logout') }}" class="nav-link">
