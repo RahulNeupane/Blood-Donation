@@ -76,7 +76,8 @@ class RewardController extends Controller
      */
     public function edit($id)
     {
-        return view('reward.edit');
+        $reward = Reward::findOrFail($id);
+        return view('reward.edit',compact('reward'));
     }
 
     /**
@@ -86,9 +87,35 @@ class RewardController extends Controller
      * @param  \App\Models\Reward  $reward
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Reward $reward)
+    public function update(Request $request,$id)
     {
-        //
+        $reward = Reward::findOrFail($id);
+        $request->validate([
+            'title'=>'required|string',
+            'point'=>'required|string',
+        ]);
+      
+        if($request->hasFile('image')){
+            $path = public_path('/images/reward/' . $reward->image);
+            if(file_exists($path)){
+                unlink($path);
+            }
+            $request->validate([
+                'image' => 'required|image|mimes:png,jpg,jpeg'
+            ]);
+            $file = $request->file('image');
+            $ext = $file->extension();
+            $img = date('YmdHis') . '.' . $ext;
+            $file->move(public_path('/images/reward/'), $img);
+            $reward->image = $img;
+        }
+        $reward->update([
+            'title' => $request->title,
+            'point' => $request->point,
+            'image' => $reward->image,
+        ]);
+
+        return redirect()->route('reward.index')->with('success','Reward item updated succesfully !');
     }
 
     /**
