@@ -38,7 +38,7 @@ class RewardController extends Controller
     {
         $request->validate([
             'title'=>'required|string',
-            'point'=>'required|string',
+            'point'=>'required|integer',
             'image'=>'required|image|mimes:png,jpg,jpeg'
         ]);
        if($request->hasFile('image')){
@@ -92,7 +92,7 @@ class RewardController extends Controller
         $reward = Reward::findOrFail($id);
         $request->validate([
             'title'=>'required|string',
-            'point'=>'required|string',
+            'point'=>'required|integer',
         ]);
       
         if($request->hasFile('image')){
@@ -124,8 +124,15 @@ class RewardController extends Controller
      * @param  \App\Models\Reward  $reward
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reward $reward)
+    public function destroy($id)
     {
-        //
+        $reward = Reward::findOrFail($id);
+        $path = public_path('/images/reward/' . $reward->image);
+        if(file_exists($path)){
+            unlink($path);
+        }
+        $reward->delete();
+        return redirect()->route('reward.index')->with('success','Reward item deleted succesfully !');
+
     }
 }
