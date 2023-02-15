@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('requests', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('userid');
-            $table->foreign('userid')->references('id')->on('users');
+            $table->integer('userid');
             $table->integer('type')->comment('1 => Donor, 2 => Receiver');
             $table->integer('approve')->default(0)->comment('0=>not approved, 1=>approved');
             $table->timestamps();

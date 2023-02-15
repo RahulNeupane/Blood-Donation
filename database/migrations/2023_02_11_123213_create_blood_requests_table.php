@@ -18,9 +18,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('email');
+            $table->integer('age');
             $table->string('group');
             $table->string('image');
-            $table->string('message');
+            $table->string('note');
             $table->timestamps();
         });
     }

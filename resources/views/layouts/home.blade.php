@@ -37,14 +37,14 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('donate') }}">Donate</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('receive') }}">Receive</a>
-                                </li>
                             @else
                                 <li class="nav-item active">
                                     <a class="nav-link" href="#whyus">Why us?</a>
                                 </li>
                             @endauth
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('receive') }}">Receive</a>
+                            </li>
                             <li class="nav-item">
                                 <div class="dropdown">
                                     <button class="nav-link dropdown-toggle" style="background:transparent;border:none;"
