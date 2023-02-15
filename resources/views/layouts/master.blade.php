@@ -14,7 +14,7 @@
     <!-- Boxicons CSS -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     {{-- dynamic login  --}}
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ asset('assets/login_anim/css/style.css') }}">
 </head>
 
 <body>
@@ -31,7 +31,7 @@
     <script src="{{ asset('assets/iziToast.min.js') }}"></script>
     {{-- dynamic login  --}}
     <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js'></script>
-    <script src="js/index.js"></script>
+    <script src="{{ asset('assets/login_anim/js/index.js') }}"></script>
 
 
     @if ($errors->any())

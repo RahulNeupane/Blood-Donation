@@ -8,14 +8,9 @@
                         <img src="{{ url('images/favicon.png') }}" alt="logo" width="100">
                     </div>
                     <div class="card card-primary">
-                        <div class="card-header">
-                            <h4 class="m-auto">Register</h4>
+                        <div class="card-header text-center">
+                            <h4 class="m-auto p-3">Register</h4>
                         </div>
-                        @if (Session::has('success'))
-                            <div class="alert alert-success text-center" role="alert">
-                                {{ Session::get('success') }}
-                            </div>
-                        @endif
                         <div class="card-body">
                             <form method="POST" action="{{ route('registration_submit') }}" enctype="multipart/form-data">
                                 @csrf
@@ -124,7 +119,7 @@
                                         <div class="form-group">
                                             <label>Image</label>
                                             <input type="file" name="image"
-                                                class="form-control @error('image') is-invalid @enderror" >
+                                                class="form-control @error('image') is-invalid @enderror">
                                         </div>
                                     </div>
                                 </div>
