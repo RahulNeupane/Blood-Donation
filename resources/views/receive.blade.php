@@ -19,7 +19,9 @@
                                         <label>Name</label>
                                         <input id="name" type="name"
                                             class="form-control @error('name') is-invalid @enderror" name="name"
-                                            value="{{ old('name') }}" autocomplete="name" autofocus>
+                                            @if (auth()->user())
+                                            value="{{auth()->user()->name}}"
+                                            @endif                                             autocomplete="name" autofocus>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
@@ -27,7 +29,9 @@
                                         <label>Email </label>
                                         <input id="email" type="email"
                                             class="form-control @error('email') is-invalid @enderror" name="email"
-                                            value="{{ old('email') }}" autocomplete="email" autofocus>
+                                            @if (auth()->user())
+                                            value="{{auth()->user()->email}}"
+                                            @endif autocomplete="email" autofocus>
                                     </div>
                                 </div>
                             </div>
@@ -36,14 +40,18 @@
                                     <div class="form-group ">
                                         <label>Phone Number</label>
                                         <input type="text" class="form-control @error('phone') is-invalid @enderror"
-                                            name="phone" value="{{ old('phone') }}">
+                                            name="phone" @if (auth()->user())
+                                            value="{{auth()->user()->phone}}"
+                                            @endif>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group ">
                                         <label>Age</label>
                                         <input type="text" class="form-control @error('age') is-invalid @enderror"
-                                            name="age" value="{{ old('age') }}">
+                                            name="age" @if (auth()->user())
+                                            value="{{auth()->user()->age}}"
+                                            @endif>
                                     </div>
                                 </div>
                             </div>
@@ -52,6 +60,9 @@
                                     <div class="form-group ">
                                         <label>Blood Group</label>
                                         <select class="form-select @error('group') is-invalid @enderror" name="group">
+                                            @if (auth()->user())
+                                            <option selected value="{{auth()->user()->group}}">{{auth()->user()->group}}</option>
+                                            @else
                                             <option selected value="0">Select a blood group</option>
                                             <option value="A+">A+</option>
                                             <option value="A-">A-</option>
@@ -61,6 +72,7 @@
                                             <option value="O+">O+</option>
                                             <option value="O-">O-</option>
                                             <option value="AB+">AB-</option>
+                                            @endif
                                         </select>
                                     </div>
                                 </div>

@@ -181,7 +181,7 @@ class IndexController extends Controller
 
         $request->validate([
             'name' => 'required|regex:/^[a-z A-Z]+$/u',
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email',
             'phone' => 'required|regex:/^[0-9]/|min:9|max:10',
             'group' => 'required|not_in:0',
             'image' => 'required|image|mimes:png,jpeg,jpg',

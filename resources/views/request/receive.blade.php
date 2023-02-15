@@ -13,35 +13,38 @@
                                 <div class="card-body table-responsive">
                                     <table id="myTable" class="table table-striped">
                                         <thead>
-                                            <th>Sl No.</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Email</th>
-                                            <th>Age</th>
-                                            <th>Group</th>
-                                            <th>Requisition Form</th>
-                                            <th>Approval</th>
-                                            <th>Actions</th>
+                                            <tr>
+                                                <th>Sl No.</th>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Age</th>
+                                                <th>Group</th>
+                                                <th>Requisition Form</th>
+                                                <th>Approval</th>
+                                                <th>Actions</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                            @forelse ($requests as $request)
+                                            @foreach ($requests as $request)
                                                 @foreach ($request->receivers as $item)
-                                                    <td>{{ $loop->index + 1 }}</td>
-                                                    <td>{{ $item->name }}</td>
-                                                    <td>{{ $item->phone }}</td>
-                                                    <td>{{ $item->email }}</td>
-                                                    <td>{{ $item->age }}</td>
-                                                    <td>{{ $item->group }}</td>
-                                                    <td><img src="{{ url('/images/requisitionForm/' . $item->image) }}"
-                                                            alt="image" width="50" height="50"></td>
-                                                    <td><a href="{{ route('donateRequestAccept', $request->userid) }}"><button
-                                                                class="btn btn-primary">Approve</button></a></td>
-                                                    <td><a href=""><button class="btn btn-danger">Delete</button></a>
-                                                    </td>
+                                                    <tr>
+                                                        <td>{{ $loop->index + 1 }}</td>
+                                                        <td>{{ $item->name }}</td>
+                                                        <td>{{ $item->phone }}</td>
+                                                        <td>{{ $item->email }}</td>
+                                                        <td>{{ $item->age }}</td>
+                                                        <td>{{ $item->group }}</td>
+                                                        <td><img src="{{ url('/images/requisitionForm/' . $item->image) }}"
+                                                                alt="image" width="50" height="50"></td>
+                                                        <td><a href="{{ route('receiveRequestAccept', $item->id) }}"><button
+                                                                    class="btn btn-primary">Approve</button></a></td>
+                                                        <td><a href="{{ route('receiveRequestDelete', $item->id) }}"><button
+                                                                    class="btn btn-danger">Delete</button></a>
+                                                        </td>
+                                                    </tr>
                                                 @endforeach
-                                            @empty
-                                                <td colspan="5" class="text-center">no current requests</td>
-                                            @endforelse
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -78,10 +81,9 @@
                                             <th>Group</th>
                                             <th>Requisition Form</th>
                                             <th>Approval</th>
-                                            <th>Actions</th>
                                         </thead>
                                         <tbody>
-                                            @forelse ($accepted_requests as $request)
+                                            @foreach ($accepted_requests as $request)
                                                 @foreach ($request->receivers as $item)
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $item->name }}</td>
@@ -91,14 +93,10 @@
                                                     <td>{{ $item->group }}</td>
                                                     <td><img src="{{ url('/images/requisitionForm/' . $item->image) }}"
                                                             alt="image" width="50" height="50"></td>
-                                                    <td><a href="{{ route('receiveRequestAccept',$item->id) }}"><button
-                                                                class="btn btn-primary">Approve</button></a></td>
-                                                    <td><a href=""><button class="btn btn-danger">Delete</button></a>
-                                                    </td>
+                                                    <td><a href="{{ route('receiveRequestRecheck', $item->id) }}"><button
+                                                                class="btn btn-primary">Recheck</button></a></td>
                                                 @endforeach
-                                            @empty
-                                                <td colspan="9" class="text-center">no approved requests</td>
-                                            @endforelse
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

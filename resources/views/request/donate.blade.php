@@ -20,7 +20,7 @@
                                             <th>Actions</th>
                                         </thead>
                                         <tbody>
-                                            @forelse ($requests as $request)
+                                            @foreach ($requests as $request)
                                                 <tr>
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $request->users[0]->name }}</td>
@@ -30,9 +30,7 @@
                                                     <td><a href="{{ route('viewmore', $request->userid) }}"><button
                                                                 class="btn btn-success">view</button></a></td>
                                                 </tr>
-                                            @empty
-                                                <td colspan="5" class="text-center">no current requests</td>
-                                            @endforelse
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -55,20 +53,22 @@
                                 </div>
                                 @if (session()->has('fail'))
                                     <div class="alert alert-danger text-center">
-                                       <p class="text-white">{{ session('fail') }}</p>
+                                        <p class="text-white">{{ session('fail') }}</p>
                                     </div>
                                 @endif
                                 <div class="card-body table-responsive">
                                     <table id="myTable" class="table table-striped">
                                         <thead>
-                                            <th>Sl No.</th>
-                                            <th>Name</th>
-                                            <th>Phone</th>
-                                            <th>Date</th>
-                                            <th>Actions</th>
+                                            <tr>
+                                                <th>Sl No.</th>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Date</th>
+                                                <th>Actions</th>
+                                            </tr>
                                         </thead>
                                         <tbody>
-                                            @forelse ($accepted_requests as $accepted_request)
+                                            @foreach ($accepted_requests as $accepted_request)
                                                 <tr>
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $accepted_request->users[0]->name }}</td>
@@ -82,9 +82,7 @@
                                                                 class="btn btn-primary">update reward point</button></a>
                                                     </td>
                                                 </tr>
-                                            @empty
-                                                <td colspan="5" class="text-center">no approved requests</td>
-                                            @endforelse
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>

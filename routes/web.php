@@ -52,6 +52,8 @@ Route::middleware(['admin','auth'])->group(function () {
     Route::get('/receive-request', [RequestController::class, 'receiveRequests'])->name('receiveRequests');
     Route::get('/donate-request-accept/{userid}', [RequestController::class, 'donateRequestAccept'])->name('donateRequestAccept');
     Route::get('/receive-request-accept/{userid}', [RequestController::class, 'receiveRequestAccept'])->name('receiveRequestAccept');
+    Route::get('/receive-request-delete/{userid}', [RequestController::class, 'receiveRequestDelete'])->name('receiveRequestDelete');
+    Route::get('/receive-request-recheck/{userid}', [RequestController::class, 'receiveRequestRecheck'])->name('receiveRequestRecheck');
     Route::get('/update-reward-points/{userid}', [RequestController::class, 'updateRewardPoints'])->name('updateRewardPoints');
     Route::get('/users', [IndexController::class, 'allUsers'])->name('allUsers');
     Route::get('/users/viewmore/{id}', [IndexController::class, 'viewmore'])->name('viewmore');
