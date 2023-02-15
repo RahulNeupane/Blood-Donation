@@ -80,10 +80,10 @@ Route::middleware(['admin'])->group(function () {
 Route::middleware(['auth'])->group(function(){
     Route::get('/donate',[IndexController::class,'donate'])->name('donate');
     Route::post('/donate-request',[IndexController::class,'donateRequest'])->name('donateRequest');
-    Route::get('/receive',[IndexController::class,'receive'])->name('receive');
-    Route::post('/receive-request',[IndexController::class,'receiveRequest'])->name('receiveRequest');
 });
 
+Route::get('/receive',[IndexController::class,'receive'])->name('receive');
+Route::post('/receive-request',[IndexController::class,'receiveRequest'])->name('receiveRequest');
 Route::get('/profile', [IndexController::class, 'viewProfile'])->name('viewProfile')->middleware('auth');
 Route::get('/profile/edit', [IndexController::class, 'editProfile'])->name('editProfile')->middleware('auth');
 Route::post('/profile/update', [IndexController::class, 'updateProfile'])->name('updateProfile')->middleware('auth');

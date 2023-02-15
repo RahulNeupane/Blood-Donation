@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('content')
     <hr>
-    <div class="container mt-3">
+    <div class="container mt-5">
         <div class="row">
             <div class="col-lg-8 col-sm-10 col-md-8 mx-auto">
                 <div class="card card-primary">
@@ -9,8 +9,10 @@
                         <h3>Blood Request Form</h3>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('receiveRequest') }}" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" value="2" name="type" >
+                            <input type="hidden" value="" name="userid" >
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-group ">
@@ -75,15 +77,13 @@
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" name="image"
-                                            class="form-control @error('image') is-invalid @enderror">
-                                    </div>
+                                        <label>Note</label>
+                                        <textarea name="note" class="form-control @error('note') is-invalid @enderror resize-none" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="form-group d-grid">
                                 <button type="submit" class="btn btn-primary">
-                                    Register
+                                    Send Request
                                 </button>
                             </div>
                         </form>
