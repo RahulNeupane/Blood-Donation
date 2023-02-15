@@ -83,7 +83,7 @@
                                                     </td>
                                                 </tr>
                                             @empty
-                                                <td colspan="5" class="text-center">no current requests</td>
+                                                <td colspan="5" class="text-center">no approved requests</td>
                                             @endforelse
                                         </tbody>
                                     </table>

@@ -16,20 +16,29 @@
                                             <th>Sl No.</th>
                                             <th>Name</th>
                                             <th>Phone</th>
+                                            <th>Email</th>
+                                            <th>Age</th>
+                                            <th>Group</th>
+                                            <th>Requisition Form</th>
                                             <th>Approval</th>
                                             <th>Actions</th>
                                         </thead>
                                         <tbody>
                                             @forelse ($requests as $request)
-                                                <tr>
+                                                @foreach ($request->receivers as $item)
                                                     <td>{{ $loop->index + 1 }}</td>
-                                                    <td>{{ $request->users[0]->name }}</td>
-                                                    <td>{{ $request->users[0]->phone }}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->phone }}</td>
+                                                    <td>{{ $item->email }}</td>
+                                                    <td>{{ $item->age }}</td>
+                                                    <td>{{ $item->group }}</td>
+                                                    <td><img src="{{ url('/images/requisitionForm/' . $item->image) }}"
+                                                            alt="image" width="50" height="50"></td>
                                                     <td><a href="{{ route('donateRequestAccept', $request->userid) }}"><button
                                                                 class="btn btn-primary">Approve</button></a></td>
-                                                    <td><a href="{{ route('viewmore', $request->userid) }}"><button
-                                                                class="btn btn-success">view</button></a></td>
-                                                </tr>
+                                                    <td><a href=""><button class="btn btn-danger">Delete</button></a>
+                                                    </td>
+                                                @endforeach
                                             @empty
                                                 <td colspan="5" class="text-center">no current requests</td>
                                             @endforelse
@@ -55,7 +64,7 @@
                                 </div>
                                 @if (session()->has('fail'))
                                     <div class="alert alert-danger text-center">
-                                       <p class="text-white">{{ session('fail') }}</p>
+                                        <p class="text-white">{{ session('fail') }}</p>
                                     </div>
                                 @endif
                                 <div class="card-body table-responsive">
@@ -64,26 +73,31 @@
                                             <th>Sl No.</th>
                                             <th>Name</th>
                                             <th>Phone</th>
-                                            <th>Date</th>
+                                            <th>Email</th>
+                                            <th>Age</th>
+                                            <th>Group</th>
+                                            <th>Requisition Form</th>
+                                            <th>Approval</th>
                                             <th>Actions</th>
                                         </thead>
                                         <tbody>
-                                            @forelse ($accepted_requests as $accepted_request)
-                                                <tr>
+                                            @forelse ($accepted_requests as $request)
+                                                @foreach ($request->receivers as $item)
                                                     <td>{{ $loop->index + 1 }}</td>
-                                                    <td>{{ $accepted_request->users[0]->name }}</td>
-                                                    <td>{{ $accepted_request->users[0]->phone }}</td>
-                                                    <td>{{ $accepted_request->users[0]->updated_at }}</td>
-                                                    <td>
-                                                        <a href="{{ route('viewmore', $accepted_request->userid) }}"><button
-                                                                class="btn btn-success">view</button></a>
-                                                        <a
-                                                            href="{{ route('updateRewardPoints', $accepted_request->userid) }}"><button
-                                                                class="btn btn-primary">update reward point</button></a>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->phone }}</td>
+                                                    <td>{{ $item->email }}</td>
+                                                    <td>{{ $item->age }}</td>
+                                                    <td>{{ $item->group }}</td>
+                                                    <td><img src="{{ url('/images/requisitionForm/' . $item->image) }}"
+                                                            alt="image" width="50" height="50"></td>
+                                                    <td><a href="{{ route('receiveRequestAccept',$item->id) }}"><button
+                                                                class="btn btn-primary">Approve</button></a></td>
+                                                    <td><a href=""><button class="btn btn-danger">Delete</button></a>
                                                     </td>
-                                                </tr>
+                                                @endforeach
                                             @empty
-                                                <td colspan="5" class="text-center">no current requests</td>
+                                                <td colspan="9" class="text-center">no approved requests</td>
                                             @endforelse
                                         </tbody>
                                     </table>

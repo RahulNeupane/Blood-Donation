@@ -46,11 +46,12 @@ Route::post('/forget_password_submit', [CustomAuthController::class, 'forget_pas
 Route::get('/reset-password/{token}/{email}', [CustomAuthController::class, 'reset_password'])->name('reset_password');
 Route::post('/reset_password_submit', [CustomAuthController::class, 'reset_password_submit'])->name('reset_password_submit');
 
-Route::middleware(['admin'])->group(function () {
+Route::middleware(['admin','auth'])->group(function () {
     Route::get('/dashboard', [IndexController::class, 'dashboard'])->name('dashboard');
     Route::get('/donate-request', [RequestController::class, 'donateRequests'])->name('donateRequests');
     Route::get('/receive-request', [RequestController::class, 'receiveRequests'])->name('receiveRequests');
     Route::get('/donate-request-accept/{userid}', [RequestController::class, 'donateRequestAccept'])->name('donateRequestAccept');
+    Route::get('/receive-request-accept/{userid}', [RequestController::class, 'receiveRequestAccept'])->name('receiveRequestAccept');
     Route::get('/update-reward-points/{userid}', [RequestController::class, 'updateRewardPoints'])->name('updateRewardPoints');
     Route::get('/users', [IndexController::class, 'allUsers'])->name('allUsers');
     Route::get('/users/viewmore/{id}', [IndexController::class, 'viewmore'])->name('viewmore');

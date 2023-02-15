@@ -146,7 +146,7 @@ class IndexController extends Controller
     }
     public function donateRequest(Request $request)
     {
-        $date = Requests::where('userid', '=', auth()->user()->id)->orderBy('id', 'Desc')->first();
+        $date = Requests::where('userid', '=', auth()->user()->id)->where('type','=',1)->orderBy('id', 'Desc')->first();
         if ($date) {
             $diff = today()->diffInDays($date->updated_at);
             $left = 90 - $diff;
@@ -178,6 +178,7 @@ class IndexController extends Controller
     }
     public function receiveRequest(Request $request)
     {
+
         $request->validate([
             'name' => 'required|regex:/^[a-z A-Z]+$/u',
             'email' => 'required|email|unique:users,email',
@@ -202,7 +203,10 @@ class IndexController extends Controller
             'image' => $image,
             'note' => $request->note,
         ]);
-
+        $br = BloodRequest::orderBy('id','desc')->first();
+        if(!$request->userid){
+            $request->userid = $br->id;
+        }
         Requests::create([
             'type' => $request->type,
             'userid' => $request->userid,

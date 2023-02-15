@@ -12,4 +12,7 @@ class Requests extends Model
     public function users(){
         return $this->hasMany(User::class,'id','userid');
     }
+    public function receivers(){
+        return $this->hasMany(BloodRequest::class,'id','userid');
+    }
 }
