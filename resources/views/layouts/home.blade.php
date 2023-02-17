@@ -105,36 +105,51 @@
                     <a class="mb-2" href="{{ route('home') }}">
                         <img width="80" src="{{ url(asset('images/logo.png')) }}" alt="LOGO" />
                     </a>
-                    <p class="pr-5 text-black-50 mt-4">Blood is precious, give it freely. Your donation can be the
+                    <p class="pr-5 text-black-50 mt-4">Blood is precious, give it freely
+                        . Your donation <br>can be the
                         difference between life and death. </p>
-                    <p class="h-5"><a href="#"><i class='bx bxl-facebook-circle'></i></a><a href="#"><i
-                                class='bx bxl-twitter'></i></a><a href="#"><i class='bx bxl-linkedin'></i></a><a
-                            href="#"><i class='bx bxl-instagram'></i></a></p>
+                    <p class="h-5">
+                        <a href="#" class="text-secondary fs-3"><i class='bx bxl-facebook-circle'></i></a>
+                        <a href="#" class="text-secondary fs-3"><i class='bx bxl-twitter'></i></a>
+                        <a href="#" class="text-secondary fs-3"><i class='bx bxl-linkedin'></i></a>
+                        <a href="#" class="text-secondary fs-3"><i class='bx bxl-instagram'></i></a>
+                    </p>
+                    <div class="row mt-5">
+                        <div class="col copyright">
+                            <p class=""><small class="text-black-50">© 2023. All Rights Reserved.Fancy
+                                    Freelancers</small>
+                            </p>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-xs-12 links">
                     <h4 class="mt-lg-0 mt-sm-3">Links</h4>
                     <ul class="m-0 p-0">
-                        <li class="list-group-item">-<a class="" href="{{ route('donate') }}">Donate</a></li>
-                        <li class="list-group-item">- <a class="" href="#whyus">Why us?</a></li>
-                        <li class="list-group-item">- <a class="" href="#team">Team</a></li>
-                        <li class="list-group-item">- <a class="" href="#">Events</a></li>
-                        <li class="list-group-item">- <a class="" href="#blogger">Blog</a></li>
-                        <li class="list-group-item">- <a class="text-underline-hover" href="#gallery">Gallery</a>
-                        </li>
+                        <div class="row">
+                            <li class="list-group-item mb-3"><a class="text-secondary"
+                                    href="{{ route('donate') }}"><i class='bx bx-caret-right'></i> Donate</a></li>
+                            <li class="list-group-item mb-3"><i class='bx bx-caret-right'></i> <a
+                                    class="text-secondary" href="/#whyus">Why us?</a></li>
+                            <li class="list-group-item mb-3"><i class='bx bx-caret-right'></i> <a
+                                    class="text-secondary" href="{{ route('team') }}">Team</a></li>
+                        </div>
+                        <div class="row">
+                            <li class="list-group-item mb-3"><i class='bx bx-caret-right'></i> <a
+                                    class="text-secondary" href="{{ route('events') }}">Events</a></li>
+                            <li class="list-group-item mb-3"><i class='bx bx-caret-right'></i> <a
+                                    class="text-secondary" href="{{ route('blogs') }}">Blog</a></li>
+                            <li class="list-group-item mb-3"><i class='bx bx-caret-right'></i> <a
+                                    class="text-secondary" href="/#gallery">Gallery</a>
+                            </li>
+                        </div>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-xs-12 location">
+                <div class="col-lg-3 col-xs-12 location ">
                     <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-                    <p>KamalPokhari, Kathmandu Nepal</p>
-                    <p class="mb-0"><i class='bx bx-phone-call mr-5'></i> 44600</p>
-                    <p><i class='bx bx-envelope mr-3'></i> lifeline@gmail.com</p>
-                </div>
-            </div>
-            <div class="row mt-5">
-                <div class="col copyright">
-                    <p class=""><small class="text-black-50">© 2023. All Rights Reserved.Fancy
-                            Freelancers</small>
-                    </p>
+                    <a href="https://goo.gl/maps/xWUEdngG9oeyXmHC6" class="text-secondary lh-1"><i class="bx bx-map-pin"></i> Kist College & SS <br>(Ahead of Kamalpokhari lake)</a>
+                    <p class="mb-0 text-secondary mt-2"><i class='bx bx-phone-call mr-5'></i> +977 44600</p>
+                    <p class="mb-0 text-secondary mt-2"><i class='bx bx-phone-call mr-5'></i> +977 44600</p>
+                    <p class="text-secondary mt-2"><i class='bx bx-envelope mr-3 '></i> lifeline@gmail.com</p>
                 </div>
             </div>
         </div>
