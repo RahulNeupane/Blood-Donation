@@ -7,7 +7,7 @@ use App\Models\BlogCategory;
 use App\Models\Comment;
 use App\Models\Reply;
 use Illuminate\Http\Request;
-
+use Image;
 
 class BlogController extends Controller
 {
@@ -49,10 +49,8 @@ class BlogController extends Controller
         ]);
 
         if($request->hasFile('photo')){
-            $file = $request->file('photo');
-            $extension = $file->extension();
-            $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images/blogs/'),$image);
+            $image = date('YmdHis'). '.'. $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/blogs/').$image,40);
        }
 
        $blog = new Blog();
@@ -116,10 +114,8 @@ class BlogController extends Controller
                 'photo' => 'required|image|mimes:png,jpg,jpeg'
             ]);
 
-            $file = $request->file('photo');
-            $extension = $file->extension();
-            $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images/blogs/'),$image);
+            $image = date('YmdHis'). '.'. $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/blogs/').$image,40);
             $blog->photo = $image;
        }
 
