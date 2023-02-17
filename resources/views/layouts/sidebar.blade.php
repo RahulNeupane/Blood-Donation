@@ -49,6 +49,10 @@
                             Items</span></a>
                     <ul class="dropdown-menu">
                         <li
+                            class="">
+                            <a class="nav-link" href="{{ route('carousel.index') }}"><i
+                                    class='bx bx-calendar-event'></i>Carousel</a></li>
+                        <li
                             class="{{ Request::is('events') ? 'active' : '' }} || {{ Request::is('events/*') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('events.index') }}"><i
                                     class='bx bx-calendar-event'></i>Events</a></li>
