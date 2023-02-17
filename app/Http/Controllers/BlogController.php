@@ -49,8 +49,8 @@ class BlogController extends Controller
         ]);
 
         if($request->hasFile('photo')){
-            $image = date('YmdHis'). '.'. $request->file('image')->extension();
-            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/blogs/').$image,40);
+            $image = date('YmdHis'). '.'. $request->file('photo')->extension();
+            Image::make($request->file('photo'))->resize(600,600)->save(public_path('/images/blogs/').$image,40);
        }
 
        $blog = new Blog();
