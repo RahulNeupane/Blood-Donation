@@ -17,7 +17,8 @@
         <div class="row">
             <div class="col-lg-6 col-sm-12 col-md-6">
                 <div class="img-fluid">
-                    <img src="{{ url(asset('images/whyus.png')) }}" class="why_img" style="height: 50vh;width: 61vh;">
+                    <img src="{{ url(asset('images/whyus.png')) }}" class="why_img img-fluid"
+                        style="height: 50vh;width: 61vh;">
                 </div>
             </div>
             <div class="col-lg-6 col-sm-12 col-md-12 pt-10 mx-auto  ">
@@ -164,7 +165,8 @@
             @foreach ($blogs as $blog)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card blogg mb-5 shadow-sm">
-                        <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}" alt="" class="img-responsive">
+                        <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}" alt=""
+                            class="img-responsive">
                         <div class="card-body">
                             <div class="card-title">
                                 <h2>{{ $blog->title }}</h2>
@@ -172,10 +174,11 @@
                             <div class="card-text">
                                 <p>
                                     {!! nl2br(Str::limit($blog->description, 150)) !!}
-                                    
+
                                 </p>
                             </div>
-                            <a href="{{ route('blog_detail',$blog->id) }}" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+                            <a href="{{ route('blog_detail', $blog->id) }}"
+                                class="btn btn-outline-primary rounded-0 float-end">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -184,46 +187,29 @@
     </div>
     <!-- Blog Section -->
 
-    <!-- contact section  -->
-    <div class="mt-5 container">
-        <div class="text-center">
-            <h1>Contact Us</h1>
-            <div class="d-flex justify-content-center  ">
-                <div class="one"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid "
-                        style="height: 3px;width: 13.5vh;"> </div>
-                <div class="two"> <img src="{{ url(asset('images/rectangle.png')) }}" class="img-fluid"
-                        style="height: 21px;width: 21px;"> </div>
-                <div class="three"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid"
-                        style="height: 3px;width: 13.5vh;"> </div>
-            </div><br><br>
-        </div>
-        <div class=" d-flex align-items-center justify-content-center ">
-            <div class=" col-md-6 border-1">
-                <div class="p-4 card-body rounded shadow-md bg-white" style=" border: 2px solid black;">
-                    <div>
-                        <label for="name" class="form-label">Your Name</label>
-                        <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+    <div class="container ">
+        <div class="col-lg-12 contact mx-auto mt-5">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class=" py-5">
+                        <img src="{{ asset('images/contact-img.png') }}" alt="" class="img-fluid">
                     </div>
-                    <div class="mt-3">
-                        <label for="email" class="form-label">Your Email</label>
-                        <input type="text" name="email" class="form-control" placeholder="Your Email" required>
-                    </div class="mt-3">
-                    <div class="mt-3">
-                        <label for="subject" class="form-label">Subject</label>
-                        <input type="text" name="subject" class="form-control" placeholder="Subject" required>
-                    </div>
-                    <div class="mt-3 mb-3">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea name="message" cols="20" rows="6" class="form-control" placeholder="Message.."></textarea>
-                    </div>
-                    <button class="btn" style="background-color: #CF3D3C; color:#D9D9D9">
-                        Submit Form
-                    </button>
+                </div>
+                <div class="col-lg-6 py-5 text-white text-center d-flex flex-column justify-content-center">
+                    <h1> <b>रगत चाहियो?</b></h1>
+                    <p class="fs-4">Fill in the form and send us your details.</p>
+                    <p class="fs-4">Someone will get back to you asap. If it’s an emergency,</p>
+                    <p class="fs-4">call us @ +977 9800000000 or msg us at Facebook</p>
+                    <span>
+                        <a href="{{ route('receive') }}" class="btn me-3 px-5 py-2 shadow text-danger bg-white border-0">Request
+                            Blood</a>
+                        <a href="{{ route('donate') }}" class="btn btn-secondary btn me-3 px-5 py-2  border-white shadow bg-danger">Donate
+                            Blood</a>
+                    </span>
                 </div>
             </div>
         </div>
     </div>
-    <!-- contact section  -->
-    {{-- @endauth --}}
 
+    {{-- @endauth --}}
 @endsection

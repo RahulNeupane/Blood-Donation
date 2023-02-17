@@ -64,7 +64,7 @@
                                 <a class="nav-link" href="#gallery">Gallery</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Contact</a>
+                                <a class="nav-link" href="#contact">Contact</a>
                             </li>
                             <li class="nav-item">
                                 @auth
@@ -147,9 +147,9 @@
                 <div class="col-lg-3 col-xs-12 location ">
                     <h4 class="mt-lg-0 mt-sm-4">Location</h4>
                     <a href="https://goo.gl/maps/xWUEdngG9oeyXmHC6" class="text-secondary lh-1"><i class="bx bx-map-pin"></i> Kist College & SS <br>(Ahead of Kamalpokhari lake)</a>
-                    <p class="mb-0 text-secondary mt-2"><i class='bx bx-phone-call mr-5'></i> +977 44600</p>
-                    <p class="mb-0 text-secondary mt-2"><i class='bx bx-phone-call mr-5'></i> +977 44600</p>
-                    <p class="text-secondary mt-2"><i class='bx bx-envelope mr-3 '></i> lifeline@gmail.com</p>
+                    <p class="mb-0 text-secondary mt-2"><i class='bx bx-phone-call mr-2'></i> +977 44600</p>
+                    <p class="mb-0 text-secondary mt-2"><i class='bx bx-phone-call mr-2'></i> +977 44600</p>
+                    <p class="text-secondary mt-2"><i class='bx bx-envelope mr-2'></i> lifeline@gmail.com</p>
                 </div>
             </div>
         </div>
