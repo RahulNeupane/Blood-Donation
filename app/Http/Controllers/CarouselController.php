@@ -91,8 +91,15 @@ class CarouselController extends Controller
      * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Carousel $carousel)
+    public function destroy($id)
     {
-        //
+        $carousel = Carousel::findOrFail($id);
+
+        $path = public_path('/images/carousel/' . $carousel->image);
+        if(file_exists($path)){
+            unlink($path);
+        }
+        $carousel->delete();
+        return back();
     }
 }
