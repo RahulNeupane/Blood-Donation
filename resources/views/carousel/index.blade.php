@@ -27,7 +27,7 @@
                                                     <td><img src="{{ url('/images/carousel/' . $image->image) }}" alt="image"
                                                             width="50" height="50"></td>
                                                     <td>
-                                                        <a href="{{ route('gallery.edit', $image->id) }}"><button
+                                                        <a href="{{ route('carousel.edit', $image->id) }}"><button
                                                                 class="btn btn-primary">Edit</button></a>
                                                         <button type="button" class="btn btn-danger delete"
                                                             data-toggle="modal" data-target="#exampleModal"

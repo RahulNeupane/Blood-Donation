@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Carousel;
 use Illuminate\Http\Request;
 use Image;
+
 class CarouselController extends Controller
 {
     /**
@@ -14,8 +15,8 @@ class CarouselController extends Controller
      */
     public function index()
     {
-        $carousel = Carousel::orderBy('id','Desc')->limit(4)->get();
-        return view('carousel.index',compact('carousel'));
+        $carousel = Carousel::limit(4)->get();
+        return view('carousel.index', compact('carousel'));
     }
 
     /**
@@ -37,16 +38,16 @@ class CarouselController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image'=>'required|image|mimes:png,jpg,jpeg'
+            'image' => 'required|image|mimes:png,jpg,jpeg'
         ]);
-       if($request->hasFile('image')){
-        $img = date('YmdHis'). '.'. $request->file('image')->extension();
-        Image::make($request->file('image'))->save(public_path('/images/carousel/').$img,80);
-       }
-       
-       $carousel = new Carousel();
-       $carousel->image = $img;
-       $carousel->save();
+        if ($request->hasFile('image')) {
+            $img = date('YmdHis') . '.' . $request->file('image')->extension();
+            Image::make($request->file('image'))->save(public_path('/images/carousel/') . $img, 80);
+        }
+
+        $carousel = new Carousel();
+        $carousel->image = $img;
+        $carousel->save();
 
         return redirect()->route('carousel.index');
     }
@@ -68,9 +69,10 @@ class CarouselController extends Controller
      * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function edit(Carousel $carousel)
+    public function edit($id)
     {
-        //
+        $carousel = Carousel::findOrFail($id);
+        return view('carousel.edit', compact('carousel'));
     }
 
     /**
@@ -80,11 +82,31 @@ class CarouselController extends Controller
      * @param  \App\Models\Carousel  $carousel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Carousel $carousel)
+    public function update(Request $request, $id)
     {
-        //
+        $carousel = Carousel::findOrFail($id);
+
+        if ($request->hasFile('image')) {
+            $path = public_path('/images/carousel/' . $carousel->image);
+            if (file_exists($path)) {
+                unlink($path);
+            }
+            $request->validate([
+                'image' => 'required|image|mimes:png,jpg,jpeg'
+            ]);
+
+            $img = date('YmdHis') . '.' . $request->file('image')->extension();
+            Image::make($request->file('image'))->save(public_path('/images/carousel/') . $img, 80);
+            $carousel->image = $img;
+        }
+
+  
+        $carousel->update();
+
+        return redirect()->route('carousel.index');
     }
 
+    
     /**
      * Remove the specified resource from storage.
      *
@@ -96,7 +118,7 @@ class CarouselController extends Controller
         $carousel = Carousel::findOrFail($id);
 
         $path = public_path('/images/carousel/' . $carousel->image);
-        if(file_exists($path)){
+        if (file_exists($path)) {
             unlink($path);
         }
         $carousel->delete();
