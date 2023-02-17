@@ -52,7 +52,7 @@
                                         Pages
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="#team">Team</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('team') }}">Team</a></li>
                                         <li><a class="dropdown-item" href="{{ route('events') }}">Events</a></li>
                                         <li><a class="dropdown-item" href="{{ route('rewards_show') }}">Rewards</a></li>
                                         <li><a class="dropdown-item" href="{{ route('blogs') }}">Blog</a></li>

@@ -228,4 +228,9 @@ class IndexController extends Controller
         ]);
         return back()->with('success', "Request Submitted Succesfully. We'll Contact you soon");
     }
+
+    public function team()
+    {
+        return view('team');
+    }
 }
