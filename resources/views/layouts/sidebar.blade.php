@@ -44,10 +44,14 @@
                             Homepage</span></a>
                 </li>
                 <li
-                    class="dropdown {{ Request::is('events') ? 'active' : '' }} || {{ Request::is('events/*') ? 'active' : '' }} || {{ Request::is('gallery') ? 'active' : '' }} || {{ Request::is('gallery/*') ? 'active' : '' }} || {{ Request::is('blogger') ? 'active' : '' }} || {{ Request::is('blogger/*') ? 'active' : '' }}">
+                    class="dropdown {{ Request::is('events') ? 'active' : '' }} || {{ Request::is('events/*') ? 'active' : '' }} || {{ Request::is('gallery') ? 'active' : '' }} || {{ Request::is('gallery/*') ? 'active' : '' }} || {{ Request::is('blogger') ? 'active' : '' }} || {{ Request::is('blogger/*') ? 'active' : '' }} || {{ request()->routeIs('carousel*') ? 'active' : '' }}">
                     <a href="#" class="nav-link has-dropdown"><i class="fas fa-home"></i><span>Homepage
                             Items</span></a>
                     <ul class="dropdown-menu">
+                        <li
+                            class="{{ request()->routeIs('carousel*') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('carousel.index') }}"><i
+                                    class='bx bx-calendar-event'></i>Carousel</a></li>
                         <li
                             class="{{ Request::is('events') ? 'active' : '' }} || {{ Request::is('events/*') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('events.index') }}"><i

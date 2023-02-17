@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CarouselController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\EventsController;
@@ -64,6 +65,7 @@ Route::middleware(['admin','auth'])->group(function () {
     Route::post('/changepass', [CustomAuthController::class, 'changepass'])->name('change-pass');
     Route::resource('/events', EventsController::class, ['names' => 'events']);
     Route::resource('/gallery', GalleryController::class, ['names' => 'gallery']);
+    Route::resource('/carousel', CarouselController::class, ['names' => 'carousel']);
     Route::resource('/reward', RewardController::class, ['names' => 'reward']);
     Route::resource('/blog-categories', BlogCategoryController::class, ['names' => 'blogCategory']);
     Route::resource('/blog', BlogController::class, ['names' => 'blog']);
