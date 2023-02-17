@@ -16,7 +16,7 @@
             </div>
             <div class="row">
                 @foreach ($events as $event)
-                    <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="col-lg-4 col-md-6 col-sm-12 text-center">
                         <div class="card eventg mb-5 shadow-sm ">
                             <img src="{{ url(asset('images/events/' . $event->image)) }}" alt=""
                                 class="img-responsive" height="300">
@@ -30,7 +30,7 @@
                                     </p>
                                 </div>
                                 <div class="text-center">
-                                    <a href="{{ route('event_detail',$event->id) }}" class="btn btn-outline-primary rounded">Read More</a>
+                                    <a href="{{ route('event_detail',$event->id) }}" class="btn text-white rounded" style="background-color: #CF3D3C">Read More</a>
                                 </div>
                             </div>
                         </div>

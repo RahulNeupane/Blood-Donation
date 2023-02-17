@@ -52,7 +52,7 @@
                                         Pages
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item" href="{{ route('team') }}">Team</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('team') }}">About US</a></li>
                                         <li><a class="dropdown-item" href="{{ route('events') }}">Events</a></li>
                                         <li><a class="dropdown-item" href="{{ route('rewards_show') }}">Rewards</a></li>
                                         <li><a class="dropdown-item" href="{{ route('blogs') }}">Blog</a></li>
@@ -62,9 +62,6 @@
 
                             <li class="nav-item">
                                 <a class="nav-link" href="#gallery">Gallery</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact</a>
                             </li>
                             <li class="nav-item">
                                 @auth
@@ -97,6 +94,7 @@
 
     @yield('content')
 
+    
     <!-- Footer -->
     <div class="mt-5 pt-5 pb-5 footer bg-white shadow-sm border-1-top">
         <div class="container">

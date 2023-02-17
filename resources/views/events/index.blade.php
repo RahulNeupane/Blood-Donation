@@ -28,7 +28,8 @@
                                                 <tr>
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $event->title }}</td>
-                                                    <td width="40%">{{ $event->body }}</td>
+                                                    <td width="40%">
+                                                        {{ Str::limit($event->body, 150) }}</td>
                                                     <td><img src="{{ url('/images/events/' . $event->image) }}" alt="event"
                                                             width="50"></td>
                                                     <td style="color: {{date('Y-m-d H:i:s')<$event->date?'green':'red'}}">{{$event->date }}</td>

@@ -54,7 +54,7 @@ class IndexController extends Controller
         if($now <= $event->date){
             $color = 'green';
         }else{
-            $color = 'red';
+            $color = '#CF3D3C';
         }
         return view('event_detail',compact('event','color'));  
     }
@@ -232,5 +232,9 @@ class IndexController extends Controller
     public function team()
     {
         return view('team');
+    }
+    public function about()
+    {
+        return view('about');
     }
 }
