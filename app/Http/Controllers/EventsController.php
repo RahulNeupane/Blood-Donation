@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Events;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-
+use Image;
 class EventsController extends Controller
 {
     /**
@@ -44,10 +44,8 @@ class EventsController extends Controller
             'date' => 'required|date',
         ]);
         if($request->hasFile('image')){
-            $file = $request->file('image');
-            $extension = $file->extension();
-            $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images/events'), $image);
+            $image = date('YmdHis'). '.'. $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/events/').$image,40);
         }
         Events::create([
             'title' => $request->title,
@@ -114,10 +112,8 @@ class EventsController extends Controller
             $request->validate([
                 'image' => 'required|image|mimes:png,jpg,jpeg',
             ]);
-            $file = $request->file('image');
-            $extension = $file->extension();
-            $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images/events'), $image);
+            $image = date('YmdHis'). '.'. $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/events/').$image,40);
             $event->image = $image;
         }
 

@@ -14,6 +14,7 @@ use App\Models\Reward;
 use App\Models\User;
 use Carbon\Carbon;
 use DateTime;
+use Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -103,11 +104,10 @@ class IndexController extends Controller
             ]);
             if (file_exists(public_path('/images/user/') . auth()->user()->image)) {
                 unlink(public_path('/images/user/') . auth()->user()->image);
-            }
-            $file = $request->file('image');
-            $extension = $file->extension();
-            $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images/user'), $image);
+            } 
+            $image = date('YmdHis'). '.'. $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/user/').$image,40);
+
             $user->image = $image;
         }
         $user->update([
@@ -206,10 +206,8 @@ class IndexController extends Controller
             'note' => 'required|string',
         ]);
         if ($request->hasFile('image')) {
-            $file = $request->file('image');
-            $extension = $file->extension();
-            $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images/requisitionForm/'), $image);
+            $image = date('YmdHis'). '.'. $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/requisitionForm/').$image,40);
         }
         BloodRequest::create([
             'name' => $request->name,

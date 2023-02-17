@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Reward;
 use Illuminate\Http\Request;
-
+use Image;
 class RewardController extends Controller
 {
     /**
@@ -42,10 +42,8 @@ class RewardController extends Controller
             'image'=>'required|image|mimes:png,jpg,jpeg'
         ]);
        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $extension = $file->extension();
-            $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images/reward/'),$image);
+            $image = date('YmdHis'). '.'. $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/reward/').$image,40);
        }
 
         Reward::create([
@@ -103,10 +101,8 @@ class RewardController extends Controller
             $request->validate([
                 'image' => 'required|image|mimes:png,jpg,jpeg'
             ]);
-            $file = $request->file('image');
-            $ext = $file->extension();
-            $img = date('YmdHis') . '.' . $ext;
-            $file->move(public_path('/images/reward/'), $img);
+            $img = date('YmdHis'). '.'. $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/reward/').$image,40);
             $reward->image = $img;
         }
         $reward->update([

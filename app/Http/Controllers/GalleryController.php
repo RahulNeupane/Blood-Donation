@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Gallery;
 use Illuminate\Http\Request;
-
+use Image;
 use function PHPUnit\Framework\fileExists;
 
 class GalleryController extends Controller
@@ -43,15 +43,13 @@ class GalleryController extends Controller
             'image'=>'required|image|mimes:png,jpg,jpeg'
         ]);
        if($request->hasFile('image')){
-            $file = $request->file('image');
-            $extension = $file->extension();
-            $image = date('YmdHis') . '.' . $extension;
-            $file->move(public_path('/images/gallery/'),$image);
+        $img = date('YmdHis'). '.'. $request->file('image')->extension();
+        Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/gallery/').$img,40);
        }
 
         Gallery::create([
             'caption' => $request->caption,
-            'image' => $image,
+            'image' => $img,
         ]);
 
         return redirect()->route('gallery.index');
@@ -101,10 +99,8 @@ class GalleryController extends Controller
             $request->validate([
                 'image' => 'required|image|mimes:png,jpg,jpeg'
             ]);
-            $file = $request->file('image');
-            $ext = $file->extension();
-            $img = date('YmdHis') . '.' . $ext;
-            $file->move(public_path('/images/gallery/'), $img);
+            $img = date('YmdHis'). '.'. $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/gallery/').$img,40);
             $image->image = $img;
         }
         $image->update([
