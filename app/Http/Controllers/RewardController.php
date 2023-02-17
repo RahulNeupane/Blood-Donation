@@ -102,7 +102,7 @@ class RewardController extends Controller
                 'image' => 'required|image|mimes:png,jpg,jpeg'
             ]);
             $img = date('YmdHis'). '.'. $request->file('image')->extension();
-            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/reward/').$image,40);
+            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/reward/').$img,40);
             $reward->image = $img;
         }
         $reward->update([
