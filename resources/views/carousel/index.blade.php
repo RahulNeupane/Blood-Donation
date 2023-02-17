@@ -10,7 +10,7 @@
                                 <div class="card-header text-center mb-3 justify-content-between">
                                     <h4>Carousel Images</h4>
                                     <div>
-                                        <a href="{{ route('gallery.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
+                                        <a href="{{ route('carousel.create') }}" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
                                     </div>
                                 </div>
                                 <div class="card-body table-responsive">

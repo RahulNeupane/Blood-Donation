@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Carousel;
 use Illuminate\Http\Request;
-
+use Image;
 class CarouselController extends Controller
 {
     /**
@@ -25,7 +25,7 @@ class CarouselController extends Controller
      */
     public function create()
     {
-        //
+        return view('carousel.create');
     }
 
     /**
@@ -36,7 +36,19 @@ class CarouselController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image'=>'required|image|mimes:png,jpg,jpeg'
+        ]);
+       if($request->hasFile('image')){
+        $img = date('YmdHis'). '.'. $request->file('image')->extension();
+        Image::make($request->file('image'))->save(public_path('/images/carousel/').$img,80);
+       }
+       
+       $carousel = new Carousel();
+       $carousel->image = $img;
+       $carousel->save();
+
+        return redirect()->route('carousel.index');
     }
 
     /**
