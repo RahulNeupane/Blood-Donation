@@ -23,9 +23,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [IndexController::class, 'index'])->name('home');
-Route::get('/blog-all', [IndexController::class, 'blogs'])->name('blogs');
 Route::get('/rewards/show', [IndexController::class, 'rewards_show'])->name('rewards_show');
+Route::get('/blog-all', [IndexController::class, 'blogs'])->name('blogs');
 Route::get('/blog-detail/{id}', [IndexController::class, 'blog_detail'])->name('blog_detail');
+Route::get('/event-all', [IndexController::class, 'events'])->name('events');
+Route::get('/event-detail/{id}', [IndexController::class, 'event_detail'])->name('event_detail');
 Route::get('/category/{id}', [IndexController::class, 'category'])->name('category');
 Route::post('/comment-submit', [CommentController::class, 'comment_submit'])->name('comment_submit');
 Route::post('/reply-submit', [CommentController::class, 'reply_submit'])->name('reply_submit');

@@ -7,6 +7,7 @@ use App\Models\BlogCategory;
 use App\Models\Blogger;
 use App\Models\BloodRequest;
 use App\Models\Comment;
+use App\Models\Events;
 use App\Models\Gallery;
 use App\Models\Requests;
 use App\Models\Reward;
@@ -39,6 +40,22 @@ class IndexController extends Controller
         $comments = Comment::with('rReply')->where('status', 1)->get();
         $count = Comment::where('status', 1)->count();
         return view('blog_detail', compact('blog', 'categories', 'blogs', 'comments', 'count'));
+    }
+    public function events()
+    {
+        $events = Events::orderBy('id', 'desc')->paginate(3);
+        return view('events', compact('events'));
+    }
+    public function event_detail($id)
+    {
+        $event = Events::where('id', $id)->first();
+        $now = date('Y-m-d H:i:s');
+        if($now <= $event->date){
+            $color = 'green';
+        }else{
+            $color = 'red';
+        }
+        return view('event_detail',compact('event','color'));  
     }
     public function category($id)
     {
