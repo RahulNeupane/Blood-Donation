@@ -25,4 +25,8 @@ class RewardRedeemController extends Controller
         $user->update();
         return back()->with('success',"Redeem Succesful We'll contact soon about delivery detail !");
     }
+    public function showReedemedRewards(){
+        $redeems = RewardRedeem::with('rReward')->with('rUser')->get();
+        return view('reward.redeemed_rewards',compact('redeems'));
+    }
 }

@@ -68,6 +68,7 @@ Route::middleware(['admin','auth'])->group(function () {
     Route::resource('/gallery', GalleryController::class, ['names' => 'gallery']);
     Route::resource('/carousel', CarouselController::class, ['names' => 'carousel']);
     Route::resource('/reward', RewardController::class, ['names' => 'reward']);
+    Route::get('/redeemed-rewards/show',[RewardRedeemController::class,'showReedemedRewards'])->name('showReedemedRewards');
     Route::resource('/blog-categories', BlogCategoryController::class, ['names' => 'blogCategory']);
     Route::resource('/blog', BlogController::class, ['names' => 'blog']);
     Route::get('/blog/comments/pending',[ BlogController::class,'pending_comments'])->name('show_comments');
