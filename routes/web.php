@@ -8,6 +8,7 @@ use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\IndexController;
+use App\Http\Controllers\ReportController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\RewardController;
 use App\Http\Controllers\RewardRedeemController;
@@ -84,7 +85,10 @@ Route::middleware(['admin','auth'])->group(function () {
 
     Route::get('/blog/reply/approved',[ BlogController::class,'approved_reply'])->name('approved_reply');
     Route::get('/blog/reply/recheck/{id}',[ BlogController::class,'recheck_reply'])->name('recheck_reply');
-
+    
+    Route::get('/donateReports',[ ReportController::class,'donateReports'])->name('donateReports');
+    Route::get('/receiveReports',[ ReportController::class,'receiveReports'])->name('receiveReports');
+    Route::get('/redeemReports',[ ReportController::class,'redeemReports'])->name('redeemReports');
 });
 
 Route::middleware(['auth'])->group(function(){
