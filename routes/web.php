@@ -90,6 +90,7 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/donate',[IndexController::class,'donate'])->name('donate');
     Route::post('/donate-request',[IndexController::class,'donateRequest'])->name('donateRequest');
     Route::get('/reward-redeem/{id}',[RewardRedeemController::class,'index'])->name('rewardRedeem');
+    Route::get('/reward-redeem-confirm/{id}',[RewardRedeemController::class,'rewardRedeemConfirm'])->name('rewardRedeemConfirm');
 });
 
 Route::get('/receive',[IndexController::class,'receive'])->name('receive');
