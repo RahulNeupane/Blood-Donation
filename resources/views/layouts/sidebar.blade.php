@@ -96,9 +96,17 @@
                         </li>
                     </ul>
                 </li>
-                <li class="{{ request()->routeIs('reward*') ? 'active' : '' }}">
-                    <a href="{{ route('reward.index') }}" class="nav-link"><i class="fas fa-trophy"></i><span>Rewards</span></a>
-                </li>
+                <li
+                class="dropdown {{ request()->routeIs('reward*') ? 'active' : '' }} || {{ request()->routeIs('showReedemedRewards') ? 'active' : '' }}">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-trophy"></i><span>Reward</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ request()->routeIs('reward*') ? 'active' : '' }}">
+                        <a href="{{ route('reward.index') }}" class="nav-link"><i class="fas fa-trophy"></i><span>All Rewards</span></a>
+                    </li>
+                    <li class="{{ request()->routeIs('showReedemedRewards') ? 'active' : '' }}"><a class="nav-link"
+                            href="{{ route('showReedemedRewards') }}"><i class="fas fa-trophy"></i><span>Reedemed</span>  Rewards</a></li>
+                </ul>
+            </li>
                 <li class="menu-header">Log Out</li>
                 <li>
                     <a href="{{ route('logout') }}" class="nav-link">
