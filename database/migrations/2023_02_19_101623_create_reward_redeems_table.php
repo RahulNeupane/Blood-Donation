@@ -15,8 +15,10 @@ return new class extends Migration
     {
         Schema::create('reward_redeems', function (Blueprint $table) {
             $table->id();
-            $table->text('user_id');
-            $table->text('reward_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->unsignedBigInteger('reward_id');
+            $table->foreign('reward_id')->references('id')->on('rewards');
             $table->timestamps();
         });
     }

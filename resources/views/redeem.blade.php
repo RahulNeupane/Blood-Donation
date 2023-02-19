@@ -1,5 +1,11 @@
 @extends('layouts.home')
 @section('content')
+    <style>
+        a.disabled {
+            pointer-events: none;
+            cursor: default;
+        }
+    </style>
     <hr>
     <div class="container mt-5">
         <div class="text-center">
@@ -33,13 +39,12 @@
                                 Your Points: {{ auth()->user()->RewardPoints }}
                             </p>
                             @if ($reward->point > auth()->user()->RewardPoints)
-                               <p class="text-danger">Not enough points</p>
+                                <p class="text-danger">Not enough points</p>
                             @endif
                             <hr>
                         </div>
                         <div class="d-grid">
-                            <button class="btn btn-primary" @if (auth()->user()->RewardPoints < $reward->point) disabled @endif>Confirm
-                                Redeem</button>
+                            <a href="{{ route('rewardRedeemConfirm',$reward->id) }}" class="@if (auth()->user()->RewardPoints < $reward->point) disabled @endif btn btn-primary">Confirm Redeem</a>
                         </div>
                     </div>
                 </div>
