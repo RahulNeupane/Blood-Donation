@@ -38,8 +38,8 @@ class IndexController extends Controller
         $blogs = Blog::orderBy('id', 'desc')->limit(5)->get();
         $categories = BlogCategory::limit(10)->get();
         $blog = Blog::where('id', $id)->first();
-        $comments = Comment::with('rReply')->where('status', 1)->get();
-        $count = Comment::where('status', 1)->count();
+        $comments = Comment::with('rReply')->where('status', 1)->where('blog_id',$blog->id)->get();
+        $count = Comment::where('status', 1)->where('blog_id',$blog->id)->count();
         return view('blog_detail', compact('blog', 'categories', 'blogs', 'comments', 'count'));
     }
     public function events()

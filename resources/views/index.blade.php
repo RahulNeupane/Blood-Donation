@@ -66,8 +66,8 @@
                 @foreach ($images as $image)
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card  mb-5 shadow-sm image-fluid">
-                            <img src="{{ url('/images/gallery/' . $image->image) }}" class="img-responsive"
-                                alt="" height="350px">
+                            <img src="{{ url('/images/gallery/' . $image->image) }}" class="img-responsive" alt=""
+                                height="350px">
                         </div>
                     </div>
                 @endforeach
@@ -93,8 +93,7 @@
             @foreach ($blogs as $blog)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card blogg mb-5 shadow-sm">
-                        <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}" alt=""
-                            class="img-responsive">
+                        <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}" alt="" class="img-responsive">
                         <div class="card-body text-center">
                             <div class="card-title">
                                 <h2>{{ $blog->title }}</h2>
@@ -102,20 +101,18 @@
                             <div class="card-text">
                                 <p>
                                     {!! nl2br(Str::limit($blog->description, 150)) !!}
-
+                                    <a href="{{ route('blog_detail', $blog->id) }}" class="ms-2">Read More</a>
                                 </p>
                             </div>
-
-                            <a href="{{ route('blog_detail', $blog->id) }}"
-                                class="btn text-white rounded " style="background-color: #CF3D3C">Read More</a>
+                           
                         </div>
                     </div>
                 </div>
             @endforeach
         </div>
         <div class="text-center">
-            <a href="{{ route('blogs') }}"
-                class="btn rounded px-4 text-white" style="background-color: #CF3D3C" >View All</a>
+            <a href="{{ route('blogs') }}" class="btn rounded px-4 text-white" style="background-color: #CF3D3C">View
+                All</a>
         </div>
     </div>
     <!-- Blog Section -->
@@ -135,9 +132,11 @@
                     <p class="fs-4">Someone will get back to you asap. If it’s an emergency,</p>
                     <p class="fs-4">call us @ +977 9800000000 or msg us at Facebook</p>
                     <span>
-                        <a href="{{ route('receive') }}" class="btn me-3 px-5 py-2 shadow text-danger bg-white border-0">Request
+                        <a href="{{ route('receive') }}"
+                            class="btn me-3 px-5 py-2 shadow text-danger bg-white border-0">Request
                             Blood</a>
-                        <a href="{{ route('donate') }}" class="btn btn-secondary btn me-3 px-5 py-2  border-white shadow bg-danger">Donate
+                        <a href="{{ route('donate') }}"
+                            class="btn btn-secondary btn me-3 px-5 py-2  border-white shadow bg-danger">Donate
                             Blood</a>
                     </span>
                 </div>
