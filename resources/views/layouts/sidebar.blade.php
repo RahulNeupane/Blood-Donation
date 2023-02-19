@@ -48,18 +48,20 @@
                     <a href="#" class="nav-link has-dropdown"><i class="fas fa-home"></i><span>Homepage
                             Items</span></a>
                     <ul class="dropdown-menu">
-                        <li
-                            class="{{ request()->routeIs('carousel*') ? 'active' : '' }}">
+                        <li class="{{ request()->routeIs('carousel*') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('carousel.index') }}"><i
-                                    class='bx bx-calendar-event'></i>Carousel</a></li>
+                                    class='bx bx-calendar-event'></i>Carousel</a>
+                        </li>
                         <li
                             class="{{ Request::is('events') ? 'active' : '' }} || {{ Request::is('events/*') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('events.index') }}"><i
-                                    class='bx bx-calendar-event'></i>Events</a></li>
+                                    class='bx bx-calendar-event'></i>Events</a>
+                        </li>
                         <li
                             class="{{ Request::is('gallery') ? 'active' : '' }} || {{ Request::is('gallery/*') ? 'active' : '' }}">
                             <a class="nav-link" href="{{ route('gallery.index') }}"><i
-                                    class="fas fa-image"></i>Gallery</a></li>
+                                    class="fas fa-image"></i>Gallery</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -77,36 +79,58 @@
                                 Request</a></li>
                     </ul>
                 </li>
-                <li class="dropdown {{ Request::is('blog-categories*') ? 'active' : '' }}|| {{ Request::is('blog*') ? 'active' : '' }}">
+                <li
+                    class="dropdown {{ Request::is('blog-categories*') ? 'active' : '' }}|| {{ Request::is('blog*') ? 'active' : '' }}">
                     <a href="#" class="nav-link has-dropdown"><i
                             class="fab fa-blogger-b"></i><span>Blog</span></a>
                     <ul class="dropdown-menu">
-                        <li class="{{ request()->routeIs('blogCategory*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('blogCategory.index') }}"><i class="fa fa-list"></i>Category</a>
+                        <li class="{{ request()->routeIs('blogCategory*') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('blogCategory.index') }}"><i class="fa fa-list"></i>Category</a>
                         </li>
-                        <li class="{{ request()->routeIs('blog*') ? 'active' : '' }}"><a class="nav-link" href="{{ route('blog.index') }}"><i
-                            class="fab fa-blogger-b"></i>Blog</a>
+                        <li class="{{ request()->routeIs('blog*') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('blog.index') }}"><i class="fab fa-blogger-b"></i>Blog</a>
                         </li>
-                        <li class="{{ request()->routeIs('show_comments') ? 'active' : '' }}"><a class="nav-link" href="{{ route('show_comments') }}"><i class="fas fa-comment"></i> <span> Pending Comments </span></a>
+                        <li class="{{ request()->routeIs('show_comments') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('show_comments') }}"><i class="fas fa-comment"></i> <span> Pending
+                                    Comments </span></a>
                         </li>
-                        <li class="{{ request()->routeIs('approved_comments') ? 'active' : '' }}"><a class="nav-link" href="{{ route('approved_comments') }}"><i class="fas fa-comment"></i> <span>  Comments</span></a>
+                        <li class="{{ request()->routeIs('approved_comments') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('approved_comments') }}"><i class="fas fa-comment"></i> <span>
+                                    Comments</span></a>
                         </li>
-                        <li class="{{ request()->routeIs('show_reply') ? 'active' : '' }}"><a class="nav-link" href="{{ route('show_reply') }}"><i class="fas fa-reply"></i>Pending Reply</a>
+                        <li class="{{ request()->routeIs('show_reply') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('show_reply') }}"><i class="fas fa-reply"></i>Pending Reply</a>
                         </li>
-                        <li class="{{ request()->routeIs('approved_reply') ? 'active' : '' }}"><a class="nav-link" href="{{ route('approved_reply') }}"><i class="fas fa-reply"></i>Approved Reply</a>
+                        <li class="{{ request()->routeIs('approved_reply') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('approved_reply') }}"><i class="fas fa-reply"></i>Approved Reply</a>
                         </li>
                     </ul>
                 </li>
                 <li
-                class="dropdown {{ request()->routeIs('reward*') ? 'active' : '' }} || {{ request()->routeIs('showReedemedRewards') ? 'active' : '' }}">
-                <a href="#" class="nav-link has-dropdown"><i class="fas fa-trophy"></i><span>Reward</span></a>
-                <ul class="dropdown-menu">
-                    <li class="{{ request()->routeIs('reward*') ? 'active' : '' }}">
-                        <a href="{{ route('reward.index') }}" class="nav-link"><i class="fas fa-trophy"></i><span>All Rewards</span></a>
-                    </li>
-                    <li class="{{ request()->routeIs('showReedemedRewards') ? 'active' : '' }}"><a class="nav-link"
-                            href="{{ route('showReedemedRewards') }}"><i class="fas fa-trophy"></i><span>Reedemed</span>  Rewards</a></li>
-                </ul>
-            </li>
+                    class="dropdown {{ request()->routeIs('reward*') ? 'active' : '' }} || {{ request()->routeIs('showReedemedRewards') ? 'active' : '' }}">
+                    <a href="#" class="nav-link has-dropdown"><i
+                            class="fas fa-trophy"></i><span>Reward</span></a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ request()->routeIs('reward*') ? 'active' : '' }}">
+                            <a href="{{ route('reward.index') }}" class="nav-link"><i
+                                    class="fas fa-trophy"></i><span>All Rewards</span></a>
+                        </li>
+                        <li class="{{ request()->routeIs('showReedemedRewards') ? 'active' : '' }}"><a
+                                class="nav-link" href="{{ route('showReedemedRewards') }}"><i
+                                    class="fas fa-trophy"></i><span>Reedemed</span> Rewards</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown {{ request()->routeIs('redeemReports') ? 'active' : '' }} || {{ request()->routeIs('donateReports') ? 'active' : '' }} || {{ request()->routeIs('receiveReports') ? 'active' : '' }}">
+                    <a href="#" class="nav-link has-dropdown"><i class='fas fa-file'></i><span>Report</span></a>
+                    <ul class="dropdown-menu">
+                        <li class="{{ request()->routeIs('donateReports') ? 'active' : '' }}">
+                            <a href="{{ route('donateReports') }}" class="nav-link"><i class='bx bxs-report'></i>Donate Reports</a>
+                        </li>
+                        <li class="{{ request()->routeIs('receiveReports') ? 'active' : '' }}"><a class="nav-link" href="{{ route('receiveReports') }}"><i class='bx bxs-report'></i>Receive Reports</a></li>
+                        <li class="{{ request()->routeIs('redeemReports') ? 'active' : '' }}"><a class="nav-link" href="{{ route('redeemReports') }}"><i class='bx bxs-report'></i><span>Reedemed Reports</span></a></li>
+                    </ul>
+                </li>
+
                 <li class="menu-header">Log Out</li>
                 <li>
                     <a href="{{ route('logout') }}" class="nav-link">
