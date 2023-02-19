@@ -31,7 +31,7 @@
                                     </p>
                                 </div>
                                 @auth
-                                    <a href="" class="btn btn-primary rounded-0">Redeem</a>
+                                    <a href="{{ route('rewardRedeem',$reward->id) }}" class="btn btn-primary rounded-0">Redeem</a>
                                 @endauth
                             </div>
                         </div>

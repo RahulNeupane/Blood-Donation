@@ -10,6 +10,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\RequestController;
 use App\Http\Controllers\RewardController;
+use App\Http\Controllers\RewardRedeemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -88,6 +89,7 @@ Route::middleware(['admin','auth'])->group(function () {
 Route::middleware(['auth'])->group(function(){
     Route::get('/donate',[IndexController::class,'donate'])->name('donate');
     Route::post('/donate-request',[IndexController::class,'donateRequest'])->name('donateRequest');
+    Route::get('/reward-redeem/{id}',[RewardRedeemController::class,'index'])->name('rewardRedeem');
 });
 
 Route::get('/receive',[IndexController::class,'receive'])->name('receive');
