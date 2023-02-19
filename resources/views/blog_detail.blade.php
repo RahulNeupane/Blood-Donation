@@ -56,8 +56,7 @@
                                                 {!! nl2br($item->person_comment) !!}
                                             </div>
                                             <div class="reply">
-                                                <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i
-                                                        class="fas fa-reply"></i> Reply</a>
+                                                <a href="" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class='bx bx-reply'></i> Reply</a>
                                             </div>
                                         </div>
                                     </div>
@@ -100,19 +99,23 @@
                                                 <form action="{{ route('reply_submit') }}" method="POST">
                                                     @csrf
                                                     <h2>Leave Your Reply</h2>
-                                                    <input type="text" name="blog_id" value="{{ $blog->id }}">
-                                                    <input type="text" name="comment_id" value="{{ $item->id }}">
+                                                    <input type="hidden" name="blog_id" value="{{ $blog->id }}">
+                                                    <input type="hidden" name="comment_id" value="{{ $item->id }}">
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <div class="mb-3">
                                                                 <input type="text" class="form-control"
-                                                                    placeholder="Name" name="name">
+                                                                    placeholder="Name" name="name" @if (auth()->user())
+                                                                    value="{{ auth()->user()->name }}"
+                                                                @endif>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <div class="mb-3">
                                                                 <input type="text" class="form-control"
-                                                                    placeholder="Email Address" name="email">
+                                                                    placeholder="Email Address" name="email" @if (auth()->user())
+                                                                    value="{{ auth()->user()->email }}"
+                                                                @endif>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -138,13 +141,17 @@
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <input type="text" class="form-control" placeholder="Name"
-                                                name="name">
+                                                name="name" @if (auth()->user())
+                                                    value="{{ auth()->user()->name }}"
+                                                @endif>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="mb-3">
                                             <input type="text" class="form-control" placeholder="Email Address"
-                                                name="email">
+                                                name="email" @if (auth()->user())
+                                                value="{{ auth()->user()->email }}"
+                                            @endif>
                                         </div>
                                     </div>
                                 </div>
