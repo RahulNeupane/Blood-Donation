@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BloodRequest;
 use App\Models\Requests;
+use App\Models\RewardRedeem;
 use Illuminate\Http\Request;
 
 class ReportController extends Controller
@@ -17,6 +18,7 @@ class ReportController extends Controller
         return view('reports.receive',compact('receive'));
     }
     public function redeemReports(){
-        return view('reports.redeem');
+        $redeems = RewardRedeem::with('rReward')->with('rUser')->get();
+        return view('reports.redeem',compact('redeems'));
     }
 }
