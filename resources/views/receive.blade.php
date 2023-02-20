@@ -21,7 +21,7 @@
                                             class="form-control @error('name') is-invalid @enderror" name="name"
                                             @if (auth()->user())
                                             value="{{auth()->user()->name}}"
-                                            @endif                                             autocomplete="name" autofocus>
+                                            @endif autocomplete="name" autofocus>
                                     </div>
                                 </div>
                                 <div class="col-md-6 mb-3">

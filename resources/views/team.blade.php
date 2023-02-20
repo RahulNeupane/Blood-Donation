@@ -132,7 +132,7 @@
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="single-team">
                                 <div class="img-area">
-                                    <img src="{{ url(asset('images/nabin.jpeg')) }}" class="img-responsive"
+                                    <img src="{{ url(asset('images/anam.jpeg')) }}" class="img-responsive"
                                         alt="" height="435px">
                                     <div class="social">
                                         <ul class="list-inline">
