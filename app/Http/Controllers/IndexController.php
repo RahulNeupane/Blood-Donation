@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Blogger;
 use App\Models\BloodRequest;
+use App\Models\Carousel;
 use App\Models\Comment;
 use App\Models\Events;
 use App\Models\Gallery;
@@ -26,7 +27,8 @@ class IndexController extends Controller
     {
         $blogs = Blog::orderBy('id', 'Desc')->limit(3)->get();
         $images = Gallery::orderBy('id', 'Desc')->limit(6)->get();
-        return view('index', compact('blogs', 'images'));
+        $carousels = Carousel::limit(3)->get();
+        return view('index', compact('blogs', 'images','carousels'));
     }
     public function blogs()
     {
