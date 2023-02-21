@@ -39,7 +39,7 @@
                                 </li>
                             @else
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="#whyus">Why us?</a>
+                                    <a class="nav-link" href="/#whyus">Why us?</a>
                                 </li>
                             @endauth
                             <li class="nav-item">
@@ -61,7 +61,7 @@
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="#gallery">Gallery</a>
+                                <a class="nav-link" href="/#gallery">Gallery</a>
                             </li>
                             <li class="nav-item">
                                 @auth

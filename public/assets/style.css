@@ -284,3 +284,7 @@ body {
 .contact {
   background: rgba(207, 61, 60, 0.85);
 }
+
+.text-shadow{
+  text-shadow: 2px 2px 5px #535151;
+}
