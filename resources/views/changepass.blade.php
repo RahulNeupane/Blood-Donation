@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('content')
 <hr>
-    <div class="container mt-5">
+    <div class="container mt-5" data-aos="fade">
         <div class="row">
             <div class="col-10 col-lg-8 col-md-8 m-auto">
                 <div class="card p-3">

@@ -1,14 +1,14 @@
 @extends('layouts.home')
 @section('content')
     <hr>
-    <div class="container">
+    <div class="container" data-aos="fade">
         <div class="row">
             <div class="col-md-12 text-center p-3">
                 <h1 class="text-capitalize">{{ $blog->title }}</h1>
             </div>
         </div>
     </div>
-    <div class="page-content blog-detail">
+    <div class="page-content blog-detail" data-aos="fade">
         <div class="container">
             <div class="row">
                 <div class="col-md-8">

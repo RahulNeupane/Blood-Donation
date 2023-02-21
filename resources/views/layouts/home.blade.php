@@ -15,12 +15,13 @@
     <link rel="stylesheet" href="{{ asset('assets/iziToast.min.css') }}">
     @vite(['resources/js/app.js'])
 
-
+    {{-- AOS  --}}
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
     {{-- navbar starts  --}}
-    <header class="header_section  bg-body py-0">
+    <header class="header_section  bg-body py-0" data-aos="fade-down" data-aos-duration="1500">
         <div class="container px-0">
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <div class="container-fluid px-0">
@@ -96,10 +97,10 @@
 
     
     <!-- Footer -->
-    <div class="mt-5 pt-5 pb-5 footer bg-white shadow-sm border-1-top">
+    <div class="mt-5 pt-5 pb-5 footer bg-white shadow-sm border-1-top" data-aos="fade">
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-xs-12 about-company">
+                <div class="col-lg-5 col-xs-12 about-company" data-aos="fade-right">
                     <a class="mb-2" href="{{ route('home') }}">
                         <img width="80" src="{{ url(asset('images/logo.png')) }}" alt="LOGO" />
                     </a>
@@ -120,7 +121,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-xs-12 links">
+                <div class="col-lg-3 col-xs-12 links" data-aos="fade-up">
                     <h4 class="mt-lg-0 mt-sm-3">Links</h4>
                     <ul class="m-0 p-0">
                         <div class="row">
@@ -142,7 +143,7 @@
                         </div>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-xs-12 location ">
+                <div class="col-lg-3 col-xs-12 location " data-aos="fade-left">
                     <h4 class="mt-lg-0 mt-sm-4">Location</h4>
                     <a href="https://goo.gl/maps/xWUEdngG9oeyXmHC6" class="text-secondary lh-1"><i class="bx bx-map-pin"></i> Kist College & SS <br>(Ahead of Kamalpokhari lake)</a>
                     <p class="mb-0 text-secondary mt-2"><i class='bx bx-phone-call mr-2'></i> +977 44600</p>
@@ -187,6 +188,14 @@
             });
         </script>
     @endif
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 3000,
+        once: true,
+      });
+    </script>
 </body>
 
 </html>

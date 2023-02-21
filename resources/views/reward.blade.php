@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('content')
     <hr>
-    <div class="page-content blog">
+    <div class="page-content blog" data-aos="fade">
         <div class="container mt-5">
             <div class="text-center">
                 <h1>Our Rewards</h1>
@@ -41,7 +41,8 @@
                                     </p>
                                 </div>
                                 @auth
-                                    <a href="{{ route('rewardRedeem',$reward->id) }}" class="btn btn-primary rounded-0">Redeem</a>
+                                    <a href="{{ route('rewardRedeem',$reward->id) }}" class="btn text-white rounded"
+                                        style="background-color: #CF3D3C">Redeem</a>
                                 @endauth
                             </div>
                         </div>

@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('content')
     <hr>
-    <div class="page-content blog">
+    <div class="page-content blog" data-aos="fade">
         <div class="container mt-5">
             <div class="text-center">
                 <h1>Our Blogs</h1>
@@ -17,7 +17,8 @@
             <div class="d-flex justify-content-end mb-5">
                 <form action="{{ route('blog_search') }}" method="GET" role="search">
                     <div class="input-group">
-                        <input type="search" name="search" placeholder="search blog" class="form-control me-1" name="search">
+                        <input type="search" name="search" placeholder="search blog" class="form-control me-1"
+                            name="search">
                         <button class="btn btn-primary" type="submit">
                             Search
                         </button>
@@ -27,7 +28,7 @@
             <div class="row">
                 @foreach ($blogs as $blog)
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card blogg mb-5 shadow-sm">
+                        <div class="card blogg mb-5 shadow-sm text-center">
                             <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}" alt=""
                                 class="img-responsive">
                             <div class="card-body">
@@ -40,7 +41,10 @@
 
                                     </p>
                                 </div>
-                                <a href="{{ route('blog_detail',$blog->id) }}" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+                                <a href="{{ route('blog_detail', $blog->id) }}" class="btn text-white rounded"
+                                    style="background-color: #CF3D3C">Read More</a>
+
+
                             </div>
                         </div>
                     </div>

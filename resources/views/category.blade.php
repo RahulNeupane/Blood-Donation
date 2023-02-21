@@ -1,14 +1,14 @@
 @extends('layouts.home')
 @section('content')
     <hr>
-    <div class="container">
+    <div class="container" data-aos="fade">
         <div class="row">
             <div class="col-md-12 text-center p-3">
                 Category: <h4 class="text-capitalize d-inline"> {{ $category->category_name }}</h4>
             </div>
         </div>
     </div>
-    <div class="page-content blog">
+    <div class="page-content blog" data-aos="fade">
         <div class="container">
             <div class="row">
                 @foreach ($blogs as $blog)
