@@ -14,6 +14,17 @@
                             style="height: 3px;width: 13.5vh;"> </div>
                 </div><br><br>
             </div>
+            <div class="d-flex justify-content-end mb-5">
+                <form action="{{ route('event_search') }}" method="GET" role="search">
+                    <div class="input-group">
+                        <input type="search" name="search" placeholder="search event" class="form-control me-1"
+                            name="search">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                    </div>
+                </form>
+            </div>
             <div class="row">
                 @foreach ($events as $event)
                     <div class="col-lg-4 col-md-6 col-sm-12 text-center">
@@ -30,7 +41,8 @@
                                     </p>
                                 </div>
                                 <div class="text-center">
-                                    <a href="{{ route('event_detail',$event->id) }}" class="btn text-white rounded" style="background-color: #CF3D3C">Read More</a>
+                                    <a href="{{ route('event_detail', $event->id) }}" class="btn text-white rounded"
+                                        style="background-color: #CF3D3C">Read More</a>
                                 </div>
                             </div>
                         </div>

@@ -33,6 +33,14 @@ class IndexController extends Controller
         $blogs = Blog::orderBy('id', 'desc')->paginate(3);
         return view('blogs', compact('blogs'));
     }
+    public function blog_search(Request $request)
+    {
+        $blogs = Blog::search($request->search)->paginate(3);
+        if($blogs->total()==0){
+            return redirect()->route('blogs')->with('error','No blog with title "'. $request->search.'"');
+        }
+        return view('blogs', compact('blogs'));
+    }
     public function blog_detail($id)
     {
         $blogs = Blog::orderBy('id', 'desc')->limit(5)->get();
@@ -45,6 +53,14 @@ class IndexController extends Controller
     public function events()
     {
         $events = Events::orderBy('id', 'desc')->paginate(3);
+        return view('events', compact('events'));
+    }
+    public function event_search(Request $request)
+    {
+        $events = Events::search($request->search)->paginate(3);
+        if($events->total()==0){
+            return redirect()->route('events')->with('error','No event with title "'. $request->search.'"');
+        }
         return view('events', compact('events'));
     }
     public function event_detail($id)
@@ -186,6 +202,14 @@ class IndexController extends Controller
     public function rewards_show()
     {
         $rewards = Reward::orderBy('id', 'desc')->paginate(3);
+        return view('reward', compact('rewards'));
+    }
+    public function rewards_search(Request $request)
+    {
+        $rewards = Reward::search($request->search)->paginate(3);
+        if($rewards->total()==0){
+            return redirect()->route('rewards_show')->with('error','No reward with title "'. $request->search.'"');
+        }
         return view('reward', compact('rewards'));
     }
 
