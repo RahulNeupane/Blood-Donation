@@ -24,8 +24,8 @@
                 <img src="{{ url('/images/carousel/' . $carousels[0]->image) }}" class="d-block w-100"
                     style="height: 90vh; filter: brightness(35%)">
                      <div class="carousel-caption d-none d-md-block">
-                    <h1>Eliminate blood scarcity in NEPAL</h1>
-                    <p>by donating your time to make an impact, your blood to save lives or your money to create a holistic
+                    <h1 class="text-shadow">Eliminate blood scarcity in NEPAL</h1>
+                    <p class="text-shadow">by donating your time to make an impact, your blood to save lives or your money to create a holistic
                         blood management cycle.</p>
                     <a href="{{ route('donate') }}" class="btn btn-danger">Donate Now <i class='bx bxs-right-arrow'></i></a>
                 </div>
@@ -35,8 +35,8 @@
                 <img src="{{ url('/images/carousel/' . $carousels[1]->image) }}" class="d-block w-100"
                     style="height: 90vh; filter: brightness(35%)">
                      <div class="carousel-caption d-none d-md-block">
-                    <h1>Eliminate blood scarcity in NEPAL</h1>
-                    <p>by donating your time to make an impact, your blood to save lives or your money to create a holistic
+                    <h1 class="text-shadow">Eliminate blood scarcity in NEPAL</h1>
+                    <p class="text-shadow">by donating your time to make an impact, your blood to save lives or your money to create a holistic
                         blood management cycle.</p>
                     <a href="{{ route('donate') }}" class="btn btn-danger">Donate Now <i class='bx bxs-right-arrow'></i></a>
                 </div>
@@ -45,8 +45,8 @@
                 <img src="{{ url('/images/carousel/' . $carousels[2]->image) }}" class="d-block w-100"
                     style="height: 90vh; filter: brightness(35%)">
                     <div class="carousel-caption d-none d-md-block">
-                    <h1>Eliminate blood scarcity in NEPAL</h1>
-                    <p>by donating your time to make an impact, your blood to save lives or your money to create a holistic
+                    <h1 class="text-shadow">Eliminate blood scarcity in NEPAL</h1>
+                    <p class="text-shadow">by donating your time to make an impact, your blood to save lives or your money to create a holistic
                         blood management cycle.</p>
                     <a href="{{ route('donate') }}" class="btn btn-danger">Donate Now <i class='bx bxs-right-arrow'></i></a>
                 </div>
