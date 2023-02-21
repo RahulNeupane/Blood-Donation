@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('content')
 <div class="container">
-    <div class="row col-lg-8 col-md-8 col-sm-10 mx-auto">
+    <div class="row col-lg-8 col-md-8 col-sm-10 mx-auto" data-aos="fade">
         <form action="{{route('donateRequest')}}" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="card">

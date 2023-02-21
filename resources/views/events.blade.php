@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('content')
     <hr>
-    <div class="page-content event">
+    <div class="page-content event" data-aos="fade">
         <div class="container mt-5">
             <div class="text-center">
                 <h1>Our Events</h1>

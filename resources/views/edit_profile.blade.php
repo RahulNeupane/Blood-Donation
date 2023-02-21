@@ -1,7 +1,7 @@
 @extends('layouts.home')
 @section('content')
     <hr>
-    <div class="container mt-2">
+    <div class="container mt-2" data-aos="fade">
         <div class="row">
             <div class="col-sm-10 mx-auto">
                 <div class="p-5">

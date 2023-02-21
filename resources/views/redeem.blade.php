@@ -7,7 +7,7 @@
         }
     </style>
     <hr>
-    <div class="container mt-5">
+    <div class="container mt-5" data-aos="fade">
         <div class="text-center">
             <h1>Redeem Summary</h1>
             <div class="d-flex justify-content-center  ">

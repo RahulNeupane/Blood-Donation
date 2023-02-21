@@ -1,16 +1,8 @@
 @extends('layouts.home')
 @section('content')
-    {{-- <div class="hero-section">
-        <img src="{{ url(asset('images/slider.jpg')) }}" class="d-block w-100 z-1" style="height: 90vh">
-        <div class="details">
-            <h1>Blood is a life,<br>pass it on !</h1>
-            <p>Help us eliminate blood scarcity in Nepal</p>
-            <a href="{{ route('donate') }}"><span>Donate Now <i class='bx bxs-right-arrow'></i></span></a>
-        </div>
-        <img src="{{ url(asset('images/wave.svg')) }}" class="wave">
-    </div> --}}
+
     {{-- slider  --}}
-    <div id="carouselExampleCaptions" class="carousel slide">
+    <div id="carouselExampleCaptions" class="carousel slide" data-aos="fade-in" data-aos-duration="1500">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                 aria-current="true" aria-label="Slide 1"></button>
@@ -65,18 +57,19 @@
         </button>
     </div>
     {{-- slider end  --}}
+
     {{-- @auth
     @else --}}
     <!-- Whyus Us Section -->
-    <div class="container mx-auto mt-5 " id="whyus">
+    <div class="container mx-auto mt-5 " id="whyus" data-aos="fade">
         <div class="row">
-            <div class="col-lg-6 col-sm-12 col-md-6">
+            <div class="col-lg-6 col-sm-12 col-md-6" data-aos="fade-right">
                 <div class="img-fluid">
                     <img src="{{ url(asset('images/whyus.png')) }}" class="why_img img-fluid"
                         style="height: 50vh;width: 61vh;">
                 </div>
             </div>
-            <div class="col-lg-6 col-sm-12 col-md-12 pt-10 mx-auto  ">
+            <div class="col-lg-6 col-sm-12 col-md-12 pt-10 mx-auto  " data-aos="fade-left">
                 <div class="title pt-4">
                     <h1 class="d-flex mx-md-auto">Why LIFELINE ?</h1>
                     <div class="d-flex md-justify-content-center">
@@ -104,7 +97,7 @@
 
 
     <!-- Gallery -->
-    <div class="mt-5 container" id="gallery">
+    <div class="mt-5 container" id="gallery" data-aos="fade-left">
         <div class="row">
             <div class="text-center">
                 <h1>Gallery</h1>
@@ -132,7 +125,7 @@
     <!-- Gallery -->
 
     <!-- Blog Section -->
-    <div class="container my-5" id="blogger">
+    <div class="container my-5" id="blogger" data-aos="fade"> 
         <div class="text-center">
             <h1>Recent Blogs</h1>
             <div class="d-flex justify-content-center  ">
@@ -174,15 +167,15 @@
     <!-- Blog Section -->
 
     {{-- need blood  --}}
-    <div class="container mt-5">
+    <div class="container mt-5" data-aos="fade">
         <div class="col-lg-12 contact mx-auto">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6" data-aos="fade-right">
                     <div class=" py-5">
                         <img src="{{ asset('images/contact-img.png') }}" alt="" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-lg-6 py-5 text-white text-center d-flex flex-column justify-content-center">
+                <div class="col-lg-6 py-5 text-white text-center d-flex flex-column justify-content-center" data-aos="fade-left">
                     <h1> <b>रगत चाहियो?</b></h1>
                     <p class="fs-4">Fill in the form and send us your details.</p>
                     <p class="fs-4">Someone will get back to you asap. If it’s an emergency,</p>

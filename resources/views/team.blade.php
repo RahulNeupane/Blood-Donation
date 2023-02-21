@@ -3,7 +3,7 @@
     <hr>
 
     <!-- About Us Section -->
-    <div class="container mx-auto mt-5 align-items-center" id="aboutus">
+    <div class="container mx-auto mt-5 align-items-center" id="aboutus" data-aos="fade">
         <div class="row">
             <div class="col-lg-12 align-content-center">
                 <div class="title text-center">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="card-container d-flex justify-content-center mt-3">
+    <div class="card-container d-flex justify-content-center mt-3" data-aos="fade">
         <div class="row col-lg-10 col-md-12">
             <div class="col-lg-4 col-sm-6 mb-3 mb-sm-0">
                 <div class="card  about_card ml-3">
@@ -73,7 +73,7 @@
     </div>
     <!-- About Us Section -->
     <!-- Our team -->
-    <div class="team-area" id="team">
+    <div class="team-area" id="team" data-aos="fade"> 
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 align-content-center">
