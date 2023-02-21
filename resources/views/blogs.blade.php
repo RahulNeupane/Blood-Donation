@@ -13,6 +13,19 @@
                     <div class="three"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid"
                             style="height: 3px;width: 13.5vh;"> </div>
                 </div><br><br>
+                <div class="container-fluid w-25 ">
+
+                </div>
+            </div>
+            <div class="d-flex justify-content-end mb-5">
+                <form action="{{ route('blog_search') }}" method="GET" role="search">
+                    <div class="input-group">
+                        <input type="search" name="search" placeholder="search blog" class="form-control me-1" name="search">
+                        <button class="btn btn-primary" type="submit">
+                            Search
+                        </button>
+                    </div>
+                </form>
             </div>
             <div class="row">
                 @foreach ($blogs as $blog)
@@ -30,12 +43,12 @@
 
                                     </p>
                                 </div>
-                                <a href="{{ route('blog_detail',$blog->id) }}" class="btn btn-outline-primary rounded-0 float-end">Read More</a>
+                                <a href="{{ route('blog_detail', $blog->id) }}"
+                                    class="btn btn-outline-primary rounded-0 float-end">Read More</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
-
             </div>
             <div class="row">
                 <div class="col-md-12">
