@@ -1,14 +1,67 @@
 @extends('layouts.home')
 @section('content')
-    <div class="hero-section">
+    {{-- <div class="hero-section">
         <img src="{{ url(asset('images/slider.jpg')) }}" class="d-block w-100 z-1" style="height: 90vh">
         <div class="details">
             <h1>Blood is a life,<br>pass it on !</h1>
             <p>Help us eliminate blood scarcity in Nepal</p>
             <a href="{{ route('donate') }}"><span>Donate Now <i class='bx bxs-right-arrow'></i></span></a>
         </div>
-        {{-- <img src="{{ url(asset('images/wave.svg')) }}" class="wave"> --}}
+    </div> --}}
+
+    {{-- slider  --}}
+    <div id="carouselExampleCaptions" class="carousel slide">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="{{ url('/images/carousel/' . $carousels[0]->image) }}" class="d-block w-100"
+                    style="height: 90vh; filter: brightness(35%)">
+                     <div class="carousel-caption d-none d-md-block">
+                    <h1>Eliminate blood scarcity in NEPAL</h1>
+                    <p>by donating your time to make an impact, your blood to save lives or your money to create a holistic
+                        blood management cycle.</p>
+                    <a href="{{ route('donate') }}" class="btn btn-danger">Donate Now <i class='bx bxs-right-arrow'></i></a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="{{ url('/images/carousel/' . $carousels[1]->image) }}" class="d-block w-100"
+                    style="height: 90vh; filter: brightness(35%)">
+                     <div class="carousel-caption d-none d-md-block">
+                    <h1>Eliminate blood scarcity in NEPAL</h1>
+                    <p>by donating your time to make an impact, your blood to save lives or your money to create a holistic
+                        blood management cycle.</p>
+                    <a href="{{ route('donate') }}" class="btn btn-danger">Donate Now <i class='bx bxs-right-arrow'></i></a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="{{ url('/images/carousel/' . $carousels[2]->image) }}" class="d-block w-100"
+                    style="height: 90vh; filter: brightness(35%)">
+                    <div class="carousel-caption d-none d-md-block">
+                    <h1>Eliminate blood scarcity in NEPAL</h1>
+                    <p>by donating your time to make an impact, your blood to save lives or your money to create a holistic
+                        blood management cycle.</p>
+                    <a href="{{ route('donate') }}" class="btn btn-danger">Donate Now <i class='bx bxs-right-arrow'></i></a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
     </div>
+    {{-- slider end  --}}
 
     {{-- @auth
     @else --}}
@@ -66,8 +119,8 @@
                 @foreach ($images as $image)
                     <div class="col-lg-4 col-md-6 col-sm-12">
                         <div class="card  mb-5 shadow-sm image-fluid">
-                            <img src="{{ url('/images/gallery/' . $image->image) }}" class="img-responsive" alt=""
-                                height="350px">
+                            <img src="{{ url('/images/gallery/' . $image->image) }}" class="img-responsive"
+                                alt="" height="350px">
                         </div>
                     </div>
                 @endforeach
@@ -93,7 +146,8 @@
             @foreach ($blogs as $blog)
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="card blogg mb-5 shadow-sm">
-                        <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}" alt="" class="img-responsive">
+                        <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}" alt=""
+                            class="img-responsive">
                         <div class="card-body text-center">
                             <div class="card-title">
                                 <h2>{{ $blog->title }}</h2>
@@ -104,7 +158,7 @@
                                     <a href="{{ route('blog_detail', $blog->id) }}" class="ms-2">Read More</a>
                                 </p>
                             </div>
-                           
+
                         </div>
                     </div>
                 </div>

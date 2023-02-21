@@ -14,10 +14,12 @@
 
 .details {
   position: absolute !important;
-  width: 305px;
+  width: 70vh;
   height: 155px;
-  left: 15%;
-  top: 180px;
+  left: 20%;
+  top: 30%;
+  transform: translateY(-50%);
+  color: #fff;
 }
 
 .wave {
@@ -25,9 +27,6 @@
   bottom: 0;
 }
 
-span {
-  color: #3c94cf;
-}
 
 /* Why us stylesheet */
 .whyus {
@@ -119,8 +118,8 @@ body {
 }
 
 .img-area .social ul li a {
-  border: 1px solid #fff;
-  color: #fff;
+  border: 1px solid #000;
+  color: #000;
   display: block;
   font-size: 20px;
   height: 40px;
@@ -130,14 +129,14 @@ body {
 }
 
 .img-area .social ul li a:hover {
-  background-color: #fff;
+  background-color: #000;
   color: #000;
   border: 1px solid transparent;
 }
 
 .img-text {
   padding: 25px;
-  color: #fff;
+  color: #000;
   text-align: center;
 }
 
@@ -284,3 +283,4 @@ body {
 .contact {
   background: rgba(207, 61, 60, 0.85);
 }
+
