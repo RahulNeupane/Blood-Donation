@@ -23,13 +23,13 @@
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-8 col-sm-12">
                 <div class="card blogg mb-5 shadow-sm ">
-                    <div class="img col-lg-12 mt-2 text-center">
+                    <div class="img col-lg-12 mt-2 text-center ">
                         <img src="{{ url(asset('images/reward/' . $reward->image)) }}" alt="redeem"
                             class="img-responsive">
                     </div>
                     <div class="card-body mt-3">
                         <div class="card-body">
-                            <h2><b>{{ $reward->title }}</b></h2>
+                            <h2 class="text-capitalize"><b>{{ $reward->title }}</b></h2>
                             <p class="text-secondary">LifeLine</p>
                             <hr>
                             <p class="text-secondary">

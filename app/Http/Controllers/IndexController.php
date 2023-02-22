@@ -28,17 +28,18 @@ class IndexController extends Controller
         $blogs = Blog::orderBy('id', 'Desc')->limit(3)->get();
         $images = Gallery::orderBy('id', 'Desc')->limit(6)->get();
         $carousels = Carousel::limit(3)->get();
-        $donors = Requests::orderBy('id', 'Desc')->where('type', '=', 1)->limit(4)->get();
+        $donors = Requests::with('users')->orderBy('id', 'Desc')->where('type', '=', 1)->limit(4)->get();
+        // dd($donors[0]->users[0]->name);
         return view('index', compact('blogs', 'images', 'carousels', 'donors'));
     }
     public function blogs()
     {
-        $blogs = Blog::orderBy('id', 'desc')->paginate(3);
+        $blogs = Blog::orderBy('id', 'desc')->paginate(6);
         return view('blogs', compact('blogs'));
     }
     public function blog_search(Request $request)
     {
-        $blogs = Blog::search($request->search)->paginate(3);
+        $blogs = Blog::search($request->search)->paginate(6);
         if ($blogs->total() == 0) {
             return redirect()->route('blogs')->with('error', 'No blog with title "' . $request->search . '"');
         }
@@ -55,12 +56,12 @@ class IndexController extends Controller
     }
     public function events()
     {
-        $events = Events::orderBy('id', 'desc')->paginate(3);
+        $events = Events::orderBy('id', 'desc')->paginate(6);
         return view('events', compact('events'));
     }
     public function event_search(Request $request)
     {
-        $events = Events::search($request->search)->paginate(3);
+        $events = Events::search($request->search)->paginate(6);
         if ($events->total() == 0) {
             return redirect()->route('events')->with('error', 'No event with title "' . $request->search . '"');
         }
@@ -204,12 +205,12 @@ class IndexController extends Controller
     }
     public function rewards_show()
     {
-        $rewards = Reward::orderBy('id', 'desc')->paginate(3);
+        $rewards = Reward::orderBy('id', 'desc')->paginate(12);
         return view('reward', compact('rewards'));
     }
     public function rewards_search(Request $request)
     {
-        $rewards = Reward::search($request->search)->paginate(3);
+        $rewards = Reward::search($request->search)->paginate(6);
         if ($rewards->total() == 0) {
             return redirect()->route('rewards_show')->with('error', 'No reward with title "' . $request->search . '"');
         }
