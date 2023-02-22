@@ -28,7 +28,8 @@ class IndexController extends Controller
         $blogs = Blog::orderBy('id', 'Desc')->limit(3)->get();
         $images = Gallery::orderBy('id', 'Desc')->limit(6)->get();
         $carousels = Carousel::limit(3)->get();
-        return view('index', compact('blogs', 'images','carousels'));
+        $donors = Requests::orderBy('id', 'Desc')->where('type', '=', 1)->limit(4)->get();
+        return view('index', compact('blogs', 'images', 'carousels', 'donors'));
     }
     public function blogs()
     {
@@ -38,8 +39,8 @@ class IndexController extends Controller
     public function blog_search(Request $request)
     {
         $blogs = Blog::search($request->search)->paginate(3);
-        if($blogs->total()==0){
-            return redirect()->route('blogs')->with('error','No blog with title "'. $request->search.'"');
+        if ($blogs->total() == 0) {
+            return redirect()->route('blogs')->with('error', 'No blog with title "' . $request->search . '"');
         }
         return view('blogs', compact('blogs'));
     }
@@ -48,8 +49,8 @@ class IndexController extends Controller
         $blogs = Blog::orderBy('id', 'desc')->limit(5)->get();
         $categories = BlogCategory::limit(10)->get();
         $blog = Blog::where('id', $id)->first();
-        $comments = Comment::with('rReply')->where('status', 1)->where('blog_id',$blog->id)->get();
-        $count = Comment::where('status', 1)->where('blog_id',$blog->id)->count();
+        $comments = Comment::with('rReply')->where('status', 1)->where('blog_id', $blog->id)->get();
+        $count = Comment::where('status', 1)->where('blog_id', $blog->id)->count();
         return view('blog_detail', compact('blog', 'categories', 'blogs', 'comments', 'count'));
     }
     public function events()
@@ -60,8 +61,8 @@ class IndexController extends Controller
     public function event_search(Request $request)
     {
         $events = Events::search($request->search)->paginate(3);
-        if($events->total()==0){
-            return redirect()->route('events')->with('error','No event with title "'. $request->search.'"');
+        if ($events->total() == 0) {
+            return redirect()->route('events')->with('error', 'No event with title "' . $request->search . '"');
         }
         return view('events', compact('events'));
     }
@@ -69,12 +70,12 @@ class IndexController extends Controller
     {
         $event = Events::where('id', $id)->first();
         $now = date('Y-m-d H:i:s');
-        if($now <= $event->date){
+        if ($now <= $event->date) {
             $color = 'green';
-        }else{
+        } else {
             $color = '#CF3D3C';
         }
-        return view('event_detail',compact('event','color'));  
+        return view('event_detail', compact('event', 'color'));
     }
     public function category($id)
     {
@@ -122,9 +123,9 @@ class IndexController extends Controller
             ]);
             if (file_exists(public_path('/images/user/') . auth()->user()->image)) {
                 unlink(public_path('/images/user/') . auth()->user()->image);
-            } 
-            $image = date('YmdHis'). '.'. $request->file('image')->extension();
-            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/user/').$image,40);
+            }
+            $image = date('YmdHis') . '.' . $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600, 600)->save(public_path('/images/user/') . $image, 40);
 
             $user->image = $image;
         }
@@ -181,7 +182,7 @@ class IndexController extends Controller
     }
     public function donateRequest(Request $request)
     {
-        $date = Requests::where('userid', '=', auth()->user()->id)->where('type','=',1)->orderBy('id', 'Desc')->first();
+        $date = Requests::where('userid', '=', auth()->user()->id)->where('type', '=', 1)->orderBy('id', 'Desc')->first();
         if ($date) {
             $diff = today()->diffInDays($date->updated_at);
             $left = 90 - $diff;
@@ -196,7 +197,7 @@ class IndexController extends Controller
                 'type' => $request->type,
                 'userid' => $request->userid,
             ]);
-            return redirect()->route('home');
+            return back()->with('success', "Donate Request Submitted Succesfully. We'll Contact you soon");
         } else {
             return back()->with('fail', "You can donate once in every 3 months ( $left days left) !");
         }
@@ -209,8 +210,8 @@ class IndexController extends Controller
     public function rewards_search(Request $request)
     {
         $rewards = Reward::search($request->search)->paginate(3);
-        if($rewards->total()==0){
-            return redirect()->route('rewards_show')->with('error','No reward with title "'. $request->search.'"');
+        if ($rewards->total() == 0) {
+            return redirect()->route('rewards_show')->with('error', 'No reward with title "' . $request->search . '"');
         }
         return view('reward', compact('rewards'));
     }
@@ -232,8 +233,8 @@ class IndexController extends Controller
             'note' => 'required|string',
         ]);
         if ($request->hasFile('image')) {
-            $image = date('YmdHis'). '.'. $request->file('image')->extension();
-            Image::make($request->file('image'))->resize(600,600)->save(public_path('/images/requisitionForm/').$image,40);
+            $image = date('YmdHis') . '.' . $request->file('image')->extension();
+            Image::make($request->file('image'))->resize(600, 600)->save(public_path('/images/requisitionForm/') . $image, 40);
         }
         BloodRequest::create([
             'name' => $request->name,
@@ -244,10 +245,10 @@ class IndexController extends Controller
             'image' => $image,
             'note' => $request->note,
         ]);
-        $br = BloodRequest::orderBy('id','desc')->first();
-        if(!$request->userid){
-            $request->userid = $br->id;
-        }
+        $br = BloodRequest::orderBy('id', 'desc')->first();
+
+
+        $request->userid = auth()->user() ? auth()->user()->id : $br->id;
         Requests::create([
             'type' => $request->type,
             'userid' => $request->userid,
@@ -258,9 +259,5 @@ class IndexController extends Controller
     public function team()
     {
         return view('team');
-    }
-    public function about()
-    {
-        return view('about');
     }
 }

@@ -84,6 +84,7 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($accepted_requests as $request)
+                                            <tr>
                                                 @foreach ($request->receivers as $item)
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $item->name }}</td>
@@ -96,6 +97,7 @@
                                                     <td><a href="{{ route('receiveRequestRecheck', $item->id) }}"><button
                                                                 class="btn btn-primary">Recheck</button></a></td>
                                                 @endforeach
+                                            </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
