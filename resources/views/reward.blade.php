@@ -17,7 +17,8 @@
             <div class="d-flex justify-content-end mb-5">
                 <form action="{{ route('rewards_search') }}" method="GET" role="search">
                     <div class="input-group">
-                        <input type="search" name="search" placeholder="search reward" class="form-control me-1" name="search">
+                        <input type="search" name="search" placeholder="search reward" class="form-control me-1"
+                            name="search">
                         <button class="btn btn-primary" type="submit">
                             Search
                         </button>
@@ -26,8 +27,8 @@
             </div>
             <div class="row">
                 @foreach ($rewards as $reward)
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card blogg mb-5 shadow-sm text-center">
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <div class="card blogg mb-5 shadow-sm text-capitalize">
                             <img src="{{ url(asset('images/reward/' . $reward->image)) }}" alt="reward_item"
                                 class="img-responsive">
                             <div class="card-body">
@@ -36,14 +37,16 @@
                                 </div>
                                 <div class="card-text">
                                     <p>
-                                        {{ $reward->point }}
-
+                                        Points: {{ $reward->point }}
                                     </p>
                                 </div>
-                                @auth
-                                    <a href="{{ route('rewardRedeem',$reward->id) }}" class="btn text-white rounded"
-                                        style="background-color: #CF3D3C">Redeem</a>
-                                @endauth
+                                <div class="text-center">
+
+                                    @auth
+                                        <a href="{{ route('rewardRedeem', $reward->id) }}" class="btn text-white rounded"
+                                            style="background-color: #CF3D3C">Redeem</a>
+                                    @endauth
+                                </div>
                             </div>
                         </div>
                     </div>
