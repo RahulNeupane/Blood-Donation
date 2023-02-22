@@ -85,6 +85,23 @@
                                     <a class="nav-link" href="{{ route('login') }}">Login</a>
                                 @endauth
                             </li>
+                            <li>
+                                <!-- Translation Code here -->
+                                <span>
+                                    <div class="translate" id="google_translate_element"></div>
+
+                                    <script type="text/javascript">
+                                        function googleTranslateElementInit() {
+                                            new google.translate.TranslateElement({
+                                                pageLanguage: 'en'
+                                            }, 'google_translate_element');
+                                        }
+                                    </script>
+                                    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+                                    </script>
+                                </span>
+                                <!-- Translation Code End here -->
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -95,7 +112,7 @@
 
     @yield('content')
 
-    
+
     <!-- Footer -->
     <div class="mt-5 pt-5 pb-5 footer bg-white shadow-sm border-1-top" data-aos="fade">
         <div class="container">
@@ -145,7 +162,8 @@
                 </div>
                 <div class="col-lg-3 col-xs-12 location " data-aos="fade-left">
                     <h4 class="mt-lg-0 mt-sm-4">Location</h4>
-                    <a href="https://goo.gl/maps/xWUEdngG9oeyXmHC6" class="text-secondary lh-1"><i class="bx bx-map-pin"></i> Kist College & SS <br>(Ahead of Kamalpokhari lake)</a>
+                    <a href="https://goo.gl/maps/xWUEdngG9oeyXmHC6" class="text-secondary lh-1"><i
+                            class="bx bx-map-pin"></i> Kist College & SS <br>(Ahead of Kamalpokhari lake)</a>
                     <p class="mb-0 text-secondary mt-2"><i class='bx bx-phone-call mr-2'></i> +977 44600</p>
                     <p class="mb-0 text-secondary mt-2"><i class='bx bx-phone-call mr-2'></i> +977 44600</p>
                     <p class="text-secondary mt-2"><i class='bx bx-envelope mr-2'></i> lifeline@gmail.com</p>
@@ -191,10 +209,10 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-      AOS.init({
-        duration: 2000,
-        once: true,
-      });
+        AOS.init({
+            duration: 2000,
+            once: true,
+        });
     </script>
 </body>
 

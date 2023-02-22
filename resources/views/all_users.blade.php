@@ -17,6 +17,7 @@
                                             <th>Name</th>
                                             <th>Image</th>
                                             <th>Phone</th>
+                                            <th>Address</th>
                                             <th>Last Seen</th>
                                             <th>Status</th>
                                             <th>Actions</th>
@@ -29,6 +30,7 @@
                                                     <td><img src="{{ url('/images/user/' . $user->image) }}" alt="user"
                                                             width="50"></td>
                                                     <td>{{ $user->phone }}</td>
+                                                    <td>{{ $user->district }}</td>
                                                     <td>
                                                         {{ Carbon\Carbon::parse($user->last_seen)->diffForHumans() }}
                                                     </td>
