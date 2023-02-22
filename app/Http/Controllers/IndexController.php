@@ -168,7 +168,7 @@ class IndexController extends Controller
 
     public function allUsers()
     {
-        $users = User::where('role', '=', 2)->get();
+        $users = User::where('role', '=', 2)->whereNotNull('last_seen')->orderBy('last_seen', 'DESC')->get();
         return view('all_users', compact('users'));
     }
     public function viewmore(Request $request, $id)
