@@ -30,7 +30,9 @@ return new class extends Migration
             $table->integer('role')->default(2)->comment('1->admin,2->user');
             $table->integer('RewardPoints')->default(0);
             $table->integer('RewardPointsUpdated')->default(0);
+            $table->rememberToken();
             $table->timestamps();
+            $table->timestamp('last_seen')->nullable();
         });
     }
 
