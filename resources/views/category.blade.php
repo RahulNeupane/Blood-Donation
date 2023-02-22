@@ -18,7 +18,7 @@
                                 class="img-responsive">
                             <div class="card-body">
                                 <div class="card-title">
-                                    <h2>{{ $blog->title }}</h2>
+                                    <h2>{{ Str::limit($blog->title, 30) }}</h2>
                                 </div>
                                 <div class="card-text">
                                     <p>

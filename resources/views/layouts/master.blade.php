@@ -45,7 +45,6 @@
             </script>
         @endforeach
     @endif
-
     @if (session()->get('error'))
         <script>
             iziToast.error({

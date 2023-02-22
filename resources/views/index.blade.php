@@ -1,6 +1,5 @@
 @extends('layouts.home')
 @section('content')
-
     {{-- slider  --}}
     <div id="carouselExampleCaptions" class="carousel slide" data-aos="fade-in" data-aos-duration="1500">
         <div class="carousel-indicators">
@@ -58,44 +57,80 @@
     </div>
     {{-- slider end  --}}
 
-    {{-- @auth
-    @else --}}
-    <!-- Whyus Us Section -->
-    <div class="container mx-auto mt-5 " id="whyus" data-aos="fade">
-        <div class="row">
-            <div class="col-lg-6 col-sm-12 col-md-6" data-aos="fade-right">
-                <div class="img-fluid">
-                    <img src="{{ url(asset('images/whyus.png')) }}" class="why_img img-fluid"
-                        style="height: 50vh;width: 61vh;">
-                </div>
+    @auth
+        {{-- donors  --}}
+        <div class="container my-5" id="blogger" data-aos="fade">
+            <div class="text-center">
+                <h1>Recent Donors</h1>
+                <div class="d-flex justify-content-center  ">
+                    <div class="one"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid "
+                            style="height: 3px;width: 13.5vh;"> </div>
+                    <div class="two"> <img src="{{ url(asset('images/rectangle.png')) }}" class="img-fluid"
+                            style="height: 21px;width: 21px;"> </div>
+                    <div class="three"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid"
+                            style="height: 3px;width: 13.5vh;"> </div>
+                </div><br><br>
             </div>
-            <div class="col-lg-6 col-sm-12 col-md-12 pt-10 mx-auto  " data-aos="fade-left">
-                <div class="title pt-4">
-                    <h1 class="d-flex mx-md-auto">Why LIFELINE ?</h1>
-                    <div class="d-flex md-justify-content-center">
-                        <div class="one"> <img src="{{ url(asset('images/St_line.png')) }}"
-                                class="img-fluid items-center" style="height: 3px;width: 13.5vh;"> </div>
-                        <div class="two"> <img src="{{ url(asset('images/rectangle.png')) }}" class="img-fluid"
-                                style="height: 21px;width: 21px;"> </div>
-                        <div class="three"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid"
-                                style="height: 3px;width: 13.5vh;"> </div>
-                    </div><br><br>
-                </div>
-                <p>Existing blood management system in Nepal is manual,cumbersome
-                    and inefficient. Most blood banks record the information on blood
-                    collection/supply manually in registers.
-                    Maintaining blood inventory is tedious with laborious back-
-                    office paperwork and managing information on availability and
-                    shortage of blood is a tall task
-                    A social initiative for a smart, transparent and holistic
-                    blood management service from collection to supply.
-                    When it comes to blood, right information at the right time can be the
-                    answer to a life and death situation.</p>
+            <div class="row">
+                @foreach ($blogs as $blog)
+                    <div class="col-lg-3 col-md-4 col-sm-12">
+                        <div class="card blogg mb-5 shadow-sm">
+                            <img src="{{ url(asset('images/blogs/' . $blog->photo)) }}" alt="" class="img-responsive">
+                            <div class="card-body text-center">
+                                <div class="card-title">
+                                    <h2>{{ Str::limit($blog->title, 30) }}</h2>
+                                </div>
+                                <div class="card-text">
+                                    <p>
+                                        {!! nl2br(Str::limit($blog->description, 150)) !!}
+                                        <a href="{{ route('blog_detail', $blog->id) }}" class="ms-2">Read More</a>
+                                    </p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
-    </div><br><br>
+    @else
+        <!-- Whyus Us Section -->
+        <div class="container mx-auto mt-5 " id="whyus" data-aos="fade">
+            <div class="row">
+                <div class="col-lg-6 col-sm-12 col-md-6" data-aos="fade-right">
+                    <div class="img-fluid">
+                        <img src="{{ url(asset('images/whyus.png')) }}" class="why_img img-fluid"
+                            style="height: 50vh;width: 61vh;">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-sm-12 col-md-12 pt-10 mx-auto  " data-aos="fade-left">
+                    <div class="title pt-4">
+                        <h1 class="d-flex mx-md-auto">Why LIFELINE ?</h1>
+                        <div class="d-flex md-justify-content-center">
+                            <div class="one"> <img src="{{ url(asset('images/St_line.png')) }}"
+                                    class="img-fluid items-center" style="height: 3px;width: 13.5vh;"> </div>
+                            <div class="two"> <img src="{{ url(asset('images/rectangle.png')) }}" class="img-fluid"
+                                    style="height: 21px;width: 21px;"> </div>
+                            <div class="three"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid"
+                                    style="height: 3px;width: 13.5vh;"> </div>
+                        </div><br><br>
+                    </div>
+                    <p>Existing blood management system in Nepal is manual,cumbersome
+                        and inefficient. Most blood banks record the information on blood
+                        collection/supply manually in registers.
+                        Maintaining blood inventory is tedious with laborious back-
+                        office paperwork and managing information on availability and
+                        shortage of blood is a tall task
+                        A social initiative for a smart, transparent and holistic
+                        blood management service from collection to supply.
+                        When it comes to blood, right information at the right time can be the
+                        answer to a life and death situation.</p>
+                </div>
+            </div>
+        </div><br><br>
 
-
+    @endauth
+    
     <!-- Gallery -->
     <div class="mt-5 container" id="gallery" data-aos="fade-left">
         <div class="row">
@@ -125,7 +160,7 @@
     <!-- Gallery -->
 
     <!-- Blog Section -->
-    <div class="container my-5" id="blogger" data-aos="fade"> 
+    <div class="container my-5" id="blogger" data-aos="fade">
         <div class="text-center">
             <h1>Recent Blogs</h1>
             <div class="d-flex justify-content-center  ">
@@ -145,7 +180,7 @@
                             class="img-responsive">
                         <div class="card-body text-center">
                             <div class="card-title">
-                                <h2>{{ $blog->title }}</h2>
+                                <h2>{{ Str::limit($blog->title, 30) }}</h2>
                             </div>
                             <div class="card-text">
                                 <p>
@@ -175,7 +210,8 @@
                         <img src="{{ asset('images/contact-img.png') }}" alt="" class="img-fluid">
                     </div>
                 </div>
-                <div class="col-lg-6 py-5 text-white text-center d-flex flex-column justify-content-center" data-aos="fade-left">
+                <div class="col-lg-6 py-5 text-white text-center d-flex flex-column justify-content-center"
+                    data-aos="fade-left">
                     <h1> <b>रगत चाहियो?</b></h1>
                     <p class="fs-4">Fill in the form and send us your details.</p>
                     <p class="fs-4">Someone will get back to you asap. If it’s an emergency,</p>
@@ -193,6 +229,4 @@
         </div>
     </div>
     {{-- end need blood  --}}
-
-    {{-- @endauth --}}
 @endsection
