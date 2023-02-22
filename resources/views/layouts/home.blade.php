@@ -21,7 +21,7 @@
 
 <body>
     {{-- navbar starts  --}}
-    <header class="header_section  bg-body py-0" data-aos="fade-down" data-aos-duration="1500">
+    <header class="header_section  bg-body py-0" data-aos="fade" data-aos-duration="1500">
         <div class="container px-0">
             <nav class="navbar navbar-expand-lg custom_nav-container">
                 <div class="container-fluid px-0">
@@ -192,7 +192,7 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init({
-        duration: 3000,
+        duration: 2000,
         once: true,
       });
     </script>
