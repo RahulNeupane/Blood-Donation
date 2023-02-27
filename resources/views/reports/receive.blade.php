@@ -19,12 +19,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($receive as $accepted_request)
+                                @foreach ($receive as $item)
                                     <tr>
                                         <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $accepted_request->name }}</td>
-                                        <td>{{ $accepted_request->phone }}</td>
-                                        <td>{{ $accepted_request->updated_at }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->phone }}</td>
+                                        <td>{{ $item->updated_at }}</td>
                                     </tr>
                                 @endforeach
                             </tbody>

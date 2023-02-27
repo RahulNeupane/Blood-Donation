@@ -26,24 +26,22 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($requests as $request)
-                                                @foreach ($request->receivers as $item)
-                                                    <tr>
-                                                        <td>{{ $loop->index + 1 }}</td>
-                                                        <td>{{ $item->name }}</td>
-                                                        <td>{{ $item->phone }}</td>
-                                                        <td>{{ $item->email }}</td>
-                                                        <td>{{ $item->age }}</td>
-                                                        <td>{{ $item->group }}</td>
-                                                        <td><img src="{{ url('/images/requisitionForm/' . $item->image) }}"
-                                                                alt="image" width="50" height="50"></td>
-                                                        <td><a href="{{ route('receiveRequestAccept', $item->id) }}"><button
-                                                                    class="btn btn-primary">Approve</button></a></td>
-                                                        <td><a href="{{ route('receiveRequestDelete', $item->id) }}"><button
-                                                                    class="btn btn-danger">Delete</button></a>
-                                                        </td>
-                                                    </tr>
-                                                @endforeach
+                                            @foreach ($requests as $item)
+                                                <tr>
+                                                    <td>{{ $loop->index + 1 }}</td>
+                                                    <td>{{ $item->name }}</td>
+                                                    <td>{{ $item->phone }}</td>
+                                                    <td>{{ $item->email }}</td>
+                                                    <td>{{ $item->age }}</td>
+                                                    <td>{{ $item->group }}</td>
+                                                    <td><img src="{{ url('/images/requisitionForm/' . $item->image) }}"
+                                                            alt="image" width="50" height="50"></td>
+                                                    <td><a href="{{ route('receiveRequestAccept', $item->id) }}"><button
+                                                                class="btn btn-primary">Approve</button></a></td>
+                                                    <td><a href="{{ route('receiveRequestDelete', $item->id) }}"><button
+                                                                class="btn btn-danger">Delete</button></a>
+                                                    </td>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -83,9 +81,8 @@
                                             <th>Approval</th>
                                         </thead>
                                         <tbody>
-                                            @foreach ($accepted_requests as $request)
-                                            <tr>
-                                                @foreach ($request->receivers as $item)
+                                            @foreach ($accepted_requests as $item)
+                                                <tr>
                                                     <td>{{ $loop->index + 1 }}</td>
                                                     <td>{{ $item->name }}</td>
                                                     <td>{{ $item->phone }}</td>
@@ -96,8 +93,7 @@
                                                             alt="image" width="50" height="50"></td>
                                                     <td><a href="{{ route('receiveRequestRecheck', $item->id) }}"><button
                                                                 class="btn btn-primary">Recheck</button></a></td>
-                                                @endforeach
-                                            </tr>
+                                                </tr>
                                             @endforeach
                                         </tbody>
                                     </table>

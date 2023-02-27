@@ -34,10 +34,19 @@
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul class="navbar-nav">
+                            @if (auth()->user())
+                                @if (auth()->user()->role == 1)
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a>
+                                    </li>
+                                @endif
+                            @endif
                             @auth
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('donate') }}">Donate</a>
-                                </li>
+                                @if (auth()->user()->role == 2)
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{ route('donate') }}">Donate</a>
+                                    </li>
+                                @endif
                             @else
                                 <li class="nav-item active">
                                     <a class="nav-link" href="/#whyus">Why us?</a>
@@ -46,6 +55,7 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('receive') }}">Receive</a>
                             </li>
+
                             <li class="nav-item">
                                 <div class="dropdown">
                                     <button class="nav-link dropdown-toggle" style="background:transparent;border:none;"
@@ -77,7 +87,12 @@
 
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="{{ route('viewProfile') }}">Profile</a></li>
-                                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                                            @if (auth()->user())
+                                                @if (auth()->user()->role == 2)
+                                                    <li><a class="dropdown-item" href="#">Blood Requests</a></li>
+                                                @endif
+                                            @endif
+
                                             <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
                                         </ul>
                                     </div>

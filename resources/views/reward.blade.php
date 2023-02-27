@@ -14,7 +14,7 @@
                             style="height: 3px;width: 13.5vh;"> </div>
                 </div><br><br>
             </div>
-            <div class="d-flex justify-content-end mb-5">
+            {{-- <div class="d-flex justify-content-end mb-5">
                 <form action="{{ route('rewards_search') }}" method="GET" role="search">
                     <div class="input-group">
                         <input type="search" name="search" placeholder="search reward" class="form-control me-1"
@@ -24,7 +24,7 @@
                         </button>
                     </div>
                 </form>
-            </div>
+            </div> --}}
             <div class="row">
                 @foreach ($rewards as $reward)
                     <div class="col-lg-3 col-md-4 col-sm-12">
