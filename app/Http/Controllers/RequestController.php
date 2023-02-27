@@ -13,20 +13,20 @@ class RequestController extends Controller
 {
     public function donateRequests()
     {
-        $requests = Requests::where('type', '=', 1)->where('approve', '=', 0)->get();
-        $accepted_requests = Requests::where('type', '=', 1)->where('approve', '=', 1)->get();
+        $requests = Requests::where('approve', '=', 0)->get();
+        $accepted_requests = Requests::where('approve', '=', 1)->get();
         return view('request.donate', compact('requests', 'accepted_requests'));
     }
     public function receiveRequests()
     {
-        $requests = Requests::with('receivers')->where('type', '=', 2)->where('approve', '=', 0)->get();
-        // dd($requests[0]->receivers[0]->name);        
-        $accepted_requests = Requests::with('receivers')->where('type', '=', 2)->where('approve', '=', 1)->get();
+        $requests = BloodRequest::where('approve','=',0)->get();
+        $accepted_requests = BloodRequest::where('approve','=',1)->get();
+        // dd($accepted_requests);
         return view('request.receive', compact('requests', 'accepted_requests'));
     }
     public function donateRequestAccept(Request $request, $id)
     {
-        $user = Requests::where('userid', '=', $id)->where('type', '=', 1)->first();
+        $user = Requests::where('userid', '=', $id)->first();
 
         $receiverNumber = "+977" . $user->users[0]->phone;
         $message =
@@ -56,54 +56,50 @@ class RequestController extends Controller
 
         return back();
     }
-    public function receiveRequestAccept(Request $request, $id)
+    public function receiveRequestAccept($id)
     {
-        $userReq = Requests::where('userid', '=', $id)->where('type', '=', 2)->first();
-        $user = BloodRequest::where('id', $userReq->userid)->first();
-        $receiverNumber = "+977" . $user->phone;
-        $message = "Hello " . $user->name . ", your blood request has been accepted. Kindly visit our office located at:https://goo.gl/maps/jsEFbwW7FzaHig9f8 or follow our next event.\nThank you,\nTeam: Fancy Freelancers ";
+        $user = BloodRequest::findOrFail($id);
 
-        try {
+        // $receiverNumber = "+977" . $user->phone;
+        // $message = "Hello " . $user->name . ", your blood request has been accepted. Kindly visit our office located at:https://goo.gl/maps/jsEFbwW7FzaHig9f8 or follow our next event.\nThank you,\nTeam: Fancy Freelancers ";
 
-            $account_sid = getenv("TWILIO_SID");
-            $auth_token = getenv("TWILIO_TOKEN");
-            $twilio_number = getenv("TWILIO_FROM");
+        // try {
 
-            $client = new Client($account_sid, $auth_token);
-            $client->messages->create($receiverNumber, [
-                'from' => $twilio_number,
-                'body' => $message
-            ]);
+        //     $account_sid = getenv("TWILIO_SID");
+        //     $auth_token = getenv("TWILIO_TOKEN");
+        //     $twilio_number = getenv("TWILIO_FROM");
 
-            $userReq->update([
-                'approve' => 1,
-            ]);
-        } catch (Exception $e) {
-            dd("Error: " . $e->getMessage());
-        }
+        //     $client = new Client($account_sid, $auth_token);
+        //     $client->messages->create($receiverNumber, [
+        //         'from' => $twilio_number,
+        //         'body' => $message
+        //     ]);
 
+        //     $userReq->update([
+        //         'approve' => 1,
+        //     ]);
+        // } catch (Exception $e) {
+        //     dd("Error: " . $e->getMessage());
+        // }
+        $user->approve = 1;
+        $user->update();
         return back()->with('success', 'Request accepted succesfully');
     }
-    public function receiveRequestRecheck(Request $request, $id)
+    public function receiveRequestRecheck( $id)
     {
-        $user = Requests::where('userid', '=', $id)->where('type', '=', 2)->first();
-
-        $user->update([
-            'approve' => 0,
-        ]);
-
+        $user = BloodRequest::findOrFail($id);
+        $user->approve = 0;
+        $user->update();
         return back()->with('success', 'Request resent for review');
     }
-    public function receiveRequestDelete(Request $request, $id)
+    public function receiveRequestDelete($id)
     {
-        $req = Requests::where('userid', '=', $id)->where('type', '=', 2)->first();
-        $br = BloodRequest::where('id', '=', $id)->first();
-        $path = public_path('/images/requisitionForm/' . $br->image);
+        $user = BloodRequest::findOrFail($id);
+        $path = public_path('/images/requisitionForm/' . $user->image);
         if (file_exists($path)) {
             unlink($path);
         }
-        $req->delete();
-        $br->delete();
+        $user->delete();
 
         return back()->with('success', 'Request Deleted ');
     }

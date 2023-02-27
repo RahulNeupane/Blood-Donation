@@ -83,6 +83,7 @@
                                 </div>
                                 <div class="card-text">
                                     <p>Email: {{ $donor->users[0]->email }}</p>
+                                    <p>Address: {{ $donor->users[0]->district }}</p>
                                     <p>Blood Group: {{ $donor->users[0]->group }}</p>
                                 </div>
 
@@ -130,35 +131,9 @@
 
     @endauth
 
-    <!-- Gallery -->
-    <div class="mt-5 container" id="gallery" data-aos="fade-left">
-        <div class="row">
-            <div class="text-center">
-                <h1>Gallery</h1>
-                <div class="d-flex justify-content-center  ">
-                    <div class="one"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid "
-                            style="height: 3px;width: 13.5vh;"> </div>
-                    <div class="two"> <img src="{{ url(asset('images/rectangle.png')) }}" class="img-fluid"
-                            style="height: 21px;width: 21px;"> </div>
-                    <div class="three"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid"
-                            style="height: 3px;width: 13.5vh;"> </div>
-                </div><br><br>
-            </div>
-            <div class="row">
-                @foreach ($images as $image)
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <div class="card  mb-5 shadow-sm image-fluid">
-                            <img src="{{ url('/images/gallery/' . $image->image) }}" class="img-responsive"
-                                alt="" height="350px">
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div>
-    <!-- Gallery -->
+
     @auth
-        
+
         {{-- need blood  --}}
         <div class="container mt-5" data-aos="fade">
             <div class="col-lg-12 contact mx-auto">
@@ -188,36 +163,7 @@
         </div>
         {{-- end need blood  --}}
     @endauth
-    @guest
-    {{-- need blood  --}}
-    <div class="container mt-5" data-aos="fade">
-        <div class="col-lg-12 contact mx-auto">
-            <div class="row">
-                <div class="col-lg-6" data-aos="fade-right">
-                    <div class=" py-5">
-                        <img src="{{ asset('images/contact-img.png') }}" alt="" class="img-fluid">
-                    </div>
-                </div>
-                <div class="col-lg-6 py-5 text-white text-center d-flex flex-column justify-content-center"
-                    data-aos="fade-left">
-                    <h1> <b>रगत चाहियो?</b></h1>
-                    <p class="fs-4">Fill in the form and send us your details.</p>
-                    <p class="fs-4">Someone will get back to you asap. If it’s an emergency,</p>
-                    <p class="fs-4">call us @ +977 9800000000 or msg us at Facebook</p>
-                    <span>
-                        <a href="{{ route('receive') }}"
-                            class="btn me-3 px-5 py-2 shadow text-danger bg-white border-0">Request
-                            Blood</a>
-                        <a href="{{ route('donate') }}"
-                            class="btn btn-secondary btn me-3 px-5 py-2  border-white shadow bg-danger">Donate
-                            Blood</a>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div>
-    {{-- end need blood  --}}
-    @endguest
+
 
     <!-- Blog Section -->
     <div class="container my-5" id="blogger" data-aos="fade">
@@ -260,4 +206,63 @@
         </div>
     </div>
     <!-- Blog Section -->
+
+    @guest
+        {{-- need blood  --}}
+        <div class="container mt-5" data-aos="fade">
+            <div class="col-lg-12 contact mx-auto">
+                <div class="row">
+                    <div class="col-lg-6" data-aos="fade-right">
+                        <div class=" py-5">
+                            <img src="{{ asset('images/contact-img.png') }}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 py-5 text-white text-center d-flex flex-column justify-content-center"
+                        data-aos="fade-left">
+                        <h1> <b>रगत चाहियो?</b></h1>
+                        <p class="fs-4">Fill in the form and send us your details.</p>
+                        <p class="fs-4">Someone will get back to you asap. If it’s an emergency,</p>
+                        <p class="fs-4">call us @ +977 9800000000 or msg us at Facebook</p>
+                        <span>
+                            <a href="{{ route('receive') }}"
+                                class="btn me-3 px-5 py-2 shadow text-danger bg-white border-0">Request
+                                Blood</a>
+                            <a href="{{ route('donate') }}"
+                                class="btn btn-secondary btn me-3 px-5 py-2  border-white shadow bg-danger">Donate
+                                Blood</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{-- end need blood  --}}
+    @endguest
+
+    <!-- Gallery -->
+    <div class="mt-5 container" id="gallery" data-aos="fade-left">
+        <div class="row">
+            <div class="text-center">
+                <h1>Gallery</h1>
+                <div class="d-flex justify-content-center  ">
+                    <div class="one"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid "
+                            style="height: 3px;width: 13.5vh;"> </div>
+                    <div class="two"> <img src="{{ url(asset('images/rectangle.png')) }}" class="img-fluid"
+                            style="height: 21px;width: 21px;"> </div>
+                    <div class="three"> <img src="{{ url(asset('images/St_line.png')) }}" class="img-fluid"
+                            style="height: 3px;width: 13.5vh;"> </div>
+                </div><br><br>
+            </div>
+            <div class="row">
+                @foreach ($images as $image)
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="card  mb-5 shadow-sm image-fluid">
+                            <img src="{{ url('/images/gallery/' . $image->image) }}" class="img-responsive"
+                                alt="" height="350px">
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- Gallery -->
 @endsection

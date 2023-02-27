@@ -28,8 +28,7 @@ class IndexController extends Controller
         $blogs = Blog::orderBy('id', 'Desc')->limit(3)->get();
         $images = Gallery::orderBy('id', 'Desc')->limit(6)->get();
         $carousels = Carousel::limit(3)->get();
-        $donors = Requests::with('users')->orderBy('id', 'Desc')->where('type', '=', 1)->limit(4)->get();
-        // dd($donors[0]->users[0]->name);
+        $donors = Requests::with('users')->orderBy('id', 'Desc')->limit(4)->get();
         return view('index', compact('blogs', 'images', 'carousels', 'donors'));
     }
     public function blogs()
@@ -230,7 +229,7 @@ class IndexController extends Controller
             'phone' => 'required|regex:/^[0-9]/|min:9|max:10',
             'group' => 'required|not_in:0',
             'image' => 'required|image|mimes:png,jpeg,jpg',
-            'age' => 'required|integer|between:1,80',
+            'age' => 'required|integer|between:1,101',
             'note' => 'required|string',
         ]);
         if ($request->hasFile('image')) {
@@ -245,14 +244,6 @@ class IndexController extends Controller
             'age' => $request->age,
             'image' => $image,
             'note' => $request->note,
-        ]);
-        $br = BloodRequest::orderBy('id', 'desc')->first();
-
-
-        $request->userid = auth()->user() ? auth()->user()->id : $br->id;
-        Requests::create([
-            'type' => $request->type,
-            'userid' => $request->userid,
         ]);
         return back()->with('success', "Request Submitted Succesfully. We'll Contact you soon");
     }

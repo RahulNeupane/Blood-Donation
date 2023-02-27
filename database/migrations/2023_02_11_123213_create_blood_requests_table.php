@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('group');
             $table->string('image');
             $table->string('note');
+            $table->integer('approve')->default(0);
             $table->timestamps();
         });
     }
