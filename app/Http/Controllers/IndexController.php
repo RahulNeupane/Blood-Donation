@@ -185,7 +185,7 @@ class IndexController extends Controller
     }
     public function donateRequest(Request $request)
     {
-        $date = Requests::where('userid', '=', auth()->user()->id)->where('type', '=', 1)->orderBy('id', 'Desc')->first();
+        $date = Requests::where('userid', '=', auth()->user()->id)->orderBy('id', 'Desc')->first();
         if ($date) {
             $diff = today()->diffInDays($date->updated_at);
             $left = 90 - $diff;
@@ -193,11 +193,9 @@ class IndexController extends Controller
 
         if (!$date || $diff > 90) {
             $request->validate([
-                'type' => 'integer',
                 'userid' => 'integer',
             ]);
             Requests::create([
-                'type' => $request->type,
                 'userid' => $request->userid,
             ]);
             return back()->with('success', "Donate Request Submitted Succesfully. We'll Contact you soon");

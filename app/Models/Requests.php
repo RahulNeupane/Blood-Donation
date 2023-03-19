@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Requests extends Model
 {
     use HasFactory;
-    protected $fillable = ['userid', 'type', 'approve'];
+    protected $fillable = ['userid', 'approve'];
     public function users(){
         return $this->hasMany(User::class,'id','userid');
     }

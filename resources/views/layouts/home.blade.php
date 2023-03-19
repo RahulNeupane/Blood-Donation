@@ -87,12 +87,6 @@
 
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item" href="{{ route('viewProfile') }}">Profile</a></li>
-                                            @if (auth()->user())
-                                                @if (auth()->user()->role == 2)
-                                                    <li><a class="dropdown-item" href="#">Blood Requests</a></li>
-                                                @endif
-                                            @endif
-
                                             <li><a class="dropdown-item" href="{{ route('logout') }}">Logout</a></li>
                                         </ul>
                                     </div>
