@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\BlogCategory;
-use App\Models\Blogger;
 use App\Models\BloodRequest;
 use App\Models\Carousel;
 use App\Models\Comment;
@@ -13,12 +12,10 @@ use App\Models\Gallery;
 use App\Models\Requests;
 use App\Models\Reward;
 use App\Models\User;
-use Carbon\Carbon;
-use DateTime;
 use Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 class IndexController extends Controller
@@ -85,7 +82,13 @@ class IndexController extends Controller
     }
     public function dashboard()
     {
-        return view('dashboard');
+        $donor_count = Requests::where('approve', '0')->count();
+        $blood_request_count = BloodRequest::where('approve', '0')->count();
+        $users = User::where('role', 2)->count();
+        $donate = Requests::orderBy('id','desc')->limit(5)->get();
+        $receive = BloodRequest::orderBy('id','desc')->limit(5)->get();
+
+        return view('dashboard', compact('donor_count', 'blood_request_count', 'users','donate','receive'));
     }
 
     public function viewProfile()
