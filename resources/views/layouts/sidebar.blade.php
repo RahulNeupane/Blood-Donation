@@ -28,19 +28,23 @@
             <ul class="sidebar-menu">
                 <li class="menu-header">Dashboard</li>
                 <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}">
-                    <a href="{{ route('dashboard') }}" class="nav-link"><i
+                    <a href="{{ route('dashboard') }}" class="nav-link" data-bs-toggle="tooltip"
+                        data-bs-placement="right" data-bs-title="Dashboard"><i
                             class="fas fa-fire"></i><span>Dashboard</span></a>
                 </li>
                 <li class="{{ request()->routeIs('allUsers') ? 'active' : '' }}">
-                    <a href="{{ route('allUsers') }}" class="nav-link"><i class="fas fa-user"></i><span>All
+                    <a href="{{ route('allUsers') }}" class="nav-link" data-bs-toggle="tooltip"
+                        data-bs-placement="right" data-bs-title="All Users"><i class="fas fa-user"></i><span>All
                             Users</span></a>
                 </li>
                 <li class="{{ request()->routeIs('changepass') ? 'active' : '' }}">
-                    <a href="{{ route('changepass') }}" class="nav-link"><i class="fas fa-key"></i><span>Change
+                    <a href="{{ route('changepass') }}" class="nav-link" data-bs-toggle="tooltip"
+                        data-bs-placement="right" data-bs-title="Change Password"><i class="fas fa-key"></i><span>Change
                             Password</span></a>
                 </li>
                 <li class="">
-                    <a href="{{ route('home') }}" class="nav-link"><i class="fas fa-home"></i><span>Goto
+                    <a href="{{ route('home') }}" class="nav-link" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Goto Home Page"><i class="fas fa-home" ></i><span>Goto
                             Homepage</span></a>
                 </li>
                 <li
@@ -120,20 +124,28 @@
                                     class="fas fa-trophy"></i><span>Reedemed</span> Rewards</a></li>
                     </ul>
                 </li>
-                <li class="dropdown {{ request()->routeIs('redeemReports') ? 'active' : '' }} || {{ request()->routeIs('donateReports') ? 'active' : '' }} || {{ request()->routeIs('receiveReports') ? 'active' : '' }}">
-                    <a href="#" class="nav-link has-dropdown"><i class='fas fa-file'></i><span>Report</span></a>
+                <li
+                    class="dropdown {{ request()->routeIs('redeemReports') ? 'active' : '' }} || {{ request()->routeIs('donateReports') ? 'active' : '' }} || {{ request()->routeIs('receiveReports') ? 'active' : '' }}">
+                    <a href="#" class="nav-link has-dropdown"><i
+                            class='fas fa-file'></i><span>Report</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ request()->routeIs('donateReports') ? 'active' : '' }}">
-                            <a href="{{ route('donateReports') }}" class="nav-link"><i class='bx bxs-report'></i>Donate Reports</a>
+                            <a href="{{ route('donateReports') }}" class="nav-link"><i
+                                    class='bx bxs-report'></i>Donate Reports</a>
                         </li>
-                        <li class="{{ request()->routeIs('receiveReports') ? 'active' : '' }}"><a class="nav-link" href="{{ route('receiveReports') }}"><i class='bx bxs-report'></i>Receive Reports</a></li>
-                        <li class="{{ request()->routeIs('redeemReports') ? 'active' : '' }}"><a class="nav-link" href="{{ route('redeemReports') }}"><i class='bx bxs-report'></i><span>Reedemed Reports</span></a></li>
+                        <li class="{{ request()->routeIs('receiveReports') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('receiveReports') }}"><i class='bx bxs-report'></i>Receive Reports</a>
+                        </li>
+                        <li class="{{ request()->routeIs('redeemReports') ? 'active' : '' }}"><a class="nav-link"
+                                href="{{ route('redeemReports') }}"><i class='bx bxs-report'></i><span>Reedemed
+                                    Reports</span></a></li>
                     </ul>
                 </li>
 
                 <li class="menu-header">Log Out</li>
                 <li>
-                    <a href="{{ route('logout') }}" class="nav-link">
+                    <a href="{{ route('logout') }}" class="nav-link" data-bs-toggle="tooltip"
+                    data-bs-placement="right" data-bs-title="Logout">
                         <i class="fas fa-sign-out-alt"></i>
                         <span>Logout</span></a>
                 </li>
